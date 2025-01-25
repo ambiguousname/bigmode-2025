@@ -4,21 +4,30 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 var mouse_move_intent : Vector2;
+@onready var hand_target : Node3D = $hand/Target;
 
 @onready var player : Player = get_parent();
+
+var shooting : bool = false;
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		mouse_move_intent += event.relative;
+	
+	if event.is_action("shoot"):
+		shooting = event.get_action_strength("shoot") > 0.5;
 
 func _process(delta: float) -> void:
 	var rot : Vector2 = mouse_move_intent * delta/10;
+	
+	if shooting:
+		hand_target.position += Vector3(rot.x, -rot.y, 0);
+		hand_target.position = hand_target.position.clamp(Vector3(-3, -0.5, hand_target.position.z), Vector3(3, 2, hand_target.position.z));
+	else:
+	
+		rotation.x -= rot.y;
+		rotation.x = clampf(rotation.x, -PI/2 + 0.01, PI/2 - 0.01);
+		
+		player.rotation.y -= rot.x;
+	
 	mouse_move_intent *= 0.2;
-	rotation.x -= rot.y;
-	rotation.x = clampf(rotation.x, -PI/2 + 0.01, PI/2 - 0.01);
-	
-	player.rotation.y -= rot.x;
-	
-func _physics_process(delta: float) -> void:
-	pass
-	#hand.global_position = hand_pos.global_position;
