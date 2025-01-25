@@ -27,7 +27,10 @@ func _physics_process(delta: float) -> void:
 		velocity.x *= AIR_FRICTION;
 		velocity.z *= AIR_FRICTION;
 	
-	velocity += gravity * delta;
+	var grav_str = 1.0;
+	if velocity.y < 0:
+		grav_str = 1.5;
+	velocity += gravity * delta * grav_str;
 	
 	var move_dir_vec2 = Input.get_vector(&"move_left", &"move_right", &"move_forward", &"move_back")
 	
@@ -35,12 +38,13 @@ func _physics_process(delta: float) -> void:
 	move_dir.y = 0;
 	move_dir = move_dir.normalized();
 	
+	
+	if jumping and velocity.y <= 0 and is_on_floor():
+		jumping = false;
+	
 	if jump > 0.5 and is_on_floor() and not jumping:
 		move_dir += Vector3.UP * JUMP_STR;
 		jumping = true;
-		
-	if jumping and velocity.y <= 0 and is_on_floor():
-		jumping = false;
 	
 	velocity += move_dir;
 	move_and_slide();
