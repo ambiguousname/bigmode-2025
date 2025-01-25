@@ -1,23 +1,6 @@
 class_name Player extends CharacterBody3D
 
-
-enum _Anim {
-	FLOOR,
-	AIR,
-}
-
-const SHOOT_TIME = 1.5
-const SHOOT_SCALE = 2.0
-const CHAR_SCALE = Vector3(0.3, 0.3, 0.3)
-const MAX_SPEED = 6.0
-const TURN_SPEED = 40.0
-const JUMP_VELOCITY = 12.5
-const BULLET_SPEED = 20.0
-const AIR_IDLE_DEACCEL = false
-const ACCEL = 14.0
-const DEACCEL = 14.0
-const AIR_ACCEL_FACTOR = 0.5
-const SHARP_TURN_THRESHOLD = deg_to_rad(140.0)
+const FRICTION = 0.8;
 
 var movement_dir := Vector3()
 var jumping := false
@@ -35,11 +18,13 @@ var coins := 0
 
 
 func _physics_process(delta: float) -> void:
+	velocity *= FRICTION;
+	
 	var move_dir_vec2 = Input.get_vector(&"move_left", &"move_right", &"move_forward", &"move_back")
 	
 	var move_dir = _camera.global_basis * Vector3(move_dir_vec2.x, 0, move_dir_vec2.y);
 	move_dir.y = 0;
 	move_dir = move_dir.normalized();
 	
-	velocity = move_dir * 20;
+	velocity += move_dir;
 	move_and_slide();
