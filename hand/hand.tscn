@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbj4gvhfmmgg1"]
+
+[ext_resource type="PackedScene" uid="uid://c6cux1g31yscg" path="res://hand/hand.blend" id="1_j1rna"]
+
+[node name="hand" instance=ExtResource("1_j1rna")]
+
+[node name="Skeleton3D" parent="Root" index="0"]
+bones/1/position = Vector3(5.43068e-08, 0.581423, 0.0424298)
+bones/1/rotation = Quaternion(0.358803, -1.11272e-07, 3.84548e-08, 0.933413)
+bones/1/scale = Vector3(1, 1, 1)
+
+[node name="SkeletonIK3D" type="SkeletonIK3D" parent="Root/Skeleton3D" index="1"]
+root_bone = &"Forearm"
+tip_bone = &"Wrist"
+target_node = NodePath("../../../Target")
+
+[node name="Target" type="Marker3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.290009, -0.550148)

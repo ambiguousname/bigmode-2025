@@ -5,6 +5,8 @@ func _ready() -> void:
 
 var mouse_move_intent : Vector2;
 
+@onready var player : Player = get_parent();
+
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		mouse_move_intent += event.relative;
@@ -15,4 +17,8 @@ func _process(delta: float) -> void:
 	rotation.x -= rot.y;
 	rotation.x = clampf(rotation.x, -PI/2 + 0.01, PI/2 - 0.01);
 	
-	rotation.y -= rot.x;
+	player.rotation.y -= rot.x;
+	
+func _physics_process(delta: float) -> void:
+	pass
+	#hand.global_position = hand_pos.global_position;

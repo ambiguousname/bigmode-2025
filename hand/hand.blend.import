@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c6cux1g31yscg"
-path="res://.godot/imported/hand.blend-c970d28310136df2a024e73336e7be03.scn"
+path="res://.godot/imported/hand.blend-28d7597c3d628d5d29f1d619ecb280f6.scn"
 
 [deps]
 
-source_file="res://hand.blend"
-dest_files=["res://.godot/imported/hand.blend-c970d28310136df2a024e73336e7be03.scn"]
+source_file="res://hand/hand.blend"
+dest_files=["res://.godot/imported/hand.blend-28d7597c3d628d5d29f1d619ecb280f6.scn"]
 
 [params]
 
