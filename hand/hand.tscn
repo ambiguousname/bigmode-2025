@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cbj4gvhfmmgg1"]
+[gd_scene load_steps=5 format=3 uid="uid://cbj4gvhfmmgg1"]
 
 [ext_resource type="PackedScene" uid="uid://c6cux1g31yscg" path="res://hand/hand.blend" id="1_j1rna"]
 [ext_resource type="Script" path="res://hand/skeleton_ik_3d.gd" id="2_2mvcn"]
@@ -7,6 +7,8 @@
 render_priority = 2
 no_depth_test = true
 shading_mode = 0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qrkk7"]
 
 [node name="hand" instance=ExtResource("1_j1rna")]
 
@@ -23,6 +25,16 @@ root_bone = &"Wrist"
 tip_bone = &"Hand.001"
 target_node = NodePath("../../../Target")
 script = ExtResource("2_2mvcn")
+
+[node name="HandEnd" type="BoneAttachment3D" parent="Root/Skeleton3D" index="2"]
+bone_name = "Hand.001"
+bone_idx = 3
+
+[node name="HandEndTrigger" type="Area3D" parent="Root/Skeleton3D/HandEnd" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Root/Skeleton3D/HandEnd/HandEndTrigger" index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.0155914, -0.290009, -0.948548)
+shape = SubResource("BoxShape3D_qrkk7")
 
 [node name="Target" type="Marker3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.0155914, -0.290009, -0.948548)

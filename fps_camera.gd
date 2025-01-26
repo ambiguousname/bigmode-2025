@@ -5,6 +5,7 @@ func _ready() -> void:
 
 var mouse_move_intent : Vector2;
 @onready var hand_target : Node3D = $hand/Target;
+@onready var hand_trigger : Area3D = $hand/Root/Skeleton3D/HandEnd/HandEndTrigger;
 
 @onready var player : Player = get_parent();
 
@@ -23,6 +24,11 @@ func _process(delta: float) -> void:
 	if shooting:
 		hand_target.position += Vector3(rot.x, -rot.y, 0);
 		hand_target.position = hand_target.position.clamp(Vector3(-3, -0.5, hand_target.position.z), Vector3(3, 2, hand_target.position.z));
+		
+		if mouse_move_intent.length() > 200:
+			for b in hand_trigger.get_overlapping_areas():
+				if b is RigidbodyTrigger:
+					b.activate();
 	else:
 	
 		rotation.x -= rot.y;
