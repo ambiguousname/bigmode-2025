@@ -1,6 +1,8 @@
-extends Node
+class_name Pauser extends Node
 
 @onready var timer : Timer = $Timer;
+
+signal on_unpause();
 
 func _ready() -> void:
 	timer.timeout.connect(unpause);
@@ -13,4 +15,5 @@ func pause():
 		get_tree().paused = true;
 
 func unpause():
+	on_unpause.emit();
 	get_tree().paused = false;
