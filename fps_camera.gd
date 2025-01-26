@@ -38,7 +38,7 @@ func get_input(delta : float):
 			for b in hand_trigger.get_overlapping_areas():
 				if b is Enemy:
 					curr_shake += 0.4;
-					b.ragdoll(global_position);
+					b.ragdoll(global_position + global_basis * Vector3(-mouse_move_intent.x, mouse_move_intent.y, 0).normalized());
 	else:
 	
 		rotation.x -= rot.y;
