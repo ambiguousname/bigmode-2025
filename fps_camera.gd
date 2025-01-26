@@ -55,7 +55,7 @@ func get_input(delta : float):
 					ui.inc_combo();
 					curr_shake += 0.4;
 					b.ragdoll(hit_from, mouse_move_intent_intensity);
-			hand_mat.albedo_color = lerp(hand_mat.albedo_color, Color.RED, min(delta * mouse_move_intent_intensity/500, 1.0));
+			hand_mat.albedo_color = lerp(hand_mat.albedo_color, Color.RED, min(delta * mouse_move_intent_intensity/50, 1.0));
 		else:
 			hand_mat.albedo_color = lerp(hand_mat.albedo_color, Color.BLACK, delta * 10);
 		
