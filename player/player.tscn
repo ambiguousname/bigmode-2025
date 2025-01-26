@@ -19,7 +19,7 @@ near = 0.1
 script = ExtResource("2_lf157")
 
 [node name="hand" parent="Camera3D" instance=ExtResource("3_4ry0y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.284543, -0.0540956, -0.0502745)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.176254, 0.0834996, 0.198488)
 
 [node name="CollisionCapsule" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05, 0)
