@@ -1,4 +1,4 @@
 extends PhysicalBoneSimulator3D
 
-func _ready() -> void:
+func activate():
 	physical_bones_start_simulation();
