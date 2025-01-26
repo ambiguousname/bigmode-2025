@@ -47,7 +47,7 @@ func get_input(delta : float):
 		elif hand_target.position.x > 1.1:
 			shoot_move_intent.y -= delta;
 		
-		if mouse_move_intent_intensity > 200:
+		if mouse_move_intent_intensity > 300:
 			var dir = Vector3(-mouse_move_intent.x, mouse_move_intent.y, 0).normalized();
 			var hit_from = global_position + global_basis * dir;
 			for b in hand_trigger.get_overlapping_areas():
