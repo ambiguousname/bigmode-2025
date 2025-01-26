@@ -2,16 +2,15 @@ class_name Enemy extends Area3D
 
 @onready var bones : PhysicalBoneSimulator3D = $Skeleton3D/PhysicalBoneSimulator3D;
 
-@onready var model : Mesh = $Skeleton3D/Robot.mesh;
+var flash_mat : Material = preload("res://ragdolls/flash.tres");
+
+@onready var mesh : MeshInstance3D = $Skeleton3D/Robot;
+
 func flash(on : bool) -> void:
-	var c = model.get_surface_count();
-	for i in c:
-		var mat = model.surface_get_material(i);
-		if mat is StandardMaterial3D:
-			mat.emission_enabled = on;
-			if on:
-				mat.emission = Color.WHITE;
-				mat.emission_energy_multiplier = 100.0;
+	if on:
+		mesh.material_override = flash_mat;
+	else:
+		mesh.material_override = null;
 
 func ragdoll(pos):
 	flash(true);
