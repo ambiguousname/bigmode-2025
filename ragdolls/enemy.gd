@@ -2,23 +2,21 @@ class_name Enemy extends Area3D
 
 @onready var bones : PhysicalBoneSimulator3D = $Skeleton3D/PhysicalBoneSimulator3D;
 
-func reset_mats():
-	var rob : Mesh = $Skeleton3D/Robot.mesh;
-	var c = rob.get_surface_count();
+@onready var model : Mesh = $Skeleton3D/Robot.mesh;
+func flash(on : bool) -> void:
+	var c = model.get_surface_count();
 	for i in c:
-		var mat : StandardMaterial3D = rob.surface_get_material(i);
-		mat.emission_enabled = false;
+		var mat = model.surface_get_material(i);
+		if mat is StandardMaterial3D:
+			mat.emission_enabled = on;
+			if on:
+				mat.emission = Color.WHITE;
+				mat.emission_energy_multiplier = 100.0;
 
 func ragdoll(pos):
-	var rob : Mesh = $Skeleton3D/Robot.mesh;
-	var c = rob.get_surface_count();
-	for i in c:
-		var mat : StandardMaterial3D = rob.surface_get_material(i);
-		mat.emission_enabled = true;
-		mat.emission = Color.WHITE;
-		mat.emission_energy_multiplier = 100.0;
+	flash(true);
 	var pauser : Pauser = get_tree().current_scene.get_node("Pauser");
-	pauser.on_unpause.connect(reset_mats, CONNECT_ONE_SHOT);
+	pauser.on_unpause.connect(flash.bind(false), CONNECT_ONE_SHOT);
 	pauser.pause();
 	
 	$CollisionShape3D.disabled = true;
