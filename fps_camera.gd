@@ -42,9 +42,9 @@ func get_input(delta : float):
 		
 		hand_target.position = hand_target.position.clamp(Vector3(-3.8, -1, hand_target.position.z), Vector3(2.5, 2, hand_target.position.z));
 		
-		if hand_target.position.x < -2.7:
+		if hand_target.position.x < -2.8:
 			shoot_move_intent.y += delta;
-		elif hand_target.position.x > 1.1:
+		elif hand_target.position.x > 1.5:
 			shoot_move_intent.y -= delta;
 		
 		if mouse_move_intent_intensity > 250:
