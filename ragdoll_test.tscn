@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://dmu65ly3nteyt"]
+[gd_scene load_steps=25 format=4 uid="uid://dmu65ly3nteyt"]
 
 [ext_resource type="PackedScene" uid="uid://cc4idhykjp5f5" path="res://player/player.tscn" id="1_cqew8"]
 [ext_resource type="Script" path="res://ragdolls/enemy.gd" id="2_o0fvh"]
@@ -26,6 +26,9 @@ tonemap_white = 6.0
 fog_enabled = true
 fog_density = 0.0015
 fog_sky_affect = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s6yjo"]
+albedo_color = Color(0.18359, 0.18359, 0.18359, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1g62m"]
 size = Vector3(100, 0.1, 100)
@@ -207,6 +210,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.978
 
 [node name="CSGBox3D" type="CSGBox3D" parent="StaticBody3D"]
 size = Vector3(100, 0.1, 100)
+material = SubResource("StandardMaterial3D_s6yjo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("BoxShape3D_1g62m")
@@ -441,8 +445,8 @@ shape = SubResource("CapsuleShape3D_tgiwc")
 [node name="Physical Bone chest" type="PhysicalBone3D" parent="Skeleton/Skeleton3D/PhysicalBoneSimulator3D"]
 transform = Transform3D(3.33333, 3.34839e-07, 2.78555e-06, 2.79154e-06, -0.0649311, -3.3327, -2.80515e-07, 3.3327, -0.0649311, 0, 3.84341, 0.416191)
 joint_type = 1
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.57645e-07, -1.04257e-06, 0.187354)
-body_offset = Transform3D(3.33333, -4.00746e-12, 2.80475e-06, 2.80475e-06, 3.27826e-06, -3.33333, 1.33582e-12, 3.33333, 3.27826e-06, 0, 0.624514, 2.86102e-06)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.57644e-07, -1.04382e-06, 0.187354)
+body_offset = Transform3D(3.33333, -4.14957e-12, 2.80475e-06, 2.80475e-06, 3.30061e-06, -3.33333, 1.42109e-12, 3.33333, 3.30061e-06, 0, 0.624513, 2.86102e-06)
 bone_name = "chest"
 joint_constraints/bias = 0.3
 joint_constraints/damping = 1.0
@@ -454,8 +458,8 @@ shape = SubResource("CapsuleShape3D_cjinq")
 [node name="Physical Bone head" type="PhysicalBone3D" parent="Skeleton/Skeleton3D/PhysicalBoneSimulator3D"]
 transform = Transform3D(-3.33333, -6.66159e-06, -2.04998e-06, 4.42009e-07, 0.776385, -3.24166, 6.95585e-06, -3.24166, -0.776385, 3.8147e-06, 5.54465, 0.497983)
 joint_type = 1
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.96774e-07, 9.08971e-07, 0.190814)
-body_offset = Transform3D(-3.33333, -3.67322e-07, -8.00881e-08, -1.98952e-13, 0.710097, -3.25682, 3.75951e-07, -3.25682, -0.710096, 3.33786e-06, 0.621445, 0.135499)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.96774e-07, 9.0152e-07, 0.190814)
+body_offset = Transform3D(-3.33333, -3.67322e-07, -8.00879e-08, -1.98952e-13, 0.710097, -3.25682, 3.75951e-07, -3.25682, -0.710097, 3.33786e-06, 0.621445, 0.135499)
 bone_name = "head"
 joint_constraints/bias = 0.3
 joint_constraints/damping = 1.0
@@ -466,10 +470,10 @@ transform = Transform3D(-0.0348995, 0.999391, 0, -0.999391, -0.0348995, 0, 0, 0,
 shape = SubResource("CapsuleShape3D_bhghn")
 
 [node name="Physical Bone r-arm" type="PhysicalBone3D" parent="Skeleton/Skeleton3D/PhysicalBoneSimulator3D"]
-transform = Transform3D(2.19, -1.37859, -2.10107, 1.95056, -0.824635, 2.57418, -1.58441, -2.92071, 0.264923, 1.23559, 3.62908, 0.489057)
+transform = Transform3D(2.19, -1.37859, -2.10107, 1.95056, -0.824635, 2.57418, -1.58441, -2.92071, 0.264923, 1.23558, 3.62908, 0.489057)
 joint_type = 1
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65235e-05, -2.65144e-06, 0.140328)
-body_offset = Transform3D(3.33333, 2.26498e-06, -1.87159e-05, -1.84625e-05, 1.41561e-06, -3.33333, -2.6226e-06, 3.33333, 1.81794e-06, -5.24521e-05, 0.467761, 8.58307e-06)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.70888e-05, -2.93754e-06, 0.140329)
+body_offset = Transform3D(3.33333, 2.26498e-06, -1.85519e-05, -1.84625e-05, 1.41561e-06, -3.33333, -2.6226e-06, 3.33333, 1.81794e-06, -5.43594e-05, 0.467762, 9.53674e-06)
 bone_name = "r-arm"
 joint_constraints/bias = 0.3
 joint_constraints/damping = 1.0
@@ -482,8 +486,8 @@ shape = SubResource("CapsuleShape3D_7jfpx")
 [node name="Physical Bone l-arm" type="PhysicalBone3D" parent="Skeleton/Skeleton3D/PhysicalBoneSimulator3D"]
 transform = Transform3D(2.19, 1.37859, 2.10107, -1.95055, -0.824635, 2.57418, 1.58441, -2.92071, 0.264923, -1.23562, 3.62911, 0.489033)
 joint_type = 1
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.404e-07, -2.11942e-06, 0.14033)
-body_offset = Transform3D(3.33333, 3.57628e-07, 1.55419e-05, 1.5527e-05, -8.04663e-07, -3.33333, -1.19209e-07, 3.33333, -6.25849e-07, 9.53674e-07, 0.467766, 7.15256e-06)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.35382e-07, -2.11691e-06, 0.14033)
+body_offset = Transform3D(3.33333, 3.57628e-07, 1.54227e-05, 1.5527e-05, -8.04663e-07, -3.33333, -1.19209e-07, 3.33333, -6.85453e-07, 9.53674e-07, 0.467766, 7.15256e-06)
 bone_name = "l-arm"
 joint_constraints/bias = 0.3
 joint_constraints/damping = 1.0
@@ -510,8 +514,8 @@ shape = SubResource("CapsuleShape3D_1ae3p")
 [node name="Physical Bone r-leg" type="PhysicalBone3D" parent="Skeleton/Skeleton3D/PhysicalBoneSimulator3D"]
 transform = Transform3D(-3.26516, 0.412628, -0.528777, -0.599762, -0.619808, 3.21982, 0.300255, 3.24911, 0.681374, 0.626683, 0.882563, 0.469341)
 joint_type = 1
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.96782e-06, -3.10875e-06, 0.214613)
-body_offset = Transform3D(3.33327, -4.82798e-06, 8.34465e-06, 2.47732e-06, -7.15256e-07, -3.33333, -4.17233e-07, 3.33333, -5.96046e-07, 4.76837e-06, 0.715378, 1.04904e-05)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.96374e-06, -3.10875e-06, 0.214614)
+body_offset = Transform3D(3.33327, -4.82798e-06, 8.28132e-06, 2.47732e-06, -7.15256e-07, -3.33333, -4.17233e-07, 3.33333, -5.96046e-07, 4.76837e-06, 0.715379, 1.04904e-05)
 bone_name = "r-leg"
 joint_constraints/bias = 0.3
 joint_constraints/damping = 1.0
@@ -524,8 +528,8 @@ shape = SubResource("CapsuleShape3D_jyhpf")
 [node name="Physical Bone l-thigh" type="PhysicalBone3D" parent="Skeleton/Skeleton3D/PhysicalBoneSimulator3D"]
 transform = Transform3D(3.21919, 0.180769, 0.845725, -0.769137, -0.891978, 3.11832, 0.395419, -3.20668, -0.819723, -0.431442, 1.87511, 0.5363)
 joint_type = 1
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.91279e-06, -9.11908e-07, 0.0966963)
-body_offset = Transform3D(3.33327, 2.98023e-08, 3.1963e-06, 3.24845e-06, 1.72853e-06, -3.33333, 2.98023e-08, 3.33333, 1.84774e-06, -1.33514e-05, 0.322321, 2.86102e-06)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.91236e-06, -9.0845e-07, 0.0966963)
+body_offset = Transform3D(3.33327, -2.98023e-08, 3.2112e-06, 3.24845e-06, 1.66893e-06, -3.33333, 2.98023e-08, 3.33333, 1.72853e-06, -1.33514e-05, 0.322321, 2.86102e-06)
 bone_name = "l-thigh"
 joint_constraints/bias = 0.3
 joint_constraints/damping = 1.0

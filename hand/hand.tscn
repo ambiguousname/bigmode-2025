@@ -7,6 +7,7 @@
 render_priority = 2
 no_depth_test = true
 shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qrkk7"]
 
