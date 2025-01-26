@@ -12,7 +12,7 @@ func flash(on : bool) -> void:
 	else:
 		mesh.material_override = null;
 
-func ragdoll(pos):
+func ragdoll(pos, intensity):
 	flash(true);
 	var pauser : Pauser = get_tree().current_scene.get_node("Pauser");
 	pauser.on_unpause.connect(flash.bind(false), CONNECT_ONE_SHOT);
@@ -24,4 +24,4 @@ func ragdoll(pos):
 	
 	var to = global_position - pos;
 	to.y = 0;
-	bone.apply_impulse(to.normalized() * 500, pos);
+	bone.apply_impulse(to.normalized() * intensity, pos);

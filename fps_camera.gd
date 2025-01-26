@@ -6,8 +6,10 @@ func _ready() -> void:
 	get_tree().current_scene.get_node("Pauser").on_unpause.connect(clear_shake);
 
 var mouse_move_intent : Vector2;
+var mouse_move_intent_intensity : float = 0;
 @onready var hand_target : Node3D = $hand/Target;
 @onready var hand_trigger : Area3D = $hand/Root/Skeleton3D/HandEnd/HandEndTrigger;
+@onready var hand_mat : StandardMaterial3D = $hand/Root/Skeleton3D/Cube.material_override;
 
 @onready var player : Player = get_parent();
 
@@ -20,6 +22,7 @@ var shooting : bool = false;
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		mouse_move_intent += event.relative;
+		mouse_move_intent_intensity += event.relative.length();
 	
 	if event.is_action("shoot"):
 		shooting = event.get_action_strength("shoot") > 0.5;
@@ -44,17 +47,21 @@ func get_input(delta : float):
 		elif hand_target.position.x > 1.1:
 			shoot_move_intent.y -= delta;
 		
-		if mouse_move_intent.length() > 200:
-			var hit_from = global_position + global_basis * Vector3(-mouse_move_intent.x, mouse_move_intent.y, 0).normalized();
+		if mouse_move_intent_intensity > 200:
+			var dir = Vector3(-mouse_move_intent.x, mouse_move_intent.y, 0).normalized();
+			var hit_from = global_position + global_basis * dir;
 			for b in hand_trigger.get_overlapping_areas():
 				if b is Enemy:
 					ui.inc_combo();
 					curr_shake += 0.4;
-					b.ragdoll(hit_from);
+					b.ragdoll(hit_from, mouse_move_intent_intensity);
+			hand_mat.albedo_color = lerp(hand_mat.albedo_color, Color.RED, min(delta * mouse_move_intent_intensity/500, 1.0));
+		else:
+			hand_mat.albedo_color = lerp(hand_mat.albedo_color, Color.BLACK, delta * 10);
 		
 		rotation += shoot_move_intent;
 	else:
-	
+		hand_mat.albedo_color = Color.BLACK;
 		rotation.x -= rot.y;
 		
 		player.rotation.y -= rot.x;
@@ -62,6 +69,7 @@ func get_input(delta : float):
 	rotation.x = clampf(rotation.x, -PI/2 + 0.01, PI/2 - 0.01);
 	
 	mouse_move_intent *= 0.2;
+	mouse_move_intent_intensity *= 0.5;
 	shoot_move_intent *= 0.8;
 
 var curr_shake : float = 0.0;
