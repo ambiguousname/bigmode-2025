@@ -27,12 +27,20 @@ func _process(delta: float) -> void:
 	
 	get_input(delta);
 
+var shoot_move_intent : Vector3 = Vector3.ZERO;
+
 func get_input(delta : float):
 	var rot : Vector2 = mouse_move_intent * delta/10;
 	
 	if shooting:
 		hand_target.position += Vector3(rot.x, -rot.y, 0);
-		hand_target.position = hand_target.position.clamp(Vector3(-3, -0.5, hand_target.position.z), Vector3(3, 2, hand_target.position.z));
+		
+		hand_target.position = hand_target.position.clamp(Vector3(-3, -1, hand_target.position.z), Vector3(3, 2, hand_target.position.z));
+		
+		if hand_target.position.x < -2.5:
+			shoot_move_intent.y += delta;
+		elif hand_target.position.x > 2.5:
+			shoot_move_intent.y -= delta;
 		
 		if mouse_move_intent.length() > 200:
 			var hit_from = global_position + global_basis * Vector3(-mouse_move_intent.x, mouse_move_intent.y, 0).normalized();
@@ -40,14 +48,18 @@ func get_input(delta : float):
 				if b is Enemy:
 					curr_shake += 0.4;
 					b.ragdoll(hit_from);
+		
+		rotation += shoot_move_intent;
 	else:
 	
 		rotation.x -= rot.y;
-		rotation.x = clampf(rotation.x, -PI/2 + 0.01, PI/2 - 0.01);
 		
 		player.rotation.y -= rot.x;
 	
+	rotation.x = clampf(rotation.x, -PI/2 + 0.01, PI/2 - 0.01);
+	
 	mouse_move_intent *= 0.2;
+	shoot_move_intent *= 0.8;
 
 var curr_shake : float = 0.0;
 
