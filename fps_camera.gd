@@ -27,8 +27,8 @@ func _process(delta: float) -> void:
 		
 		if mouse_move_intent.length() > 200:
 			for b in hand_trigger.get_overlapping_areas():
-				if b is RigidbodyTrigger:
-					b.activate();
+				if b is Enemy:
+					b.ragdoll(hand_trigger.global_position);
 	else:
 	
 		rotation.x -= rot.y;
