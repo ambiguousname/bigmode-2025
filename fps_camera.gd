@@ -35,10 +35,11 @@ func get_input(delta : float):
 		hand_target.position = hand_target.position.clamp(Vector3(-3, -0.5, hand_target.position.z), Vector3(3, 2, hand_target.position.z));
 		
 		if mouse_move_intent.length() > 200:
+			var hit_from = global_position + global_basis * Vector3(-mouse_move_intent.x, mouse_move_intent.y, 0).normalized();
 			for b in hand_trigger.get_overlapping_areas():
 				if b is Enemy:
 					curr_shake += 0.4;
-					b.ragdoll(global_position + global_basis * Vector3(-mouse_move_intent.x, mouse_move_intent.y, 0).normalized());
+					b.ragdoll(hit_from);
 	else:
 	
 		rotation.x -= rot.y;
