@@ -35,11 +35,11 @@ func get_input(delta : float):
 	if shooting:
 		hand_target.position += Vector3(rot.x, -rot.y, 0);
 		
-		hand_target.position = hand_target.position.clamp(Vector3(-3, -1, hand_target.position.z), Vector3(3, 2, hand_target.position.z));
+		hand_target.position = hand_target.position.clamp(Vector3(-3.8, -1, hand_target.position.z), Vector3(2.5, 2, hand_target.position.z));
 		
-		if hand_target.position.x < -2.5:
+		if hand_target.position.x < -2.7:
 			shoot_move_intent.y += delta;
-		elif hand_target.position.x > 2.5:
+		elif hand_target.position.x > 1.1:
 			shoot_move_intent.y -= delta;
 		
 		if mouse_move_intent.length() > 200:
