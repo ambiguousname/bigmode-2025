@@ -13,6 +13,8 @@ var mouse_move_intent : Vector2;
 
 @onready var base_pos : Vector3 = position;
 
+@onready var ui : UIManager = get_tree().current_scene.get_node("CanvasLayer");
+
 var shooting : bool = false;
 
 func _input(event: InputEvent) -> void:
@@ -46,6 +48,7 @@ func get_input(delta : float):
 			var hit_from = global_position + global_basis * Vector3(-mouse_move_intent.x, mouse_move_intent.y, 0).normalized();
 			for b in hand_trigger.get_overlapping_areas():
 				if b is Enemy:
+					ui.inc_combo();
 					curr_shake += 0.4;
 					b.ragdoll(hit_from);
 		

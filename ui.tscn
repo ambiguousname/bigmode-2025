@@ -1,0 +1,87 @@
+[gd_scene load_steps=5 format=3 uid="uid://bv37wxweu87su"]
+
+[ext_resource type="Script" path="res://ui_manager.gd" id="1_fmg6f"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_e6kvp"]
+font_size = 32
+font_color = Color(1, 1, 0, 1)
+outline_size = 4
+outline_color = Color(0.747997, 0.478225, 5.77569e-07, 1)
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_c023o"]
+font_size = 127
+font_color = Color(1, 0.0745098, 0.243137, 1)
+outline_size = 4
+outline_color = Color(1, 0, 0, 1)
+shadow_size = 24
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2fiu7"]
+bg_color = Color(1, 0, 0, 1)
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_fmg6f")
+
+[node name="ComboPanel" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -83.0
+offset_top = -206.0
+offset_right = 84.0
+offset_bottom = -20.0
+grow_horizontal = 2
+pivot_offset = Vector2(83, 20)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Combo" type="Label" parent="ComboPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -60.5
+offset_right = 60.5
+offset_bottom = 45.0
+grow_horizontal = 2
+text = "COMBO"
+label_settings = SubResource("LabelSettings_e6kvp")
+
+[node name="Times" type="Label" parent="ComboPanel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -62.2
+offset_top = -186.0
+offset_right = 79.8
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(71, 87)
+text = "x1"
+label_settings = SubResource("LabelSettings_c023o")
+horizontal_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="ComboPanel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -71.5
+offset_top = -27.0
+offset_right = 71.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/fill = SubResource("StyleBoxFlat_2fiu7")
+value = 100.0
+show_percentage = false
+
+[node name="ComboTimer" type="Timer" parent="ComboPanel"]
