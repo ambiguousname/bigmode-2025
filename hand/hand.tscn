@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cbj4gvhfmmgg1"]
+[gd_scene load_steps=8 format=3 uid="uid://cbj4gvhfmmgg1"]
 
 [ext_resource type="PackedScene" uid="uid://c6cux1g31yscg" path="res://hand/hand.blend" id="1_j1rna"]
 [ext_resource type="Script" path="res://hand/skeleton_ik_3d.gd" id="2_2mvcn"]
@@ -10,6 +10,20 @@ shading_mode = 0
 albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qrkk7"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_agsgh"]
+spread = 180.0
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rggfm"]
+shading_mode = 0
+albedo_color = Color(1, 0, 0, 1)
+disable_receive_shadows = true
+
+[sub_resource type="PointMesh" id="PointMesh_6tpw5"]
+material = SubResource("StandardMaterial3D_rggfm")
 
 [node name="hand" instance=ExtResource("1_j1rna")]
 
@@ -38,6 +52,16 @@ transform = Transform3D(1, -4.44089e-16, 8.48493e-17, -4.44089e-16, 1, -7.10543e
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Root/Skeleton3D/HandEnd/HandEndTrigger" index="0"]
 transform = Transform3D(1, -1.37354e-17, 0, -4.44089e-16, -4.37114e-08, 1, -2.45019e-16, -1, -4.37114e-08, 0, 0, 0)
 shape = SubResource("BoxShape3D_qrkk7")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Root/Skeleton3D/HandEnd" index="1"]
+process_mode = 3
+transform = Transform3D(1, -4.44089e-16, 8.48493e-17, -4.44089e-16, 1, -7.10543e-15, -2.45019e-16, 0, 1, -9.31323e-10, 0.878202, -8.9407e-08)
+emitting = false
+amount = 8000
+amount_ratio = 0.1
+preprocess = 1.0
+process_material = SubResource("ParticleProcessMaterial_agsgh")
+draw_pass_1 = SubResource("PointMesh_6tpw5")
 
 [node name="Target" type="Marker3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.0155914, -0.290009, -0.948548)

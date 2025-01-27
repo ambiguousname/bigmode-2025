@@ -8,6 +8,7 @@ var mouse_move_intent_intensity : float = 0;
 @onready var hand_target : Node3D = $hand/Target;
 @onready var hand_trigger : Area3D = $hand/Root/Skeleton3D/HandEnd/HandEndTrigger;
 @onready var hand_mat : StandardMaterial3D = $hand/Root/Skeleton3D/Cube.material_override;
+@onready var hand_particles : GPUParticles3D = $hand/Root/Skeleton3D/HandEnd/GPUParticles3D;
 
 @onready var player : Player = get_parent();
 
@@ -47,18 +48,27 @@ func get_input(delta : float):
 		elif hand_target.position.x > 1.5:
 			shoot_move_intent.y -= delta;
 		
+		hand_particles.amount_ratio = min(mouse_move_intent_intensity/700, 1);
+		
 		if mouse_move_intent_intensity > 250:
 			var dir = Vector3(-mouse_move_intent.x, mouse_move_intent.y, 0).normalized();
 			var hit_from = global_position + global_basis * dir;
+			
+			# TODO: Should really combine these.
 			for b in hand_trigger.get_overlapping_areas():
 				if b is Enemy and !b.just_slapped:
 					ui.inc_combo(1);
 					curr_shake += 0.4;
+					hand_particles.emitting = true;
 					b.ragdoll(hit_from, mouse_move_intent_intensity/1.2);
 			for b in hand_trigger.get_overlapping_bodies():
 				if b is Slappable and !b.just_slapped:
-					ui.inc_combo(b.combo_mult);
-					curr_shake += 0.4;
+					if b.combo_mult >= 1:
+						ui.inc_combo(b.combo_mult);
+						curr_shake += 0.4;
+						hand_particles.emitting = true;
+					else:
+						curr_shake += 0.2;
 					b.slap(hit_from, mouse_move_intent_intensity/1.2);
 			hand_mat.albedo_color = lerp(hand_mat.albedo_color, Color.RED, min(delta * mouse_move_intent_intensity/50, 1.0));
 		else:
@@ -80,7 +90,8 @@ func get_input(delta : float):
 var curr_shake : float = 0.0;
 
 func clear_shake():
-	curr_shake *= 0.5;
+	curr_shake *= 0.8;
+	hand_particles.emitting = false;
 
 func calc_shake():
 	var shake = pow(curr_shake, 2);
