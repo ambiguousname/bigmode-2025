@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Bigmode 2025"
-run/main_scene="res://ragdoll_test.tscn"
+run/main_scene="res://tower/tower.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 

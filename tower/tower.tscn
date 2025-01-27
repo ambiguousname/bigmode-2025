@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://c0236otwwcmet"]
+
+[ext_resource type="PackedScene" uid="uid://cc4idhykjp5f5" path="res://player/player.tscn" id="1_oy2uo"]
+[ext_resource type="Script" path="res://pauser.gd" id="2_wgj27"]
+[ext_resource type="PackedScene" uid="uid://bv37wxweu87su" path="res://ui.tscn" id="3_or8aa"]
+[ext_resource type="PackedScene" uid="uid://cl75ceilaqmpm" path="res://tower/tower.blend" id="4_b5bw3"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mgcof"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_2xt58"]
+sky_material = SubResource("ProceduralSkyMaterial_mgcof")
+
+[sub_resource type="Environment" id="Environment_lu6pv"]
+sky = SubResource("Sky_2xt58")
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+tonemap_mode = 3
+glow_intensity = 0.0
+fog_density = 0.0125
+
+[node name="Tower" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_lu6pv")
+
+[node name="Player" parent="." instance=ExtResource("1_oy2uo")]
+
+[node name="Pauser" type="Node" parent="."]
+process_mode = 3
+script = ExtResource("2_wgj27")
+
+[node name="Timer" type="Timer" parent="Pauser"]
+process_mode = 3
+wait_time = 0.1
+one_shot = true
+
+[node name="CanvasLayer" parent="." instance=ExtResource("3_or8aa")]
+
+[node name="Geometry" parent="." instance=ExtResource("4_b5bw3")]
