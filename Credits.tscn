@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://d1v6ht5hm751s"]
+[gd_scene load_steps=2 format=3 uid="uid://d1v6ht5hm751s"]
+
+[ext_resource type="Script" path="res://url_click.gd" id="1_pdrka"]
 
 [node name="Credits" type="Control"]
 layout_mode = 3
@@ -50,3 +52,4 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE."
+script = ExtResource("1_pdrka")
