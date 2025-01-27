@@ -139,25 +139,22 @@ skeleton = NodePath("../..")
 [node name="Starting" type="Node3D" parent="Slappables"]
 
 [node name="RigidBody3D" parent="Slappables/Starting" instance=ExtResource("11_ucgo0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, 0.630633)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, 1.06849)
 
 [node name="RigidBody3D3" parent="Slappables/Starting" instance=ExtResource("11_ucgo0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2.01337, 0.0193038)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2.01337, -0.135771)
 
 [node name="RigidBody3D7" parent="Slappables/Starting" instance=ExtResource("11_ucgo0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2.01337, 1.24739)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2.01337, 1.03922)
 
 [node name="RigidBody3D6" parent="Slappables/Starting" instance=ExtResource("11_ucgo0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2.01337, -1.09932)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2.01337, -1.29517)
 
 [node name="RigidBody3D2" parent="Slappables/Starting" instance=ExtResource("11_ucgo0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, -0.561511)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, -0.123651)
 
 [node name="RigidBody3D4" parent="Slappables/Starting" instance=ExtResource("11_ucgo0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, -1.7501)
-
-[node name="RigidBody3D5" parent="Slappables/Starting" instance=ExtResource("11_ucgo0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, 2.05289)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, -1.31224)
 
 [node name="DebugStart" type="Marker3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.71775, 1.3416, 0)
