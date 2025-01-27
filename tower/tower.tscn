@@ -1,9 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://c0236otwwcmet"]
+[gd_scene load_steps=21 format=3 uid="uid://c0236otwwcmet"]
 
 [ext_resource type="PackedScene" uid="uid://cc4idhykjp5f5" path="res://player/player.tscn" id="1_oy2uo"]
 [ext_resource type="Script" path="res://pauser.gd" id="2_wgj27"]
 [ext_resource type="PackedScene" uid="uid://bv37wxweu87su" path="res://ui.tscn" id="3_or8aa"]
 [ext_resource type="PackedScene" uid="uid://cl75ceilaqmpm" path="res://tower/tower.blend" id="4_b5bw3"]
+[ext_resource type="Texture2D" uid="uid://c7rv82a5xij4g" path="res://xelu/Mouse_Left_Key_Light.png" id="5_7pe68"]
+[ext_resource type="Texture2D" uid="uid://p7yih4tc6n8d" path="res://xelu/Mouse_Simple_Key_Light.png" id="6_c21fm"]
+[ext_resource type="Texture2D" uid="uid://bfyb1upf2dp8r" path="res://xelu/S_Key_Light.png" id="6_ltyb1"]
+[ext_resource type="Texture2D" uid="uid://t3oyjiaftkh0" path="res://xelu/W_Key_Light.png" id="6_uudjl"]
+[ext_resource type="Texture2D" uid="uid://5t1sd8is4a84" path="res://xelu/D_Key_Light.png" id="8_12bcu"]
+[ext_resource type="Texture2D" uid="uid://bw3qdrm5k1mi" path="res://xelu/A_Key_Light.png" id="8_f1chs"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mgcof"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -20,12 +26,39 @@ tonemap_mode = 3
 glow_intensity = 0.0
 fog_density = 0.0125
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l86ug"]
+transparency = 1
+albedo_texture = ExtResource("6_c21fm")
+
+[sub_resource type="QuadMesh" id="QuadMesh_xbqjv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l7bmp"]
+transparency = 1
+albedo_texture = ExtResource("5_7pe68")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cjgdf"]
+transparency = 1
+albedo_texture = ExtResource("6_uudjl")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l4hsy"]
+transparency = 1
+albedo_texture = ExtResource("6_ltyb1")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xbn1e"]
+transparency = 1
+albedo_texture = ExtResource("8_12bcu")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i6qu6"]
+transparency = 1
+albedo_texture = ExtResource("8_f1chs")
+
 [node name="Tower" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_lu6pv")
 
 [node name="Player" parent="." instance=ExtResource("1_oy2uo")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="Pauser" type="Node" parent="."]
 process_mode = 3
@@ -39,3 +72,62 @@ one_shot = true
 [node name="CanvasLayer" parent="." instance=ExtResource("3_or8aa")]
 
 [node name="Geometry" parent="." instance=ExtResource("4_b5bw3")]
+
+[node name="Hints" type="Node3D" parent="."]
+
+[node name="Label3D2" type="Label3D" parent="Hints"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.82127, 1.46767, -0.182821)
+text = "Slap: Hold
+and Shake"
+font_size = 137
+
+[node name="LookHint2" type="MeshInstance3D" parent="Hints/Label3D2"]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 2.103, -0.502, 0)
+material_override = SubResource("StandardMaterial3D_l86ug")
+mesh = SubResource("QuadMesh_xbqjv")
+skeleton = NodePath("../../Label3D")
+
+[node name="KeyHint" type="MeshInstance3D" parent="Hints/Label3D2"]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 2.10294, 0.4, 0.00558257)
+material_override = SubResource("StandardMaterial3D_l7bmp")
+mesh = SubResource("QuadMesh_xbqjv")
+
+[node name="Label3D" type="Label3D" parent="Hints"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.604, 3.133, -2.60698)
+text = "to Move
+
+to Look"
+font_size = 137
+horizontal_alignment = 2
+
+[node name="LookHint" type="MeshInstance3D" parent="Hints/Label3D"]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -3.1825, -1.08199, 0)
+material_override = SubResource("StandardMaterial3D_l86ug")
+mesh = SubResource("QuadMesh_xbqjv")
+
+[node name="DirectionKeyHints" type="Node3D" parent="Hints/Label3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.82467, 0.918006, 0)
+
+[node name="KeyHint" type="MeshInstance3D" parent="Hints/Label3D/DirectionKeyHints"]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0.3, 0)
+material_override = SubResource("StandardMaterial3D_cjgdf")
+mesh = SubResource("QuadMesh_xbqjv")
+skeleton = NodePath("../..")
+
+[node name="KeyHint2" type="MeshInstance3D" parent="Hints/Label3D/DirectionKeyHints"]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, -0.3, 0)
+material_override = SubResource("StandardMaterial3D_l4hsy")
+mesh = SubResource("QuadMesh_xbqjv")
+skeleton = NodePath("../..")
+
+[node name="KeyHint4" type="MeshInstance3D" parent="Hints/Label3D/DirectionKeyHints"]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0.6, -0.3, 0)
+material_override = SubResource("StandardMaterial3D_xbn1e")
+mesh = SubResource("QuadMesh_xbqjv")
+skeleton = NodePath("../..")
+
+[node name="KeyHint3" type="MeshInstance3D" parent="Hints/Label3D/DirectionKeyHints"]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -0.6, -0.3, 0)
+material_override = SubResource("StandardMaterial3D_i6qu6")
+mesh = SubResource("QuadMesh_xbqjv")
+skeleton = NodePath("../..")
