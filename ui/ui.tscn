@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bv37wxweu87su"]
+[gd_scene load_steps=8 format=3 uid="uid://bv37wxweu87su"]
 
-[ext_resource type="Script" path="res://ui_manager.gd" id="1_fmg6f"]
+[ext_resource type="Script" path="res://ui/ui_manager.gd" id="1_fmg6f"]
+[ext_resource type="Script" path="res://scene_load_button.gd" id="2_8uv8d"]
+[ext_resource type="Script" path="res://quit_button.gd" id="3_g0el3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_e6kvp"]
 font_size = 32
@@ -20,6 +22,9 @@ shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2fiu7"]
 bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_r1pv2"]
+font_size = 48
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_fmg6f")
@@ -85,3 +90,79 @@ value = 100.0
 show_percentage = false
 
 [node name="ComboTimer" type="Timer" parent="ComboPanel"]
+
+[node name="PauseMenu" type="Panel" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -200.0
+offset_right = 200.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "PAUSED"
+label_settings = SubResource("LabelSettings_r1pv2")
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.5
+offset_top = -15.5
+offset_right = 55.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Resume"
+
+[node name="Button2" type="Button" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.5
+offset_top = 40.0
+offset_right = 55.5
+offset_bottom = 71.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit to Menu"
+script = ExtResource("2_8uv8d")
+scene_to_load = "res://main_menu.tscn"
+
+[node name="Button3" type="Button" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.5
+offset_top = 92.095
+offset_right = 55.5
+offset_bottom = 123.095
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit
+"
+script = ExtResource("3_g0el3")

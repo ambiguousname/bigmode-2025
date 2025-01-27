@@ -5,7 +5,7 @@
 [ext_resource type="Material" uid="uid://cmvnecqga07e5" path="res://player/player_gray.tres" id="2_ywigi"]
 [ext_resource type="Material" uid="uid://be3ssftlblkjn" path="res://player/player_glow.tres" id="3_5gbsg"]
 [ext_resource type="Script" path="res://pauser.gd" id="5_lie4y"]
-[ext_resource type="PackedScene" uid="uid://bv37wxweu87su" path="res://ui.tscn" id="6_wyddu"]
+[ext_resource type="PackedScene" uid="uid://bv37wxweu87su" path="res://ui/ui.tscn" id="6_wyddu"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_y2e2o"]
 load_path = "res://.godot/imported/panorama.webp-c655559bb5045314b4c9859b18ccd417.ctex"

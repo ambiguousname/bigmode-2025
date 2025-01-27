@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cc4idhykjp5f5" path="res://player/player.tscn" id="1_oy2uo"]
 [ext_resource type="Script" path="res://pauser.gd" id="2_wgj27"]
-[ext_resource type="PackedScene" uid="uid://bv37wxweu87su" path="res://ui.tscn" id="3_or8aa"]
+[ext_resource type="PackedScene" uid="uid://bv37wxweu87su" path="res://ui/ui.tscn" id="3_or8aa"]
 [ext_resource type="PackedScene" uid="uid://cl75ceilaqmpm" path="res://tower/tower.blend" id="4_b5bw3"]
 [ext_resource type="Texture2D" uid="uid://c7rv82a5xij4g" path="res://xelu/Mouse_Left_Key_Light.png" id="5_7pe68"]
 [ext_resource type="Texture2D" uid="uid://p7yih4tc6n8d" path="res://xelu/Mouse_Simple_Key_Light.png" id="6_c21fm"]
