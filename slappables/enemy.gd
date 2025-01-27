@@ -2,9 +2,11 @@ class_name Enemy extends Area3D
 
 @onready var bones : PhysicalBoneSimulator3D = $Skeleton3D/PhysicalBoneSimulator3D;
 
-var flash_mat : Material = preload("res://ragdolls/flash.tres");
+var flash_mat : Material = preload("res://slappables/flash.tres");
 
 @onready var mesh : MeshInstance3D = $Skeleton3D/Robot;
+
+var just_slapped = false;
 
 func flash(on : bool) -> void:
 	if on:
@@ -24,4 +26,4 @@ func ragdoll(pos, intensity):
 	
 	var to = global_position - pos;
 	to.y = 0;
-	bone.apply_impulse(to.normalized() * intensity, pos);
+	bone.apply_impulse(to.normalized() * intensity, pos - global_position);

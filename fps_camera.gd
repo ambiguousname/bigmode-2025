@@ -51,10 +51,15 @@ func get_input(delta : float):
 			var dir = Vector3(-mouse_move_intent.x, mouse_move_intent.y, 0).normalized();
 			var hit_from = global_position + global_basis * dir;
 			for b in hand_trigger.get_overlapping_areas():
-				if b is Enemy:
+				if b is Enemy and !b.just_slapped:
 					ui.inc_combo();
 					curr_shake += 0.4;
 					b.ragdoll(hit_from, mouse_move_intent_intensity/1.2);
+			for b in hand_trigger.get_overlapping_bodies():
+				if b is Slappable and !b.just_slapped:
+					ui.inc_combo();
+					curr_shake += 0.4;
+					b.slap(hit_from, mouse_move_intent_intensity/1.2);
 			hand_mat.albedo_color = lerp(hand_mat.albedo_color, Color.RED, min(delta * mouse_move_intent_intensity/50, 1.0));
 		else:
 			hand_mat.albedo_color = lerp(hand_mat.albedo_color, Color.BLACK, delta * 10);

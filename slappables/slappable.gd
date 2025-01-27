@@ -1,0 +1,32 @@
+class_name Slappable extends RigidBody3D
+
+var flash_mat : Material = preload("res://slappables/flash.tres");
+
+@onready var mesh : MeshInstance3D = $MeshInstance3D;
+@onready var slap_timer : Timer = $SlapTimer;
+
+func _ready() -> void:
+	slap_timer.timeout.connect(func():
+		just_slapped = false;
+	);
+
+var just_slapped = false;
+
+func flash(on : bool) -> void:
+	if on:
+		mesh.material_override = flash_mat;
+	else:
+		mesh.material_override = null;
+
+func slap(pos, intensity):
+	just_slapped = true;
+	flash(true);
+	var pauser : Pauser = get_tree().current_scene.get_node("Pauser");
+	pauser.on_unpause.connect(func():
+		slap_timer.start();
+		flash(false), CONNECT_ONE_SHOT);
+	pauser.pause();
+	
+	var to = global_position - pos;
+	to.y = 0;
+	self.apply_impulse(to.normalized() * intensity, pos - global_position);

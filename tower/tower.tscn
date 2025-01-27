@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c0236otwwcmet"]
+[gd_scene load_steps=22 format=3 uid="uid://c0236otwwcmet"]
 
 [ext_resource type="PackedScene" uid="uid://cc4idhykjp5f5" path="res://player/player.tscn" id="1_oy2uo"]
 [ext_resource type="Script" path="res://pauser.gd" id="2_wgj27"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://t3oyjiaftkh0" path="res://xelu/W_Key_Light.png" id="6_uudjl"]
 [ext_resource type="Texture2D" uid="uid://5t1sd8is4a84" path="res://xelu/D_Key_Light.png" id="8_12bcu"]
 [ext_resource type="Texture2D" uid="uid://bw3qdrm5k1mi" path="res://xelu/A_Key_Light.png" id="8_f1chs"]
+[ext_resource type="PackedScene" uid="uid://b358x4ut7m4lr" path="res://slappables/base_slappable.tscn" id="11_ucgo0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mgcof"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -131,3 +132,8 @@ transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -0.6, -0.3, 0)
 material_override = SubResource("StandardMaterial3D_i6qu6")
 mesh = SubResource("QuadMesh_xbqjv")
 skeleton = NodePath("../..")
+
+[node name="Slappables" type="Node3D" parent="."]
+
+[node name="RigidBody3D" parent="Slappables" instance=ExtResource("11_ucgo0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, 0)
