@@ -22,15 +22,19 @@ func _ready() -> void:
 
 var combo_count : int = 0;
 
-func inc_combo():
-	combo_count += 1;
-	combo_times.text = "x%d" % combo_count;
+func inc_combo(amnt):
+	if amnt == 0:
+		return;
 	
-	if combo_count == 1:
+	if combo_count == 0:
 		combo_panel.position.y = 0;
 		combo_timer.start();
 	else:
 		combo_timer.start(combo_timer.wait_time);
+	
+	combo_count += amnt;
+	
+	combo_times.text = "x%d" % combo_count;
 
 func hide_combo():
 	combo_count = 0;

@@ -4,10 +4,16 @@ var flash_mat : Material = preload("res://slappables/flash.tres");
 
 @onready var mesh : MeshInstance3D = $MeshInstance3D;
 @onready var slap_timer : Timer = $SlapTimer;
+@onready var combo_timer : Timer = $ComboTimer;
 
+var combo_mult = 1;
 func _ready() -> void:
 	slap_timer.timeout.connect(func():
 		just_slapped = false;
+	);
+	
+	combo_timer.timeout.connect(func():
+		combo_mult = 1;
 	);
 
 var just_slapped = false;
@@ -20,10 +26,13 @@ func flash(on : bool) -> void:
 
 func slap(pos, intensity):
 	just_slapped = true;
+	combo_mult = 0;
+	
 	flash(true);
 	var pauser : Pauser = get_tree().current_scene.get_node("Pauser");
 	pauser.on_unpause.connect(func():
 		slap_timer.start();
+		combo_timer.start();
 		flash(false), CONNECT_ONE_SHOT);
 	pauser.pause();
 	
