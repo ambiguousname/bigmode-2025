@@ -59,7 +59,7 @@ albedo_texture = ExtResource("8_f1chs")
 environment = SubResource("Environment_lu6pv")
 
 [node name="Player" parent="." instance=ExtResource("1_oy2uo")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.0500231, 0, 0)
 
 [node name="Pauser" type="Node" parent="."]
 process_mode = 3
@@ -136,4 +136,10 @@ skeleton = NodePath("../..")
 [node name="Slappables" type="Node3D" parent="."]
 
 [node name="RigidBody3D" parent="Slappables" instance=ExtResource("11_ucgo0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, 0.630633)
+
+[node name="RigidBody3D3" parent="Slappables" instance=ExtResource("11_ucgo0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2.01337, 0.0193038)
+
+[node name="RigidBody3D2" parent="Slappables" instance=ExtResource("11_ucgo0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, -0.561511)
