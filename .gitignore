@@ -16,4 +16,4 @@ mono_crash.*.json
 
 # Blender
 *.blend1
-*.blend.unwrap_cache
+*.unwrap_cache
