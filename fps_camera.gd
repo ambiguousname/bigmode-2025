@@ -1,8 +1,6 @@
 extends Camera3D
 
 func _ready() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED);
-	
 	get_tree().current_scene.get_node("Pauser").on_unpause.connect(clear_shake);
 
 var mouse_move_intent : Vector2;
@@ -28,6 +26,8 @@ func _input(event: InputEvent) -> void:
 		shooting = event.get_action_strength("shoot") > 0.5;
 
 func _process(delta: float) -> void:
+	if ui.paused:
+		return;
 	calc_shake();
 	
 	get_input(delta);

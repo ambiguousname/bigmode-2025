@@ -10,6 +10,15 @@ class_name UIManager extends CanvasLayer
 
 func _ready() -> void:
 	combo_timer.timeout.connect(hide_combo);
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED);
+	
+	pause_menu.get_node("Button").pressed.connect(pause.bind(false));
+	pause_menu.get_node("Button2").pressed.connect(
+		func () -> void:
+			get_tree().paused = false;
+			get_tree().change_scene_to_file("res://main_menu.tscn");
+	);
+
 
 var combo_count : int = 0;
 
@@ -32,10 +41,15 @@ var paused : bool = false;
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
-		paused = !paused;
-		pause(paused);
+		pause(!paused);
 
 func pause(should_pause : bool):
+	paused = should_pause;
+	
+	if should_pause:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE);
+	else:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED);
 	pause_menu.visible = should_pause;
 	get_tree().paused = should_pause;
 
