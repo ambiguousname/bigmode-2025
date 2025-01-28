@@ -46,9 +46,16 @@ func _physics_process(delta: float) -> void:
 			
 			nav_agent.target_position = player.global_position;
 			
-			velocity = global_position.direction_to(nav_agent.get_next_path_position()) * 4;
+			var dir = global_position.direction_to(nav_agent.get_next_path_position());
+			
+			velocity = dir * 4;
+			
+			rotation.y = atan2(dir.x, dir.z);
 		States.ATTACKING:
-			if player.global_position.distance_to(global_position) > 5:
+			var dlt = player.global_position - global_position;
+			var dir = dlt.normalized();
+			rotation.y = atan2(dir.x, dir.z);
+			if dlt.length() > 5:
 				active_state = States.IDLE;
 				anim_tree.set("parameters/conditions/shoot", false);
 			velocity = Vector3.ZERO;
