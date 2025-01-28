@@ -8,6 +8,7 @@ class_name Enemy extends CharacterBody3D
 
 func _ready() -> void:
 	$Area3D.init($Skeleton3D/Robot, func(pos, intensity):
+		active_state = States.SLAPPED;
 		$CollisionShape3D.disabled = true;
 		
 		bones.active = true;
@@ -22,7 +23,8 @@ func _ready() -> void:
 enum States {
 	IDLE,
 	SEARCHING,
-	ATTACKING
+	ATTACKING,
+	SLAPPED
 };
 
 var active_state : States = States.IDLE;
@@ -43,5 +45,7 @@ func _physics_process(delta: float) -> void:
 			if player.global_position.distance_to(global_position) > 5:
 				active_state = States.IDLE;
 			velocity = Vector3.ZERO;
+		States.SLAPPED:
+			return;
 	
 	move_and_slide();
