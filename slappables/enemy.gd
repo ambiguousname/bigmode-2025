@@ -4,6 +4,8 @@ class_name Enemy extends Area3D
 
 @onready var slappable : Slappable = $SlappableManager;
 
+@onready var nav_agent : NavigationAgent3D = $NavigationAgent3D;
+
 func _ready() -> void:
 	slappable.init($Skeleton3D/Robot);
 
