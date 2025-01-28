@@ -34,7 +34,7 @@ var active_state : States = States.IDLE;
 func _physics_process(delta: float) -> void:
 	match active_state:
 		States.IDLE:
-			if player.global_position.distance_to(global_position) < 40:
+			if player.global_position.distance_to(global_position) < 30:
 				active_state = States.SEARCHING;
 				anim_tree.set("parameters/conditions/run", true);
 				
