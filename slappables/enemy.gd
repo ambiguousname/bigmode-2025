@@ -5,7 +5,7 @@ class_name Enemy extends Area3D
 @onready var slappable : Slappable = $SlappableManager;
 
 func _ready() -> void:
-	slappable.init($Skeleton3D/Cube);
+	slappable.init($Skeleton3D/Robot);
 
 func slap(pos, intensity):
 	slappable.pre_slap();
