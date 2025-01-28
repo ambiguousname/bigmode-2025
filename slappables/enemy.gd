@@ -6,6 +6,8 @@ class_name Enemy extends Area3D
 
 @onready var nav_agent : NavigationAgent3D = $NavigationAgent3D;
 
+@onready var player : Player = get_tree().current_scene.get_node("Player");
+
 func _ready() -> void:
 	slappable.init($Skeleton3D/Robot);
 
@@ -19,3 +21,28 @@ func slap(pos, intensity):
 	var to = global_position - pos;
 	to.y = 0;
 	bone.apply_impulse(to.normalized() * intensity, pos - global_position);
+
+enum States {
+	IDLE,
+	SEARCHING,
+	ATTACKING
+};
+
+var active_state : States = States.IDLE;
+
+func _physics_process(delta: float) -> void:
+	match active_state:
+		States.IDLE:
+			if player.global_position.distance_to(global_position) < 15:
+				active_state = States.SEARCHING;
+		States.SEARCHING:
+			if nav_agent.is_target_reached():
+				active_state = States.ATTACKING;
+			
+			nav_agent.target_position = player.global_position;
+			
+			global_position = global_position.lerp(nav_agent.get_next_path_position(), delta * 10);
+		States.ATTACKING:
+			if player.global_position.distance_to(global_position) > 15:
+				active_state = States.IDLE;
+			pass
