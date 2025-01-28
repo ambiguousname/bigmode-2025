@@ -445,10 +445,10 @@ transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_tgiwc")
 
 [node name="Physical Bone chest" type="PhysicalBone3D" parent="Skeleton/Skeleton3D/PhysicalBoneSimulator3D"]
-transform = Transform3D(3.33333, 3.34837e-07, 2.78555e-06, 2.79154e-06, -0.0649307, -3.3327, -2.80513e-07, 3.3327, -0.0649307, 0, 3.84339, 0.416191)
+transform = Transform3D(3.33333, 3.34837e-07, 2.78555e-06, 2.79154e-06, -0.0649306, -3.3327, -2.80513e-07, 3.3327, -0.0649306, 0, 3.84339, 0.416191)
 joint_type = 1
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5764e-07, -1.06727e-06, 0.187348)
-body_offset = Transform3D(3.33333, -6.11067e-12, 2.80475e-06, 2.80475e-06, 3.71784e-06, -3.33333, 3.04112e-12, 3.33333, 3.71784e-06, 0, 0.624494, 2.86102e-06)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.57639e-07, -1.06894e-06, 0.187348)
+body_offset = Transform3D(3.33333, -6.22435e-12, 2.80475e-06, 2.80475e-06, 3.74764e-06, -3.33333, 3.12639e-12, 3.33333, 3.74764e-06, 0, 0.624493, 2.86102e-06)
 bone_name = "chest"
 joint_constraints/bias = 0.3
 joint_constraints/damping = 1.0
@@ -472,10 +472,10 @@ transform = Transform3D(-0.0348995, 0.999391, 0, -0.999391, -0.0348995, 0, 0, 0,
 shape = SubResource("CapsuleShape3D_bhghn")
 
 [node name="Physical Bone r-arm" type="PhysicalBone3D" parent="Skeleton/Skeleton3D/PhysicalBoneSimulator3D"]
-transform = Transform3D(2.19, -1.37859, -2.10107, 1.95056, -0.824635, 2.57418, -1.58441, -2.92071, 0.264923, 1.23557, 3.62904, 0.489061)
+transform = Transform3D(2.19, -1.37859, -2.10107, 1.95056, -0.824635, 2.57418, -1.58441, -2.92071, 0.264923, 1.23557, 3.62904, 0.489062)
 joint_type = 1
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.74005e-05, -6.08717e-06, 0.140336)
-body_offset = Transform3D(3.33333, 2.26498e-06, -1.88351e-05, -1.84625e-05, 1.41561e-06, -3.33333, -2.6226e-06, 3.33333, 1.87755e-06, -8.86917e-05, 0.467786, 2.00272e-05)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.76816e-05, -6.08467e-06, 0.140336)
+body_offset = Transform3D(3.33333, 2.26498e-06, -1.87159e-05, -1.84625e-05, 1.41561e-06, -3.33333, -2.6226e-06, 3.33333, 1.81794e-06, -8.96454e-05, 0.467787, 2.00272e-05)
 bone_name = "r-arm"
 joint_constraints/bias = 0.3
 joint_constraints/damping = 1.0
@@ -780,8 +780,8 @@ shape = SubResource("CapsuleShape3D_tgiwc")
 [node name="Physical Bone chest" type="PhysicalBone3D" parent="Skeleton/Skeleton/Skeleton3D/PhysicalBoneSimulator3D"]
 transform = Transform3D(3.33333, 3.34834e-07, 2.78555e-06, 2.79154e-06, -0.0649299, -3.3327, -2.80511e-07, 3.3327, -0.0649299, 0, 3.8434, 0.416182)
 joint_type = 1
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.57642e-07, 1.46368e-06, 0.187351)
-body_offset = Transform3D(3.33333, -9.09495e-12, 2.80475e-06, 2.80475e-06, 4.50015e-06, -3.33333, 5.31486e-12, 3.33333, 4.50015e-06, 0, 0.624505, -5.72205e-06)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.57642e-07, 1.46201e-06, 0.187351)
+body_offset = Transform3D(3.33333, -9.12337e-12, 2.80475e-06, 2.80475e-06, 4.52995e-06, -3.33333, 5.31486e-12, 3.33333, 4.52995e-06, 0, 0.624505, -5.72205e-06)
 bone_name = "chest"
 joint_constraints/bias = 0.3
 joint_constraints/damping = 1.0
@@ -807,8 +807,8 @@ shape = SubResource("CapsuleShape3D_bhghn")
 [node name="Physical Bone r-arm" type="PhysicalBone3D" parent="Skeleton/Skeleton/Skeleton3D/PhysicalBoneSimulator3D"]
 transform = Transform3D(2.19, -1.37859, -2.10107, 1.95056, -0.824635, 2.57418, -1.58441, -2.92071, 0.264923, 1.23558, 3.62905, 0.489065)
 joint_type = 1
-joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.36812e-05, -2.94005e-06, 0.140335)
-body_offset = Transform3D(3.33333, 2.26498e-06, -1.88351e-05, -1.84625e-05, 1.41561e-06, -3.33333, -2.6226e-06, 3.33333, 1.87755e-06, -7.62939e-05, 0.467782, 9.53674e-06)
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.36761e-05, -2.93754e-06, 0.140335)
+body_offset = Transform3D(3.33333, 2.26498e-06, -1.87159e-05, -1.84625e-05, 1.41561e-06, -3.33333, -2.6226e-06, 3.33333, 1.81794e-06, -7.62939e-05, 0.467782, 9.53674e-06)
 bone_name = "r-arm"
 joint_constraints/bias = 0.3
 joint_constraints/damping = 1.0

@@ -1,4 +1,4 @@
-class_name Enemy extends Slappable
+class_name Enemy extends Area3D
 
 @onready var bones : PhysicalBoneSimulator3D = $Skeleton3D/PhysicalBoneSimulator3D;
 
