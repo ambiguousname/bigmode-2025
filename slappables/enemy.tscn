@@ -2024,14 +2024,17 @@ animation = &"shooting_standing"
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kueau"]
+xfade_time = 0.2
 advance_mode = 2
 advance_condition = &"run"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_m6ubq"]
+xfade_time = 0.4
 advance_mode = 2
 advance_condition = &"idle"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5nubq"]
+xfade_time = 0.2
 advance_mode = 2
 advance_condition = &"shoot"
 
