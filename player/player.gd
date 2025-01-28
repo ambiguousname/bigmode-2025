@@ -4,6 +4,8 @@ const AIR_FRICTION = 0.8;
 const FRICTION = 0.85;
 const JUMP_STR = 5;
 
+# TODO: Health, health recharges based on combo?
+
 @onready var initial_position := position;
 @onready var gravity: Vector3 = ProjectSettings.get_setting("physics/3d/default_gravity") * \
 		ProjectSettings.get_setting("physics/3d/default_gravity_vector");
