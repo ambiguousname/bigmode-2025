@@ -33,7 +33,7 @@ var active_state : States = States.IDLE;
 func _physics_process(delta: float) -> void:
 	match active_state:
 		States.IDLE:
-			if player.global_position.distance_to(global_position) < 15:
+			if player.global_position.distance_to(global_position) < 40:
 				active_state = States.SEARCHING;
 		States.SEARCHING:
 			if nav_agent.is_target_reached():
@@ -43,6 +43,6 @@ func _physics_process(delta: float) -> void:
 			
 			global_position = global_position.lerp(nav_agent.get_next_path_position(), delta * 10);
 		States.ATTACKING:
-			if player.global_position.distance_to(global_position) > 15:
+			if player.global_position.distance_to(global_position) > 5:
 				active_state = States.IDLE;
 			pass
