@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c0236otwwcmet"]
+[gd_scene load_steps=24 format=3 uid="uid://c0236otwwcmet"]
 
 [ext_resource type="PackedScene" uid="uid://cc4idhykjp5f5" path="res://player/player.tscn" id="1_oy2uo"]
 [ext_resource type="Script" path="res://pauser.gd" id="2_wgj27"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bw3qdrm5k1mi" path="res://xelu/A_Key_Light.png" id="8_f1chs"]
 [ext_resource type="PackedScene" uid="uid://btfqs30xp6bqo" path="res://slappables/cube_slappable.tscn" id="11_5dp7v"]
 [ext_resource type="Script" path="res://tower/debug_start.gd" id="12_3f6ao"]
+[ext_resource type="Script" path="res://slappables/slappable_obj.gd" id="12_r0pv7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mgcof"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -140,21 +141,33 @@ skeleton = NodePath("../..")
 
 [node name="RigidBody3D" parent="Slappables/Starting" instance=ExtResource("11_5dp7v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, 1.06849)
+mass = 50.0
+script = ExtResource("12_r0pv7")
 
 [node name="RigidBody3D3" parent="Slappables/Starting" instance=ExtResource("11_5dp7v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2.01337, -0.135771)
+mass = 50.0
+script = ExtResource("12_r0pv7")
 
 [node name="RigidBody3D7" parent="Slappables/Starting" instance=ExtResource("11_5dp7v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2.01337, 1.03922)
+mass = 50.0
+script = ExtResource("12_r0pv7")
 
 [node name="RigidBody3D6" parent="Slappables/Starting" instance=ExtResource("11_5dp7v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2.01337, -1.29517)
+mass = 50.0
+script = ExtResource("12_r0pv7")
 
 [node name="RigidBody3D2" parent="Slappables/Starting" instance=ExtResource("11_5dp7v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, -0.123651)
+mass = 50.0
+script = ExtResource("12_r0pv7")
 
 [node name="RigidBody3D4" parent="Slappables/Starting" instance=ExtResource("11_5dp7v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, -1.31224)
+mass = 50.0
+script = ExtResource("12_r0pv7")
 
 [node name="DebugStart" type="Marker3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.71775, 1.3416, 0)

@@ -54,10 +54,12 @@ func get_input(delta : float):
 			var dir = Vector3(-mouse_move_intent.x, mouse_move_intent.y, 0).normalized();
 			var hit_from = global_position + global_basis * dir;
 			
-			for b in hand_trigger.get_overlapping_bodies():
-				if b is Slappable and !b.just_slapped:
-					if b.combo_mult >= 1:
-						ui.inc_combo(b.combo_mult);
+			var search = hand_trigger.get_overlapping_bodies();
+			search.append_array(hand_trigger.get_overlapping_areas());
+			for b in search:
+				if (b is SlappableObj or b is Enemy) and !b.slappable.just_slapped:
+					if b.slappable.combo_mult >= 1:
+						ui.inc_combo(b.slappable.combo_mult);
 						curr_shake += 0.4;
 						hand_particles.emitting = true;
 					else:

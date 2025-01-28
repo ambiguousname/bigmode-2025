@@ -1,4 +1,4 @@
-class_name Slappable extends RigidBody3D
+class_name Slappable extends Node3D
 
 var flash_mat : Material = preload("res://slappables/flash.tres");
 
@@ -15,11 +15,9 @@ func _ready() -> void:
 	combo_timer.timeout.connect(func():
 		combo_mult = 1;
 	);
-	
-	init();
 
-func init():
-	mesh = $MeshInstance3D;
+func init(mesh):
+	self.mesh = mesh;
 
 var just_slapped = false;
 
@@ -29,7 +27,7 @@ func flash(on : bool) -> void:
 	else:
 		mesh.material_override = null;
 
-func slap(pos, intensity):
+func pre_slap():
 	just_slapped = true;
 	combo_mult = 0;
 	
@@ -40,7 +38,3 @@ func slap(pos, intensity):
 		combo_timer.start();
 		flash(false), CONNECT_ONE_SHOT);
 	pauser.pause();
-	
-	var to = global_position - pos;
-	to.y = 0;
-	self.apply_impulse(to.normalized() * intensity, pos - global_position);

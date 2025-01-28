@@ -1,24 +1,14 @@
-class_name Enemy extends Area3D
+class_name Enemy extends Slappable
 
 @onready var bones : PhysicalBoneSimulator3D = $Skeleton3D/PhysicalBoneSimulator3D;
 
-var flash_mat : Material = preload("res://slappables/flash.tres");
+@onready var slappable : Slappable = $SlappableManager;
 
-@onready var mesh : MeshInstance3D = $Skeleton3D/Robot;
+func _ready() -> void:
+	slappable.init($Skeleton3D/Cube);
 
-var just_slapped = false;
-
-func flash(on : bool) -> void:
-	if on:
-		mesh.material_override = flash_mat;
-	else:
-		mesh.material_override = null;
-
-func ragdoll(pos, intensity):
-	flash(true);
-	var pauser : Pauser = get_tree().current_scene.get_node("Pauser");
-	pauser.on_unpause.connect(flash.bind(false), CONNECT_ONE_SHOT);
-	pauser.pause();
+func slap(pos, intensity):
+	slappable.pre_slap();
 	
 	$CollisionShape3D.disabled = true;
 	bones.physical_bones_start_simulation();

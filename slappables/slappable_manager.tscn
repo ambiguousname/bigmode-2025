@@ -1,10 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://b358x4ut7m4lr"]
 
-[ext_resource type="Script" path="res://slappables/slappable.gd" id="1_t5w03"]
+[ext_resource type="Script" path="res://slappables/slappable.gd" id="1_y35uk"]
 
-[node name="RigidBody3D" type="RigidBody3D"]
-mass = 50.0
-script = ExtResource("1_t5w03")
+[node name="SlappableManager" type="Node3D"]
+script = ExtResource("1_y35uk")
 
 [node name="ComboTimer" type="Timer" parent="."]
 wait_time = 1.5
