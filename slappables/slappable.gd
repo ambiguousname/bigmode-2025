@@ -2,7 +2,7 @@ class_name Slappable extends RigidBody3D
 
 var flash_mat : Material = preload("res://slappables/flash.tres");
 
-@onready var mesh : MeshInstance3D = $MeshInstance3D;
+var mesh : MeshInstance3D;
 @onready var slap_timer : Timer = $SlapTimer;
 @onready var combo_timer : Timer = $ComboTimer;
 
@@ -15,6 +15,11 @@ func _ready() -> void:
 	combo_timer.timeout.connect(func():
 		combo_mult = 1;
 	);
+	
+	init();
+
+func init():
+	mesh = $MeshInstance3D;
 
 var just_slapped = false;
 
