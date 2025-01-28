@@ -4,10 +4,10 @@ class_name Enemy extends CharacterBody3D
 
 @onready var player : Player = get_tree().current_scene.get_node("Player");
 
-@onready var bones : PhysicalBoneSimulator3D = $Skeleton3D/PhysicalBoneSimulator3D;
+@onready var bones : PhysicalBoneSimulator3D = $Skeleton/Skeleton3D/PhysicalBoneSimulator3D;
 
 func _ready() -> void:
-	$Area3D.init($Skeleton3D/Robot, func(pos, intensity):
+	$Area3D.init($Skeleton/Skeleton3D/Robot, func(pos, intensity):
 		active_state = States.SLAPPED;
 		$CollisionShape3D.disabled = true;
 		
