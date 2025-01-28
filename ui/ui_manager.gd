@@ -6,6 +6,8 @@ class_name UIManager extends CanvasLayer
 @onready var combo_start : Vector2 = combo_panel.position;
 @onready var combo_times : Label = combo_panel.get_node("Times");
 
+@onready var health : ProgressBar = $Health;
+
 @onready var pause_menu : Panel = $PauseMenu;
 
 @onready var death_menu : Panel = $Death;
@@ -63,6 +65,9 @@ func pause(should_pause : bool):
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED);
 	pause_menu.visible = should_pause;
 	get_tree().paused = should_pause;
+
+func set_health(hp):
+	health.value = hp;
 
 func die():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE);
