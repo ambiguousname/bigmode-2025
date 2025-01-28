@@ -8,17 +8,24 @@ class_name UIManager extends CanvasLayer
 
 @onready var pause_menu : Panel = $PauseMenu;
 
+@onready var death_menu : Panel = $Death;
+
 func _ready() -> void:
 	combo_timer.timeout.connect(hide_combo);
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED);
 	
 	pause_menu.get_node("Button").pressed.connect(pause.bind(false));
-	pause_menu.get_node("Button2").pressed.connect(
-		func () -> void:
-			get_tree().paused = false;
-			get_tree().change_scene_to_file("res://main_menu.tscn");
+	pause_menu.get_node("Button2").pressed.connect(quit_to_menu);
+	death_menu.get_node("Button").pressed.connect(func():
+		get_tree().reload_current_scene();
 	);
+	
+	death_menu.get_node("Button2").pressed.connect(quit_to_menu);
 
+func quit_to_menu():
+	get_tree().paused = false;
+	get_tree().change_scene_to_file("res://main_menu.tscn");
+	
 
 var combo_count : int = 0;
 
@@ -56,6 +63,11 @@ func pause(should_pause : bool):
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED);
 	pause_menu.visible = should_pause;
 	get_tree().paused = should_pause;
+
+func die():
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE);
+	death_menu.visible = true;
+	get_tree().paused = true;
 
 func _process(delta : float):
 	progress.value = 100 * combo_timer.time_left/combo_timer.wait_time;
