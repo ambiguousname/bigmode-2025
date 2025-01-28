@@ -68,7 +68,7 @@ func get_input(delta : float):
 					slap_thing(b, hit_from);
 			
 			for b in hand_trigger.get_overlapping_areas():
-				if b is Enemy and !b.slappable.just_slapped:
+				if b is SlappableArea and !b.slappable.just_slapped:
 					slap_thing(b, hit_from);
 					
 			hand_mat.albedo_color = lerp(hand_mat.albedo_color, Color.RED, min(delta * mouse_move_intent_intensity/50, 1.0));
