@@ -6,6 +6,8 @@ class_name Enemy extends CharacterBody3D
 
 @onready var bones : PhysicalBoneSimulator3D = $Skeleton/Skeleton3D/PhysicalBoneSimulator3D;
 
+@onready var anim_tree : AnimationTree = $AnimationTree;
+
 func _ready() -> void:
 	$Area3D.init($Skeleton/Skeleton3D/Robot, func(pos, intensity):
 		active_state = States.SLAPPED;
@@ -34,9 +36,13 @@ func _physics_process(delta: float) -> void:
 		States.IDLE:
 			if player.global_position.distance_to(global_position) < 40:
 				active_state = States.SEARCHING;
+				anim_tree.set("parameters/conditions/run", true);
+				
 		States.SEARCHING:
 			if nav_agent.is_target_reached():
 				active_state = States.ATTACKING;
+				anim_tree.set("parameters/conditions/run", false);
+				anim_tree.set("parameters/conditions/shoot", true);
 			
 			nav_agent.target_position = player.global_position;
 			
@@ -44,6 +50,7 @@ func _physics_process(delta: float) -> void:
 		States.ATTACKING:
 			if player.global_position.distance_to(global_position) > 5:
 				active_state = States.IDLE;
+				anim_tree.set("parameters/conditions/shoot", false);
 			velocity = Vector3.ZERO;
 		States.SLAPPED:
 			return;

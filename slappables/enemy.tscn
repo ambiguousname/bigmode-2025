@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://cg71oerkiwokf"]
+[gd_scene load_steps=40 format=4 uid="uid://cg71oerkiwokf"]
 
 [ext_resource type="Material" uid="uid://cmvnecqga07e5" path="res://player/player_gray.tres" id="2_3tt0u"]
 [ext_resource type="Script" path="res://slappables/enemy.gd" id="2_5mj1d"]
@@ -2011,56 +2011,58 @@ _data = {
 height = 1.927
 radius = 0.664267
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2tq5v"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hwxnh"]
 animation = &"idle"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qpae7"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3ij0s"]
 animation = &"run"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lmdq5"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pfbiy"]
 animation = &"shooting_standing"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5goqq"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8u5v7"]
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_suxj6"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kueau"]
 advance_mode = 2
 advance_condition = &"run"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5s57h"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_m6ubq"]
 advance_mode = 2
 advance_condition = &"idle"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ky67y"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5nubq"]
 advance_mode = 2
 advance_condition = &"shoot"
 
-[sub_resource type="Curve" id="Curve_twhof"]
-_data = [Vector2(0.236842, 0), 0.0, 0.0, 0, 0, Vector2(0.778947, 1), 0.0, 0.0, 0, 0]
+[sub_resource type="Curve" id="Curve_h7g30"]
+_data = [Vector2(0.278947, 0), 0.0, 0.0, 0, 0, Vector2(0.768421, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_43k2h"]
-xfade_time = 2.0
-xfade_curve = SubResource("Curve_twhof")
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8dbng"]
+xfade_time = 1.0
+xfade_curve = SubResource("Curve_h7g30")
 switch_mode = 1
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_j0k53"]
-states/Start/position = Vector2(293, 112)
-states/idle/node = SubResource("AnimationNodeAnimation_2tq5v")
-states/idle/position = Vector2(483, 68)
-states/run/node = SubResource("AnimationNodeAnimation_qpae7")
-states/run/position = Vector2(644, 100)
-states/shooting_standing/node = SubResource("AnimationNodeAnimation_lmdq5")
-states/shooting_standing/position = Vector2(574, 182)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_5goqq"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_suxj6"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_5s57h"), "run", "shooting_standing", SubResource("AnimationNodeStateMachineTransition_ky67y"), "shooting_standing", "idle", SubResource("AnimationNodeStateMachineTransition_43k2h")]
+[sub_resource type="Curve" id="Curve_xknni"]
+_data = [Vector2(0.1, 0.032967), 0.0, 0.0, 0, 0, Vector2(0.431579, 1), 0.0, 0.0, 0, 0]
+point_count = 2
 
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_f54xf"]
-graph_offset = Vector2(-517.345, 82.7973)
-nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_j0k53")
-nodes/StateMachine/position = Vector2(199.035, 239.132)
-nodes/output/position = Vector2(460, 180)
-node_connections = [&"output", 0, &"StateMachine"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a16no"]
+xfade_time = 0.3
+xfade_curve = SubResource("Curve_xknni")
+advance_mode = 2
+advance_condition = &"shoot"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_vsuu4"]
+states/idle/node = SubResource("AnimationNodeAnimation_hwxnh")
+states/idle/position = Vector2(318, 40)
+states/run/node = SubResource("AnimationNodeAnimation_3ij0s")
+states/run/position = Vector2(524, 79)
+states/shooting_standing/node = SubResource("AnimationNodeAnimation_pfbiy")
+states/shooting_standing/position = Vector2(500, 182)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_8u5v7"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_kueau"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_m6ubq"), "run", "shooting_standing", SubResource("AnimationNodeStateMachineTransition_5nubq"), "shooting_standing", "idle", SubResource("AnimationNodeStateMachineTransition_8dbng"), "idle", "shooting_standing", SubResource("AnimationNodeStateMachineTransition_a16no")]
 
 [node name="Enemy" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.23695, 0.0359197, -3.99976)
@@ -2416,8 +2418,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.08653, 0.217871)
 shape = SubResource("CylinderShape3D_pxkgh")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource("AnimationNodeBlendTree_f54xf")
+tree_root = SubResource("AnimationNodeStateMachine_vsuu4")
 anim_player = NodePath("../Skeleton/AnimationPlayer")
-parameters/StateMachine/conditions/idle = false
-parameters/StateMachine/conditions/run = false
-parameters/StateMachine/conditions/shoot = false
+parameters/conditions/idle = false
+parameters/conditions/run = false
+parameters/conditions/shoot = false
