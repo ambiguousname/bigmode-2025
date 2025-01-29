@@ -6,7 +6,7 @@ func _ready() -> void:
 var mouse_move_intent : Vector2;
 var mouse_move_intent_intensity : float = 0;
 @onready var hand_target : Node3D = $hand/Target;
-@onready var hand_trigger : Area3D = $hand/Root/Skeleton3D/HandEnd/HandEndTrigger;
+@onready var hand_trigger : ShapeCast3D = $hand/Root/Skeleton3D/HandEnd/ShapeCast3D;
 @onready var hand_mat : StandardMaterial3D = $hand/Root/Skeleton3D/Cube.material_override;
 @onready var hand_particles : GPUParticles3D = $hand/Root/Skeleton3D/HandEnd/GPUParticles3D;
 
@@ -63,13 +63,10 @@ func get_input(delta : float):
 			var dir = Vector3(-mouse_move_intent.x, mouse_move_intent.y, 0).normalized();
 			var hit_from = global_position + global_basis * dir;
 			
-			for b in hand_trigger.get_overlapping_bodies():
-				if b is SlappableObj and !b.slappable.just_slapped:
-					slap_thing(b, hit_from);
-			
-			for b in hand_trigger.get_overlapping_areas():
-				if b is SlappableArea and !b.slappable.just_slapped:
-					slap_thing(b, hit_from);
+			for i in hand_trigger.get_collision_count():
+				var c = hand_trigger.get_collider(i);
+				if (c is SlappableObj or c is SlappableArea) and !c.slappable.just_slapped:
+					slap_thing(c, hit_from);
 					
 			hand_mat.albedo_color = lerp(hand_mat.albedo_color, Color.RED, min(delta * mouse_move_intent_intensity/50, 1.0));
 		else:

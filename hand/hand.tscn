@@ -9,8 +9,6 @@ no_depth_test = true
 shading_mode = 0
 albedo_color = Color(0, 0, 0, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_qrkk7"]
-
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_agsgh"]
 emission_shape = 1
 emission_sphere_radius = 0.4
@@ -31,6 +29,8 @@ disable_receive_shadows = true
 material = SubResource("StandardMaterial3D_ajesd")
 radius = 0.125
 height = 0.25
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ylgfo"]
 
 [node name="hand" instance=ExtResource("1_j1rna")]
 
@@ -53,14 +53,7 @@ transform = Transform3D(0.999167, -2.32831e-09, -0.0408152, 0.0408152, 9.68575e-
 bone_name = "Hand.001"
 bone_idx = 3
 
-[node name="HandEndTrigger" type="Area3D" parent="Root/Skeleton3D/HandEnd" index="0"]
-transform = Transform3D(1, -4.44089e-16, 8.48493e-17, -4.44089e-16, 1, -7.10543e-15, -2.45019e-16, 0, 1, 0, 0.507132, -5.96046e-08)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Root/Skeleton3D/HandEnd/HandEndTrigger" index="0"]
-transform = Transform3D(1, -1.37354e-17, 0, -4.44089e-16, -4.37114e-08, 1, -2.45019e-16, -1, -4.37114e-08, 0, 0, 0)
-shape = SubResource("BoxShape3D_qrkk7")
-
-[node name="GPUParticles3D" type="GPUParticles3D" parent="Root/Skeleton3D/HandEnd" index="1"]
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Root/Skeleton3D/HandEnd" index="0"]
 process_mode = 3
 transform = Transform3D(1, -4.44089e-16, 8.48493e-17, -4.44089e-16, 1, -7.10543e-15, -2.45019e-16, 0, 1, -9.31323e-10, 0.878202, -8.9407e-08)
 emitting = false
@@ -71,6 +64,11 @@ preprocess = 1.0
 explosiveness = 0.3
 process_material = SubResource("ParticleProcessMaterial_agsgh")
 draw_pass_1 = SubResource("SphereMesh_d78sf")
+
+[node name="ShapeCast3D" type="ShapeCast3D" parent="Root/Skeleton3D/HandEnd" index="1"]
+shape = SubResource("BoxShape3D_ylgfo")
+target_position = Vector3(0, 0.525, 0)
+collide_with_areas = true
 
 [node name="Target" type="Marker3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.0155914, -0.290009, -0.948548)
