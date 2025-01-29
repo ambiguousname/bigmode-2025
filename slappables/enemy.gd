@@ -8,19 +8,25 @@ class_name Enemy extends CharacterBody3D
 
 @onready var anim_tree : AnimationTree = $AnimationTree;
 
+@onready var slappable : Slappable = $SlappableManager;
+
 func _ready() -> void:
-	$Area3D.init($Skeleton/Skeleton3D/Robot, func(pos, intensity):
-		active_state = States.SLAPPED;
-		$CollisionShape3D.disabled = true;
-		
-		bones.active = true;
-		bones.physical_bones_start_simulation();
-		var bone : PhysicalBone3D = bones.get_node("Physical Bone hip");
-		
-		var to = global_position - pos;
-		to.y = 0;
-		bone.apply_impulse(to.normalized() * intensity, pos - global_position);
-	);
+	slappable.init($Skeleton/Skeleton3D/Robot);
+
+func slap(pos, intensity):
+	slappable.pre_slap();
+	
+	active_state = States.SLAPPED;
+	$CollisionShape3D.disabled = true;
+	
+	bones.active = true;
+	bones.physical_bones_start_simulation();
+	var bone : PhysicalBone3D = bones.get_node("Physical Bone hip");
+	
+	var to = global_position - pos;
+	to.y = 0;
+	bone.apply_impulse(to.normalized() * intensity, pos - global_position);
+
 
 enum States {
 	IDLE,
