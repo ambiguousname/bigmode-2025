@@ -42,7 +42,9 @@ func eval_behavior(delta: float):
 				anim_tree.set("parameters/conditions/run", false);
 				anim_tree.set("parameters/conditions/shoot", true);
 				
-				charge_dir = (player.global_position - global_position).normalized();
+				charge_dir = (player.global_position - global_position);
+				charge_dir.y = 0;
+				charge_dir = charge_dir.normalized();
 				charge_travelled = 0;
 				
 				rotation.y = atan2(charge_dir.x, charge_dir.z);
