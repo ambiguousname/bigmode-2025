@@ -68,8 +68,11 @@ func eval_behavior(delta : float):
 				
 				shapecast.enabled = false;
 				
-				anim_tree.set("parameters/conditions/run", false);
-				anim_tree.set("parameters/conditions/jump", true);
+				if objs_grabbed.size() == 0:
+					active_state = States.SEARCHING;
+				else:
+					anim_tree.set("parameters/conditions/run", false);
+					anim_tree.set("parameters/conditions/jump", true);
 		States.ATTACKING:
 			var l = objs_grabbed.size();
 			var i = 0;
