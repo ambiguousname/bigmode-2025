@@ -15,5 +15,5 @@ func pause():
 		get_tree().paused = true;
 
 func unpause():
-	on_unpause.emit();
 	get_tree().paused = false;
+	on_unpause.emit();

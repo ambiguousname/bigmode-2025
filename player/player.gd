@@ -14,6 +14,8 @@ const JUMP_STR = 5;
 
 @onready var ui : UIManager = get_tree().current_scene.get_node("CanvasLayer");
 
+@onready var pauser : Pauser = get_tree().current_scene.get_node("Pauser");
+
 var jump : float;
 var jumping : bool = false;
 func _input(event: InputEvent) -> void:
@@ -61,7 +63,9 @@ func damage(hp : float):
 	ui.set_health(health);
 	
 	if health <= 0:
-		ui.die();
+		_camera.curr_shake = 0.5;
+		pauser.pause();
+		pauser.on_unpause.connect(ui.die, CONNECT_ONE_SHOT);
 
 func _process(delta: float) -> void:
 	if ui.combo_count > 0:
