@@ -10,7 +10,9 @@ const JUMP_STR = 5;
 @onready var gravity: Vector3 = ProjectSettings.get_setting("physics/3d/default_gravity") * \
 		ProjectSettings.get_setting("physics/3d/default_gravity_vector");
 
-@onready var _camera := $Camera3D as Camera3D;
+@onready var _camera : FPSCamera = $Camera3D;
+
+@onready var ui : UIManager = get_tree().current_scene.get_node("CanvasLayer");
 
 var jump : float;
 var jumping : bool = false;
@@ -50,3 +52,10 @@ func _physics_process(delta: float) -> void:
 	
 	velocity += move_dir;
 	move_and_slide();
+
+var health : float = 100;
+
+func damage(hp : float):
+	health -= hp;
+	_camera.curr_shake += 0.2;
+	ui.set_health(health);

@@ -1,4 +1,4 @@
-extends Camera3D
+class_name FPSCamera extends Camera3D
 
 func _ready() -> void:
 	get_tree().current_scene.get_node("Pauser").on_unpause.connect(clear_shake);

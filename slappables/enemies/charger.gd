@@ -59,7 +59,7 @@ func eval_behavior(delta: float):
 					for i in shapecast.get_collision_count():
 						var c = shapecast.get_collider(i);
 						if c is Player:
-							print("DAMAGE");
+							c.damage(20);
 						elif c is Enemy or c is SlappableObj:
 							c.slap(global_position, (charge_travelled + 1) * 1000);
 		States.SLAPPED:
