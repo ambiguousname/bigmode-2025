@@ -49,7 +49,7 @@ func inc_combo(amnt):
 func hide_combo():
 	combo_count = 0;
 	combo_timer.stop();
-	combo_panel.position = combo_start;
+	combo_panel.position.y = combo_start.y;
 
 var paused : bool = false;
 
