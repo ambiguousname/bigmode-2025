@@ -12,6 +12,8 @@ var active_state : States = States.IDLE;
 
 func slap_behavior():
 	active_state = States.SLAPPED;
+	for o in objs_grabbed:
+		o.gravity_scale = 1;
 
 @onready var shapecast : ShapeCast3D = $ShapeCast3D;
 
@@ -76,5 +78,7 @@ func eval_behavior(delta : float):
 					o.apply_impulse(dir.normalized() * 1000);
 				objs_grabbed.clear();
 				active_state = States.COOLDOWN;
+		States.COOLDOWN:
+			pass
 		States.SLAPPED:
 			return;
