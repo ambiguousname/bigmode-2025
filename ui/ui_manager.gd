@@ -19,6 +19,7 @@ func _ready() -> void:
 	pause_menu.get_node("Button").pressed.connect(pause.bind(false));
 	pause_menu.get_node("Button2").pressed.connect(quit_to_menu);
 	death_menu.get_node("Button").pressed.connect(func():
+		get_tree().paused = false;
 		get_tree().reload_current_scene();
 	);
 	
@@ -71,6 +72,8 @@ func set_health(hp):
 
 func die():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE);
+	
+	paused = true;
 	death_menu.visible = true;
 	get_tree().paused = true;
 

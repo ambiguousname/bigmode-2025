@@ -59,3 +59,12 @@ func damage(hp : float):
 	health -= hp;
 	_camera.curr_shake += 0.2;
 	ui.set_health(health);
+	
+	if health <= 0:
+		ui.die();
+
+func _process(delta: float) -> void:
+	if ui.combo_count > 0:
+		health += 10 * delta * (log(ui.combo_count) + 1);
+		health = min(health, 100);
+		ui.set_health(health);
