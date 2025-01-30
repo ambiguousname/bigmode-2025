@@ -7,6 +7,8 @@ func _ready() -> void:
 	timer.timeout.connect(set_idle);
 
 func set_idle():
+	if active_state == States.SLAPPED:
+		return;
 	active_state = States.IDLE;
 
 enum States {
@@ -69,13 +71,19 @@ func eval_behavior(delta : float):
 				anim_tree.set("parameters/conditions/run", false);
 				anim_tree.set("parameters/conditions/jump", true);
 		States.ATTACKING:
-			for i in len(objs_grabbed):
+			var l = objs_grabbed.size();
+			var i = 0;
+			while i < l:
 				var o = objs_grabbed[i];
 				if o.is_queued_for_deletion() or o.slappable.just_slapped:
 					objs_grabbed.remove_at(i);
 					i -= 1;
+					l -= 1;
 					continue;
+				
 				o.gravity_scale = grav_scale;
+				
+				i += 1;
 			
 			grav_scale *= 0.92;
 			

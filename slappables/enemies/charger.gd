@@ -106,4 +106,6 @@ func eval_behavior(delta: float):
 var next_state : States = States.IDLE;
 
 func stand_done():
+	if active_state == States.SLAPPED:
+		return;
 	active_state = next_state;
