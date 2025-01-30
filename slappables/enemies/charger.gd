@@ -76,11 +76,13 @@ func eval_behavior(delta: float):
 					for i in shapecast.get_collision_count():
 						var c = shapecast.get_collider(i);
 						if c is Player:
-							c.damage(20);
+							c.damage(20 * charge_travelled/3);
 						elif c is Enemy or c is SlappableObj:
 							c.slap(global_position, (charge_travelled + 1) * 1000, false);
+				
+				charge_travelled = 0;
 		States.MOVE_BACK:
-			if player.global_position.distance_to(global_position) > 10:
+			if player.global_position.distance_to(global_position) > 10 or charge_travelled > 10:
 				active_state = States.SEARCHING;
 				anim_tree.set("parameters/conditions/idle", false);
 				anim_tree.set("parameters/conditions/run", true);
@@ -89,6 +91,7 @@ func eval_behavior(delta: float):
 			dir.y = 0;
 			
 			velocity = dir * 4;
+			charge_travelled += delta * 4;
 			
 			rotation.y = atan2(dir.x, dir.z);
 		States.STAND_AND_PLAY_ANIM:

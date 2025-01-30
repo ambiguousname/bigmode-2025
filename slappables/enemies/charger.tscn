@@ -74,7 +74,7 @@ joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0236416, 0.138934, 0.211
 body_offset = Transform3D(3.30999, -0.216063, 0.328559, 0.30762, -0.312255, -3.30439, 0.244974, 3.31163, -0.290134, -0.117743, 0.735174, -0.40451)
 
 [node name="NavigationAgent3D" parent="." index="1"]
-target_desired_distance = 5.0
+target_desired_distance = 10.0
 
 [node name="ShapeCast3D" type="ShapeCast3D" parent="." index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1385, 0.552854)
