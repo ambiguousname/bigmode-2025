@@ -15,6 +15,7 @@ func body_hit(body : PhysicsBody3D):
 
 func slap(pos, intensity, flash):
 	slappable.pre_slap(flash);
+	gravity_scale = 1;
 	
 	var to = global_position - pos;
 	to.y = 0;
