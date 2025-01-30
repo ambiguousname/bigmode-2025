@@ -40,7 +40,7 @@ func eval_behavior(delta : float):
 					if c is SlappableObj:
 						objs_grabbed.push_back(c);
 						c.gravity_scale = grav_scale;
-						c.apply_impulse(Vector3.UP);
+						c.apply_impulse(Vector3.ZERO);
 				
 				velocity = Vector3.ZERO;
 				
@@ -63,8 +63,18 @@ func eval_behavior(delta : float):
 					objs_grabbed.remove_at(i);
 					i -= 1;
 					continue;
-				o.set("gravity_scale", grav_scale);
+				o.gravity_scale = grav_scale;
 			
-			grav_scale = -0.001;
+			grav_scale *= 0.92;
+			
+			if abs(grav_scale) <= 0.001:
+				grav_scale = 1;
+				for o in objs_grabbed:
+					o.gravity_scale = grav_scale;
+					
+					var dir = player.global_position - o.global_position;
+					o.apply_impulse(dir.normalized() * 1000);
+				objs_grabbed.clear();
+				active_state = States.COOLDOWN;
 		States.SLAPPED:
 			return;
