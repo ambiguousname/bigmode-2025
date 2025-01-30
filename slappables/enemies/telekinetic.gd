@@ -29,6 +29,14 @@ func eval_behavior(delta : float):
 				anim_tree.set("parameters/conditions/run", true);
 			return;
 		States.SEARCHING:
+			nav_agent.target_position = player.global_position;
+			
+			var dir = global_position.direction_to(nav_agent.get_next_path_position());
+			
+			velocity = dir * 4;
+			
+			rotation.y = atan2(dir.x, dir.z);
+			
 			if nav_agent.is_target_reached():
 				active_state = States.ATTACKING;
 				
@@ -49,15 +57,7 @@ func eval_behavior(delta : float):
 				shapecast.enabled = false;
 				
 				anim_tree.set("parameters/conditions/run", false);
-				return;
-			
-			nav_agent.target_position = player.global_position;
-			
-			var dir = global_position.direction_to(nav_agent.get_next_path_position());
-			
-			velocity = dir * 4;
-			
-			rotation.y = atan2(dir.x, dir.z);
+				anim_tree.set("parameters/conditions/jump", true);
 		States.ATTACKING:
 			for i in len(objs_grabbed):
 				var o = objs_grabbed[i];
@@ -70,6 +70,9 @@ func eval_behavior(delta : float):
 			grav_scale *= 0.92;
 			
 			if abs(grav_scale) <= 0.001:
+				anim_tree.set("parameters/conditions/jump", false);
+				anim_tree.set("parameters/conditions/idle", true);
+				
 				grav_scale = 1;
 				for o in objs_grabbed:
 					o.gravity_scale = grav_scale;
