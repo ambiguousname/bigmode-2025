@@ -76,7 +76,7 @@ func eval_behavior(delta : float):
 		States.ATTACKING:
 			var l = objs_grabbed.size();
 			var i = 0;
-			while i < l:
+			while i < l and l != 0:
 				var o = objs_grabbed[i];
 				if o.is_queued_for_deletion() or o.slappable.just_slapped:
 					objs_grabbed.remove_at(i);
