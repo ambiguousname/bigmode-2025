@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cc4idhykjp5f5" path="res://player/player.tscn" id="1_cqew8"]
 [ext_resource type="PackedScene" uid="uid://btfqs30xp6bqo" path="res://slappables/cube_slappable.tscn" id="4_cqeuw"]
-[ext_resource type="PackedScene" uid="uid://cg71oerkiwokf" path="res://slappables/enemy.tscn" id="5_ibb8h"]
+[ext_resource type="PackedScene" uid="uid://cg71oerkiwokf" path="res://slappables/enemies/enemy.tscn" id="5_ibb8h"]
 [ext_resource type="Script" path="res://pauser.gd" id="5_lie4y"]
 [ext_resource type="PackedScene" uid="uid://bv37wxweu87su" path="res://ui/ui.tscn" id="6_wyddu"]
 

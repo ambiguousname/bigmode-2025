@@ -67,6 +67,9 @@ func get_input(delta : float):
 				var c = hand_trigger.get_collider(i);
 				if (c is SlappableObj or c is Enemy) and !c.slappable.just_slapped:
 					slap_thing(c, hit_from);
+				# TODO: Slap bones
+				#elif c is PhysicalBone3D:
+					#slap_thing(c.get_parent().get_parent().get_parent().get_parent(), hit_from);
 					
 			hand_mat.albedo_color = lerp(hand_mat.albedo_color, Color.RED, min(delta * mouse_move_intent_intensity/50, 1.0));
 		else:
