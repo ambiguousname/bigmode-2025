@@ -164,7 +164,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, -1.31224)
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.71775, 1.3416, 0)
 gizmo_extents = 1.0
 script = ExtResource("12_3f6ao")
-debug = true
 
 [node name="Telekinetic" parent="." instance=ExtResource("14_7ly42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.7795, 0.0359183, -1.5696)
