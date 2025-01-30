@@ -37,6 +37,7 @@ func eval_behavior(delta: float):
 			if nav_agent.is_target_reached():
 				active_state = States.STAND_AND_PLAY_ANIM;
 				next_state = States.ATTACKING;
+				shapecast.enabled = true;
 				
 				timer.start(0.5);
 				anim_tree.set("parameters/conditions/run", false);
@@ -64,14 +65,6 @@ func eval_behavior(delta: float):
 			var colliding = shapecast.is_colliding();
 				
 			if charge_travelled > 10 or colliding:
-				active_state = States.STAND_AND_PLAY_ANIM;
-				next_state = States.MOVE_BACK;
-				timer.start(1);
-				
-				anim_tree.set("parameters/conditions/shoot", false);
-				anim_tree.set("parameters/conditions/idle", true);
-				velocity = Vector3.ZERO;
-				
 				if colliding:
 					for i in shapecast.get_collision_count():
 						var c = shapecast.get_collider(i);
@@ -79,8 +72,19 @@ func eval_behavior(delta: float):
 							c.damage(20 * charge_travelled/3);
 						elif c is Enemy or c is SlappableObj:
 							c.slap(global_position, (charge_travelled + 1) * 1000, false);
+							
+				active_state = States.STAND_AND_PLAY_ANIM;
+				next_state = States.MOVE_BACK;
+				
+				timer.start(1);
+				
+				anim_tree.set("parameters/conditions/shoot", false);
+				anim_tree.set("parameters/conditions/idle", true);
 				
 				charge_travelled = 0;
+				shapecast.enabled = false;
+				velocity = Vector3.ZERO;
+				
 		States.MOVE_BACK:
 			if player.global_position.distance_to(global_position) > 10 or charge_travelled > 10:
 				active_state = States.SEARCHING;
