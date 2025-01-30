@@ -42,7 +42,7 @@ func slap_thing(thing, hit_from):
 		hand_particles.emitting = true;
 	else:
 		curr_shake += 0.2;
-	thing.slap(hit_from, mouse_move_intent_intensity/1.2);
+	thing.slap(hit_from, mouse_move_intent_intensity/1.2, true);
 
 func get_input(delta : float):
 	var rot : Vector2 = mouse_move_intent * delta/10;

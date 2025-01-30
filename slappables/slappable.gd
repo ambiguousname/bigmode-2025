@@ -27,11 +27,13 @@ func flash(on : bool) -> void:
 	else:
 		mesh.material_override = null;
 
-func pre_slap():
+func pre_slap(flash : bool):
+	if !flash:
+		return;
+	
 	just_slapped = true;
 	combo_mult = 0;
 	
-	flash(true);
 	var pauser : Pauser = get_tree().current_scene.get_node("Pauser");
 	pauser.on_unpause.connect(func():
 		slap_timer.start();

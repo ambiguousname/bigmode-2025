@@ -76,7 +76,7 @@ func eval_behavior(delta: float):
 						if c is Player:
 							c.damage(20);
 						elif c is Enemy or c is SlappableObj:
-							c.slap(global_position, (charge_travelled + 1) * 1000);
+							c.slap(global_position, (charge_travelled + 1) * 1000, false);
 		States.MOVE_BACK:
 			if player.global_position.distance_to(global_position) > 10:
 				active_state = States.SEARCHING;

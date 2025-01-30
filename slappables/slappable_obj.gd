@@ -5,8 +5,8 @@ class_name SlappableObj extends RigidBody3D
 func _ready() -> void:
 	slappable.init($MeshInstance3D);
 
-func slap(pos, intensity):
-	slappable.pre_slap();
+func slap(pos, intensity, flash):
+	slappable.pre_slap(flash);
 	
 	var to = global_position - pos;
 	to.y = 0;

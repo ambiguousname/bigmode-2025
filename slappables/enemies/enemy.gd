@@ -16,8 +16,8 @@ func _ready() -> void:
 func slap_behavior():
 	pass
 
-func slap(pos, intensity):
-	slappable.pre_slap();
+func slap(pos, intensity, flash):
+	slappable.pre_slap(flash);
 	
 	velocity = Vector3.ZERO;
 	
