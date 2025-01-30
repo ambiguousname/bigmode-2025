@@ -54,7 +54,13 @@ transform = Transform3D(-3.3216, -0.156501, 0.231562, 0.248386, -0.386843, 3.301
 joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0236431, 0.138933, 0.211556)
 body_offset = Transform3D(3.30999, -0.216063, 0.328552, 0.30762, -0.312256, -3.30439, 0.244974, 3.31163, -0.290134, -0.117747, 0.735173, -0.404509)
 
+[node name="NavigationAgent3D" parent="." index="1"]
+target_desired_distance = 10.0
+
 [node name="ShapeCast3D" type="ShapeCast3D" parent="." index="5"]
 enabled = false
 shape = SubResource("SphereShape3D_4o1ug")
 target_position = Vector3(0, 0, 0)
+
+[node name="Timer" type="Timer" parent="." index="6"]
+one_shot = true

@@ -1,5 +1,14 @@
 class_name Telekinetic extends Enemy
 
+@onready var timer : Timer = $Timer;
+
+func _ready() -> void:
+	super();
+	timer.timeout.connect(set_idle);
+
+func set_idle():
+	active_state = States.IDLE;
+
 enum States {
 	IDLE,
 	SEARCHING,
@@ -26,6 +35,7 @@ func eval_behavior(delta : float):
 		States.IDLE:
 			if player.global_position.distance_to(global_position) < 30:
 				active_state = States.SEARCHING;
+				anim_tree.set("parameters/conditions/idle", false);
 				anim_tree.set("parameters/conditions/run", true);
 			return;
 		States.SEARCHING:
@@ -81,7 +91,8 @@ func eval_behavior(delta : float):
 					o.apply_impulse(dir.normalized() * 1000);
 				objs_grabbed.clear();
 				active_state = States.COOLDOWN;
+				timer.start();
 		States.COOLDOWN:
-			pass
+			return;
 		States.SLAPPED:
 			return;
