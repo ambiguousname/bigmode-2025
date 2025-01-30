@@ -33,6 +33,7 @@ func pre_slap(flash : bool):
 	
 	just_slapped = true;
 	combo_mult = 0;
+	flash(true);
 	
 	var pauser : Pauser = get_tree().current_scene.get_node("Pauser");
 	pauser.on_unpause.connect(func():
