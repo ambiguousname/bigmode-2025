@@ -9,8 +9,7 @@ enum States {
 	SEARCHING,
 	STAND_AND_PLAY_ANIM,
 	ATTACKING,
-	MOVE_BACK,
-	SLAPPED
+	MOVE_BACK
 };
 
 func _ready() -> void:
@@ -19,9 +18,6 @@ func _ready() -> void:
 	timer.timeout.connect(stand_done);
 
 var active_state : States = States.IDLE;
-
-func slap_behavior():
-	active_state = States.SLAPPED;
 
 var charge_dir : Vector3 = Vector3.ZERO;
 var charge_travelled : float = 0;
@@ -100,12 +96,8 @@ func eval_behavior(delta: float):
 			rotation.y = atan2(dir.x, dir.z);
 		States.STAND_AND_PLAY_ANIM:
 			return
-		States.SLAPPED:
-			return;
 
 var next_state : States = States.IDLE;
 
 func stand_done():
-	if active_state == States.SLAPPED:
-		return;
 	active_state = next_state;

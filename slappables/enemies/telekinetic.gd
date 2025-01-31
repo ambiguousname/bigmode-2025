@@ -7,22 +7,18 @@ func _ready() -> void:
 	timer.timeout.connect(set_idle);
 
 func set_idle():
-	if active_state == States.SLAPPED:
-		return;
 	active_state = States.IDLE;
 
 enum States {
 	IDLE,
 	SEARCHING,
 	ATTACKING,
-	COOLDOWN,
-	SLAPPED
+	COOLDOWN
 };
 
 var active_state : States = States.IDLE;
 
 func slap_behavior():
-	active_state = States.SLAPPED;
 	for o in objs_grabbed:
 		o.gravity_scale = 1;
 
@@ -104,6 +100,4 @@ func eval_behavior(delta : float):
 				active_state = States.COOLDOWN;
 				timer.start();
 		States.COOLDOWN:
-			return;
-		States.SLAPPED:
 			return;

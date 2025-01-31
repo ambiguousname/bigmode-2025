@@ -16,6 +16,8 @@ func _ready() -> void:
 func slap_behavior():
 	pass
 
+var slapped : bool = false;
+
 func slap(pos, intensity, flash):
 	slappable.pre_slap(flash);
 	
@@ -23,6 +25,7 @@ func slap(pos, intensity, flash):
 	
 	slap_behavior();
 	
+	slapped = true;
 	$CollisionShape3D.disabled = true;
 	
 	bones.active = true;
@@ -37,6 +40,8 @@ func eval_behavior(delta: float) -> void:
 	pass
 
 func _physics_process(delta: float) -> void:
+	if slapped:
+		return;
 	eval_behavior(delta);
 	
 	move_and_slide();
