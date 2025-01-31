@@ -4,7 +4,7 @@ class_name Enemy extends CharacterBody3D
 
 @onready var player : Player = get_tree().current_scene.get_node("Player");
 
-@onready var bones : PhysicalBoneSimulator3D = $Skeleton/Skeleton3D/PhysicalBoneSimulator3D;
+@onready var bones : RagdollBones = $Skeleton/Skeleton3D/PhysicalBoneSimulator3D;
 
 @onready var anim_tree : AnimationTree = $AnimationTree;
 
@@ -28,13 +28,7 @@ func slap(pos, intensity, flash):
 	slapped = true;
 	$CollisionShape3D.disabled = true;
 	
-	bones.active = true;
-	bones.physical_bones_start_simulation();
-	var bone : PhysicalBone3D = bones.get_node("Physical Bone hip");
-	
-	var to = global_position - pos;
-	to.y = 0;
-	bone.apply_impulse(to.normalized() * intensity, pos - global_position);
+	bones.ragdoll(slappable, pos, intensity);
 
 func eval_behavior(delta: float) -> void:
 	pass

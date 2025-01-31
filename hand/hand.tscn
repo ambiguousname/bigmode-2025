@@ -31,6 +31,7 @@ radius = 0.125
 height = 0.25
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ylgfo"]
+size = Vector3(1, 2, 1)
 
 [node name="hand" instance=ExtResource("1_j1rna")]
 
@@ -68,6 +69,7 @@ draw_pass_1 = SubResource("SphereMesh_d78sf")
 [node name="ShapeCast3D" type="ShapeCast3D" parent="Root/Skeleton3D/HandEnd" index="1"]
 shape = SubResource("BoxShape3D_ylgfo")
 target_position = Vector3(0, 0.525, 0)
+collision_mask = 3
 collide_with_areas = true
 
 [node name="Target" type="Marker3D" parent="." index="1"]

@@ -36,6 +36,9 @@ func _process(delta: float) -> void:
 var shoot_move_intent : Vector3 = Vector3.ZERO;
 
 func slap_thing(thing, hit_from):
+	if thing.slappable.just_slapped:
+		return;
+	
 	if thing.slappable.combo_mult >= 1:
 		ui.inc_combo(thing.slappable.combo_mult);
 		curr_shake += 0.4;
@@ -65,8 +68,10 @@ func get_input(delta : float):
 			
 			for i in hand_trigger.get_collision_count():
 				var c = hand_trigger.get_collider(i);
-				if (c is SlappableObj or c is Enemy) and !c.slappable.just_slapped:
+				if (c is SlappableObj or c is Enemy):
 					slap_thing(c, hit_from);
+				elif c.get("collision_layer") == 0b10:
+					slap_thing(c.get_parent(), hit_from);
 				# TODO: Slap bones
 				#elif c is PhysicalBone3D:
 					#slap_thing(c.get_parent().get_parent().get_parent().get_parent(), hit_from);
