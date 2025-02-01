@@ -66,6 +66,7 @@ func _process(delta: float) -> void:
 		if spawn_prog <= 0:
 			enabled = true;
 			spawn_dir = 0;
+			spawn_portal.visible = false;
 
 func _physics_process(delta: float) -> void:
 	if !enabled or slapped:
