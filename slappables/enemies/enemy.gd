@@ -39,7 +39,7 @@ func slap(pos, intensity, flash):
 	slap_behavior();
 	
 	slapped = true;
-	$CollisionShape3D.disabled = true;
+	$CollisionShape3D.set.call_deferred("disabled", true);
 	
 	bones.ragdoll(slappable, pos, intensity);
 
