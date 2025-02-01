@@ -50,7 +50,6 @@ func pre_slap(flash : bool, intensity : float):
 	just_slapped = true;
 	combo_mult = 0;
 	flash(true);
-	print(intensity);
 	
 	match type :
 		SFXType.Fleshy:
