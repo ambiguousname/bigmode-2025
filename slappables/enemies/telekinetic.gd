@@ -87,7 +87,7 @@ func eval_behavior(delta : float):
 					l -= 1;
 					continue;
 				
-				o.gravity_scale = grav_scale;
+				o.gravity_scale = randf() * grav_scale;
 				
 				i += 1;
 			
