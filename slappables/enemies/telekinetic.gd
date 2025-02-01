@@ -10,6 +10,9 @@ func set_idle():
 	active_state = States.SEARCHING;
 	anim_tree.set("parameters/conditions/cooldown", false);
 	anim_tree.set("parameters/conditions/run", true);
+	
+	find_objs();
+	curr_target = minimize_dist();
 
 enum States {
 	IDLE,
@@ -25,22 +28,53 @@ func slap_behavior():
 		o.gravity_scale = 1;
 
 @onready var shapecast : ShapeCast3D = $ShapeCast3D;
+@onready var search_cast : ShapeCast3D = $SearchCast;
 
 var objs_grabbed : Array[PhysicsBody3D];
 var bones_grabbed : Array[PhysicalBone3D];
 
 var grav_scale : float = -1.0;
 
+var targets : Array[PhysicsBody3D];
+
+func find_objs():
+	targets.clear();
+	
+	search_cast.enabled = true;
+	
+	search_cast.force_shapecast_update();
+	for i in shapecast.get_collision_count():
+		var c = shapecast.get_collider(i);
+		if c is SlappableObj or (c.get("collision_layer") == 2 and c.get_parent().active):
+			targets.push_back(c);
+	search_cast.enabled = false;
+
+func minimize_dist() -> PhysicsBody3D:
+	var min_t : PhysicsBody3D = null;
+	var min : float = 1000.0;
+	for t in targets:
+		var dist = t.global_position.distance_to(player.global_position);
+		if dist < min:
+			min = dist;
+			min_t = t;
+	return min_t;
+
+var curr_target : PhysicsBody3D;
+
 func eval_behavior(delta : float):
 	match active_state:
 		States.IDLE:
 			if player.global_position.distance_to(global_position) < 30:
+				find_objs();
+				curr_target = minimize_dist();
+				if curr_target == null:
+					curr_target = player;
 				active_state = States.SEARCHING;
 				anim_tree.set("parameters/conditions/idle", false);
 				anim_tree.set("parameters/conditions/run", true);
 			return;
 		States.SEARCHING:
-			nav_agent.target_position = player.global_position;
+			nav_agent.target_position = curr_target.global_position;
 			
 			var dir = global_position.direction_to(nav_agent.get_next_path_position());
 			
@@ -57,7 +91,6 @@ func eval_behavior(delta : float):
 				shapecast.force_shapecast_update();
 				for i in shapecast.get_collision_count():
 					var c = shapecast.get_collider(i);
-					# TODO: Bones.
 					if c is SlappableObj or (c.get("collision_layer") == 2 and c.get_parent().active):
 						objs_grabbed.push_back(c);
 						c.gravity_scale = grav_scale;
