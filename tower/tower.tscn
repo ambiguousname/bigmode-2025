@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c0236otwwcmet"]
+[gd_scene load_steps=26 format=3 uid="uid://c0236otwwcmet"]
 
 [ext_resource type="PackedScene" uid="uid://cc4idhykjp5f5" path="res://player/player.tscn" id="1_oy2uo"]
 [ext_resource type="Script" path="res://pauser.gd" id="2_wgj27"]
@@ -11,7 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://5t1sd8is4a84" path="res://xelu/D_Key_Light.png" id="8_12bcu"]
 [ext_resource type="Texture2D" uid="uid://bw3qdrm5k1mi" path="res://xelu/A_Key_Light.png" id="8_f1chs"]
 [ext_resource type="PackedScene" uid="uid://btfqs30xp6bqo" path="res://slappables/cube_slappable.tscn" id="11_5dp7v"]
+[ext_resource type="Script" path="res://spawn_trigger.gd" id="12_1o1x5"]
 [ext_resource type="Script" path="res://tower/debug_start.gd" id="12_3f6ao"]
+[ext_resource type="PackedScene" uid="uid://bsduxbwqkqrna" path="res://slappables/enemies/charger.tscn" id="13_idrxe"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mgcof"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -53,6 +55,9 @@ albedo_texture = ExtResource("8_12bcu")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i6qu6"]
 transparency = 1
 albedo_texture = ExtResource("8_f1chs")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_olnpx"]
+size = Vector3(10, 10, 10)
 
 [node name="Tower" type="Node3D"]
 
@@ -176,6 +181,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.67354, 1, -2.42464)
 [node name="RigidBody3D9" parent="Slappables/Arena" instance=ExtResource("11_5dp7v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.84177, 0.940436, 3.06771)
 mass = 20.0
+
+[node name="SpawnTrigger" type="Area3D" parent="Slappables/Arena" node_paths=PackedStringArray("to_spawn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.58856, 1.55356, 0)
+script = ExtResource("12_1o1x5")
+to_spawn = [NodePath("../Charger")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Slappables/Arena/SpawnTrigger"]
+shape = SubResource("BoxShape3D_olnpx")
+
+[node name="Charger" parent="Slappables/Arena" instance=ExtResource("13_idrxe")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.38106, -9.53674e-07, -0.512345)
 
 [node name="DebugStart" type="Marker3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.71775, 1.3416, 0)

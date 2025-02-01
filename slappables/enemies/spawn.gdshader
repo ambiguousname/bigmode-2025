@@ -1,14 +1,19 @@
 shader_type spatial;
 render_mode unshaded;
 
+uniform float progress = 0.0;
+
 void vertex() {
 	// Called for every vertex the material is visible on.
 }
 
 void fragment() {
 	vec2 new_uv = UV - vec2(0.5, 0.5);
-	ALPHA = step(0, pow(cos(new_uv.x), 2) + pow(sin(new_uv.y), 2));
-	ALBEDO = vec3(0, 0, 0);
+	float eval = abs(new_uv.x) + abs(new_uv.y);
+	float prog = 1.0 - step(progress, eval);
+	float prog1 =  (step(progress - 0.01, eval));
+	ALPHA = prog;
+	ALBEDO = vec3(prog1, prog1, prog1);
 	// Called for every pixel the material is visible on.
 }
 
