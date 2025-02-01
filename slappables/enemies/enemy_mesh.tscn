@@ -80,11 +80,11 @@ bones/16/rotation = Quaternion(0.0328884, -3.62916e-08, 0.0606297, 0.997618)
 bones/20/rotation = Quaternion(0.425123, -0.0140379, 0.258481, 0.86733)
 bones/21/rotation = Quaternion(0.0328884, 3.62916e-08, -0.0606297, 0.997618)
 
-[node name="PhysicalBoneSimulator3D2" type="PhysicalBoneSimulator3D" parent="Skeleton3D" index="1"]
+[node name="PhysicalBoneSimulator3D" type="PhysicalBoneSimulator3D" parent="Skeleton3D" index="1"]
 active = false
 script = ExtResource("2_x3enl")
 
-[node name="Physical Bone Spine" type="PhysicalBone3D" parent="Skeleton3D/PhysicalBoneSimulator3D2" index="0"]
+[node name="Physical Bone Spine" type="PhysicalBone3D" parent="Skeleton3D/PhysicalBoneSimulator3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, -6.88359e-07, -1, 0, 1, -6.88359e-07, 0, 2.42332, -0.0119934)
 joint_type = 1
 joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.3902e-08, 0.160277)
@@ -94,11 +94,11 @@ joint_constraints/bias = 0.3
 joint_constraints/damping = 1.0
 joint_constraints/impulse_clamp = 0.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Skeleton3D/PhysicalBoneSimulator3D2/Physical Bone Spine" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Skeleton3D/PhysicalBoneSimulator3D/Physical Bone Spine" index="0"]
 transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 1.44355e-07, 0.210572)
 shape = SubResource("CapsuleShape3D_ne002")
 
-[node name="Physical Bone RightShoulder" type="PhysicalBone3D" parent="Skeleton3D/PhysicalBoneSimulator3D2" index="1"]
+[node name="Physical Bone RightShoulder" type="PhysicalBone3D" parent="Skeleton3D/PhysicalBoneSimulator3D" index="1"]
 transform = Transform3D(-0.0437539, 0.101467, 0.993876, 0.999042, 0.00444313, 0.0435277, 7.02363e-07, 0.994829, -0.101564, -0.184831, 2.57551, 0.00689452)
 joint_type = 1
 joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.19275e-09, 4.15675e-09, 0.18597)
@@ -108,11 +108,11 @@ joint_constraints/bias = 0.3
 joint_constraints/damping = 1.0
 joint_constraints/impulse_clamp = 0.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Skeleton3D/PhysicalBoneSimulator3D2/Physical Bone RightShoulder" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Skeleton3D/PhysicalBoneSimulator3D/Physical Bone RightShoulder" index="0"]
 transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_gy6ij")
 
-[node name="Physical Bone RightUpperArm" type="PhysicalBone3D" parent="Skeleton3D/PhysicalBoneSimulator3D2" index="2"]
+[node name="Physical Bone RightUpperArm" type="PhysicalBone3D" parent="Skeleton3D/PhysicalBoneSimulator3D" index="2"]
 transform = Transform3D(-0.975901, 0.0132029, 0.217814, 0.218213, 0.0590448, 0.974113, 3.3406e-07, 0.998168, -0.0605029, -0.418231, 2.3502, 0.0392734)
 joint_type = 1
 joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.79738e-09, -5.96746e-09, 0.222982)
@@ -122,11 +122,11 @@ joint_constraints/bias = 0.3
 joint_constraints/damping = 1.0
 joint_constraints/impulse_clamp = 0.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Skeleton3D/PhysicalBoneSimulator3D2/Physical Bone RightUpperArm" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Skeleton3D/PhysicalBoneSimulator3D/Physical Bone RightUpperArm" index="0"]
 transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_a8q2w")
 
-[node name="Physical Bone RightForearm" type="PhysicalBone3D" parent="Skeleton3D/PhysicalBoneSimulator3D2" index="3"]
+[node name="Physical Bone RightForearm" type="PhysicalBone3D" parent="Skeleton3D/PhysicalBoneSimulator3D" index="3"]
 transform = Transform3D(-0.999978, 0.00668792, -1.30603e-07, 0.000520036, 0.0777753, 0.996971, 0.00666767, 0.996948, -0.0777771, -0.4668, 1.94276, 0.0676051)
 joint_type = 1
 joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.19928e-08, -5.97078e-08, 0.190806)
@@ -136,11 +136,11 @@ joint_constraints/bias = 0.3
 joint_constraints/damping = 1.0
 joint_constraints/impulse_clamp = 0.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Skeleton3D/PhysicalBoneSimulator3D2/Physical Bone RightForearm" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Skeleton3D/PhysicalBoneSimulator3D/Physical Bone RightForearm" index="0"]
 transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_traol")
 
-[node name="Physical Bone Neck" type="PhysicalBone3D" parent="Skeleton3D/PhysicalBoneSimulator3D2" index="4"]
+[node name="Physical Bone Neck" type="PhysicalBone3D" parent="Skeleton3D/PhysicalBoneSimulator3D" index="4"]
 transform = Transform3D(1, 0, 0, 0, -1.19763e-06, -1, 0, 1, -1.19763e-06, 0, 2.70114, -0.0119932)
 joint_type = 1
 joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.41882e-08, 0.117544)
@@ -150,11 +150,11 @@ joint_constraints/bias = 0.3
 joint_constraints/damping = 1.0
 joint_constraints/impulse_clamp = 0.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Skeleton3D/PhysicalBoneSimulator3D2/Physical Bone Neck" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Skeleton3D/PhysicalBoneSimulator3D/Physical Bone Neck" index="0"]
 transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, -0.0224583, -2.82191e-07, -0.236804)
 shape = SubResource("CapsuleShape3D_m8g18")
 
-[node name="Physical Bone LeftShoulder" type="PhysicalBone3D" parent="Skeleton3D/PhysicalBoneSimulator3D2" index="5"]
+[node name="Physical Bone LeftShoulder" type="PhysicalBone3D" parent="Skeleton3D/PhysicalBoneSimulator3D" index="5"]
 transform = Transform3D(-0.0437539, -0.101467, -0.993876, -0.999042, 0.00444313, 0.0435277, -7.02363e-07, 0.994829, -0.101564, 0.184831, 2.57551, 0.00689452)
 joint_type = 1
 joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.19275e-09, 4.15675e-09, 0.18597)
@@ -164,11 +164,11 @@ joint_constraints/bias = 0.3
 joint_constraints/damping = 1.0
 joint_constraints/impulse_clamp = 0.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Skeleton3D/PhysicalBoneSimulator3D2/Physical Bone LeftShoulder" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Skeleton3D/PhysicalBoneSimulator3D/Physical Bone LeftShoulder" index="0"]
 transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_2wk0f")
 
-[node name="Physical Bone LeftUpperArm" type="PhysicalBone3D" parent="Skeleton3D/PhysicalBoneSimulator3D2" index="6"]
+[node name="Physical Bone LeftUpperArm" type="PhysicalBone3D" parent="Skeleton3D/PhysicalBoneSimulator3D" index="6"]
 transform = Transform3D(-0.975901, -0.0132029, -0.217814, -0.218213, 0.0590448, 0.974113, -3.3406e-07, 0.998168, -0.0605029, 0.418231, 2.3502, 0.0392734)
 joint_type = 1
 joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.79738e-09, -5.96746e-09, 0.222982)
@@ -178,11 +178,11 @@ joint_constraints/bias = 0.3
 joint_constraints/damping = 1.0
 joint_constraints/impulse_clamp = 0.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Skeleton3D/PhysicalBoneSimulator3D2/Physical Bone LeftUpperArm" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Skeleton3D/PhysicalBoneSimulator3D/Physical Bone LeftUpperArm" index="0"]
 transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_6op1k")
 
-[node name="Physical Bone LeftForearm" type="PhysicalBone3D" parent="Skeleton3D/PhysicalBoneSimulator3D2" index="7"]
+[node name="Physical Bone LeftForearm" type="PhysicalBone3D" parent="Skeleton3D/PhysicalBoneSimulator3D" index="7"]
 transform = Transform3D(-0.999978, -0.00668792, 1.30603e-07, -0.000520036, 0.0777753, 0.996971, -0.00666767, 0.996948, -0.0777771, 0.4668, 1.94276, 0.0676051)
 joint_type = 1
 joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.19928e-08, -5.97078e-08, 0.190806)
@@ -192,11 +192,11 @@ joint_constraints/bias = 0.3
 joint_constraints/damping = 1.0
 joint_constraints/impulse_clamp = 0.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Skeleton3D/PhysicalBoneSimulator3D2/Physical Bone LeftForearm" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Skeleton3D/PhysicalBoneSimulator3D/Physical Bone LeftForearm" index="0"]
 transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_di2c3")
 
-[node name="Physical Bone RightHip" type="PhysicalBone3D" parent="Skeleton3D/PhysicalBoneSimulator3D2" index="8"]
+[node name="Physical Bone RightHip" type="PhysicalBone3D" parent="Skeleton3D/PhysicalBoneSimulator3D" index="8"]
 transform = Transform3D(0.241136, 0.444533, 0.862696, -0.411345, -0.758313, 0.505724, 0.879004, -0.476814, -1.48528e-07, -0.108251, 1.79485, -0.0119935)
 joint_type = 1
 joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.62677e-07, -1.09265e-07, 0.12548)
@@ -206,11 +206,11 @@ joint_constraints/bias = 0.3
 joint_constraints/damping = 1.0
 joint_constraints/impulse_clamp = 0.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Skeleton3D/PhysicalBoneSimulator3D2/Physical Bone RightHip" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Skeleton3D/PhysicalBoneSimulator3D/Physical Bone RightHip" index="0"]
 transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_aksxx")
 
-[node name="Physical Bone RightKnee" type="PhysicalBone3D" parent="Skeleton3D/PhysicalBoneSimulator3D2" index="9"]
+[node name="Physical Bone RightKnee" type="PhysicalBone3D" parent="Skeleton3D/PhysicalBoneSimulator3D" index="9"]
 transform = Transform3D(0.476814, 0.879004, -1.15076e-06, 0.0496229, -0.0269165, 0.998405, 0.877602, -0.476054, -0.0564529, -0.216502, 1.44507, 0.00419613)
 joint_type = 1
 joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.48704e-08, 3.50884e-08, 0.286781)
@@ -220,11 +220,11 @@ joint_constraints/bias = 0.3
 joint_constraints/damping = 1.0
 joint_constraints/impulse_clamp = 0.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Skeleton3D/PhysicalBoneSimulator3D2/Physical Bone RightKnee" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Skeleton3D/PhysicalBoneSimulator3D/Physical Bone RightKnee" index="0"]
 transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_tqpj8")
 
-[node name="Physical Bone RightShin" type="PhysicalBone3D" parent="Skeleton3D/PhysicalBoneSimulator3D2" index="10"]
+[node name="Physical Bone RightShin" type="PhysicalBone3D" parent="Skeleton3D/PhysicalBoneSimulator3D" index="10"]
 transform = Transform3D(0.476814, 0.879004, -1.00678e-06, -0.071627, 0.0388551, 0.996674, 0.876081, -0.475229, 0.0814871, -0.216501, 0.822001, -0.007146)
 joint_type = 1
 joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.25965e-08, 4.62928e-09, 0.337867)
@@ -234,11 +234,11 @@ joint_constraints/bias = 0.3
 joint_constraints/damping = 1.0
 joint_constraints/impulse_clamp = 0.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Skeleton3D/PhysicalBoneSimulator3D2/Physical Bone RightShin" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Skeleton3D/PhysicalBoneSimulator3D/Physical Bone RightShin" index="0"]
 transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_6v0po")
 
-[node name="Physical Bone RightHeel" type="PhysicalBone3D" parent="Skeleton3D/PhysicalBoneSimulator3D2" index="11"]
+[node name="Physical Bone RightHeel" type="PhysicalBone3D" parent="Skeleton3D/PhysicalBoneSimulator3D" index="11"]
 transform = Transform3D(0.476815, 0.879004, -1.05426e-06, 4.38185e-05, -2.25699e-05, 1, 0.879004, -0.476815, -4.92783e-05, -0.216501, 0.290881, -0.0346682)
 joint_type = 1
 joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3946e-08, -2.28494e-08, 0.194376)
@@ -248,11 +248,11 @@ joint_constraints/bias = 0.3
 joint_constraints/damping = 1.0
 joint_constraints/impulse_clamp = 0.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Skeleton3D/PhysicalBoneSimulator3D2/Physical Bone RightHeel" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Skeleton3D/PhysicalBoneSimulator3D/Physical Bone RightHeel" index="0"]
 transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_142gw")
 
-[node name="Physical Bone LeftHip" type="PhysicalBone3D" parent="Skeleton3D/PhysicalBoneSimulator3D2" index="12"]
+[node name="Physical Bone LeftHip" type="PhysicalBone3D" parent="Skeleton3D/PhysicalBoneSimulator3D" index="12"]
 transform = Transform3D(0.241136, -0.444533, -0.862696, 0.411345, -0.758313, 0.505724, -0.879004, -0.476814, -1.48528e-07, 0.108251, 1.79485, -0.0119935)
 joint_type = 1
 joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.62677e-07, -1.09265e-07, 0.12548)
@@ -262,11 +262,11 @@ joint_constraints/bias = 0.3
 joint_constraints/damping = 1.0
 joint_constraints/impulse_clamp = 0.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Skeleton3D/PhysicalBoneSimulator3D2/Physical Bone LeftHip" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Skeleton3D/PhysicalBoneSimulator3D/Physical Bone LeftHip" index="0"]
 transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_iv4oy")
 
-[node name="Physical Bone LeftKnee" type="PhysicalBone3D" parent="Skeleton3D/PhysicalBoneSimulator3D2" index="13"]
+[node name="Physical Bone LeftKnee" type="PhysicalBone3D" parent="Skeleton3D/PhysicalBoneSimulator3D" index="13"]
 transform = Transform3D(0.476814, -0.879004, 1.15076e-06, -0.0496229, -0.0269165, 0.998405, -0.877602, -0.476054, -0.0564529, 0.216502, 1.44507, 0.00419613)
 joint_type = 1
 joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.48704e-08, 3.50884e-08, 0.286781)
@@ -276,11 +276,11 @@ joint_constraints/bias = 0.3
 joint_constraints/damping = 1.0
 joint_constraints/impulse_clamp = 0.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Skeleton3D/PhysicalBoneSimulator3D2/Physical Bone LeftKnee" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Skeleton3D/PhysicalBoneSimulator3D/Physical Bone LeftKnee" index="0"]
 transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_nq21y")
 
-[node name="Physical Bone LeftShin" type="PhysicalBone3D" parent="Skeleton3D/PhysicalBoneSimulator3D2" index="14"]
+[node name="Physical Bone LeftShin" type="PhysicalBone3D" parent="Skeleton3D/PhysicalBoneSimulator3D" index="14"]
 transform = Transform3D(0.476814, -0.879004, 1.00678e-06, 0.071627, 0.0388551, 0.996674, -0.876081, -0.475229, 0.0814871, 0.216501, 0.822001, -0.007146)
 joint_type = 1
 joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.25965e-08, 4.62928e-09, 0.337867)
@@ -290,11 +290,11 @@ joint_constraints/bias = 0.3
 joint_constraints/damping = 1.0
 joint_constraints/impulse_clamp = 0.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Skeleton3D/PhysicalBoneSimulator3D2/Physical Bone LeftShin" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Skeleton3D/PhysicalBoneSimulator3D/Physical Bone LeftShin" index="0"]
 transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_ux3j0")
 
-[node name="Physical Bone LeftHeel" type="PhysicalBone3D" parent="Skeleton3D/PhysicalBoneSimulator3D2" index="15"]
+[node name="Physical Bone LeftHeel" type="PhysicalBone3D" parent="Skeleton3D/PhysicalBoneSimulator3D" index="15"]
 transform = Transform3D(0.476815, -0.879004, 1.05426e-06, -4.38185e-05, -2.25699e-05, 1, -0.879004, -0.476815, -4.92783e-05, 0.216501, 0.290881, -0.0346682)
 joint_type = 1
 joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3946e-08, -2.28494e-08, 0.194376)
@@ -304,6 +304,6 @@ joint_constraints/bias = 0.3
 joint_constraints/damping = 1.0
 joint_constraints/impulse_clamp = 0.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Skeleton3D/PhysicalBoneSimulator3D2/Physical Bone LeftHeel" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Skeleton3D/PhysicalBoneSimulator3D/Physical Bone LeftHeel" index="0"]
 transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_h0lru")
