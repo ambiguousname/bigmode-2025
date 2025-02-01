@@ -18,11 +18,18 @@ const JUMP_STR = 5;
 
 @onready var pain : AudioStreamPlayer3D = $Pain;
 
+@onready var raycast : RayCast3D = $RayCast3D;
+
 var jump : float;
 var jumping : bool = false;
+
+var slam : float;
+var is_slamming : bool = false;
 func _input(event: InputEvent) -> void:
 	if event.is_action("jump"):
 		jump = event.get_action_strength("jump");
+	if event.is_action("slam"):
+		slam = event.get_action_strength("slam");
 
 func _physics_process(delta: float) -> void:
 	if global_position.y < -12:
@@ -53,6 +60,25 @@ func _physics_process(delta: float) -> void:
 	if jump > 0.5 and is_on_floor() and not jumping:
 		move_dir += Vector3.UP * JUMP_STR;
 		jumping = true;
+	
+	if is_slamming:
+		if !is_on_floor():
+			velocity += Vector3.DOWN * JUMP_STR;
+			_camera.curr_shake += 0.01;
+		else:
+			is_slamming = false;
+			# TODO: Slam.
+	
+	if raycast.is_colliding():
+		var c = raycast.get_collider();
+		if !is_slamming:
+			if c.global_position.distance_to(global_position) > 7 and !is_slamming:
+				ui.show_slam();
+				if slam:
+					is_slamming = true;
+					ui.hide_slam();
+			else:
+				ui.hide_slam();
 	
 	velocity += move_dir;
 	move_and_slide();

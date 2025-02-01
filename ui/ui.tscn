@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bv37wxweu87su"]
+[gd_scene load_steps=9 format=3 uid="uid://bv37wxweu87su"]
 
 [ext_resource type="Script" path="res://ui/ui_manager.gd" id="1_fmg6f"]
+[ext_resource type="Texture2D" uid="uid://bp05tq4vtcao1" path="res://xelu/Mouse_Right_Key_Light.png" id="2_6podm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_e6kvp"]
 font_size = 32
@@ -220,3 +221,47 @@ grow_vertical = 0
 theme_override_styles/fill = SubResource("StyleBoxFlat_jqfmp")
 value = 100.0
 show_percentage = false
+
+[node name="Slam" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.5
+offset_top = -20.0
+offset_right = 44.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Slam"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -43.0
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "SLAM"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Slam"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -21.0
+offset_right = 42.0
+offset_bottom = 21.0
+grow_vertical = 2
+texture = ExtResource("2_6podm")
+expand_mode = 1
+stretch_mode = 4

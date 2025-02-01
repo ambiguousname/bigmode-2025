@@ -77,6 +77,17 @@ func die():
 	death_menu.visible = true;
 	get_tree().paused = true;
 
+@onready var slam : Control = $Slam;
+var slam_shown : float = 0;
+func show_slam():
+	if slam_shown < 3:
+		slam.visible = true;
+		slam_shown += 1;
+
+func hide_slam():
+	slam.visible = false;
+		
+
 func _process(delta : float):
 	progress.value = 100 * combo_timer.time_left/combo_timer.wait_time;
 	
