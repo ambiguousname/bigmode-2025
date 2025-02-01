@@ -6,10 +6,13 @@ var mesh : MeshInstance3D;
 @onready var slap_timer : Timer = $SlapTimer;
 @onready var combo_timer : Timer = $ComboTimer;
 
+var player_slapped : bool = false;
+
 var combo_mult = 1;
 func _ready() -> void:
 	slap_timer.timeout.connect(func():
 		just_slapped = false;
+		player_slapped = false;
 	);
 	
 	combo_timer.timeout.connect(func():
