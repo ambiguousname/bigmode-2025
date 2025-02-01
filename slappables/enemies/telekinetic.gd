@@ -7,28 +7,25 @@ func _ready() -> void:
 	timer.timeout.connect(set_idle);
 
 func set_idle():
-	if active_state == States.SLAPPED:
-		return;
 	active_state = States.IDLE;
 
 enum States {
 	IDLE,
 	SEARCHING,
 	ATTACKING,
-	COOLDOWN,
-	SLAPPED
+	COOLDOWN
 };
 
 var active_state : States = States.IDLE;
 
 func slap_behavior():
-	active_state = States.SLAPPED;
 	for o in objs_grabbed:
 		o.gravity_scale = 1;
 
 @onready var shapecast : ShapeCast3D = $ShapeCast3D;
 
 var objs_grabbed : Array[PhysicsBody3D];
+var bones_grabbed : Array[PhysicalBone3D];
 
 var grav_scale : float = -1.0;
 
@@ -59,10 +56,11 @@ func eval_behavior(delta : float):
 				for i in shapecast.get_collision_count():
 					var c = shapecast.get_collider(i);
 					# TODO: Bones.
-					if c is SlappableObj:
+					if c is SlappableObj or (c.get("collision_layer") == 2 and c.get_parent().active):
 						objs_grabbed.push_back(c);
 						c.gravity_scale = grav_scale;
 						c.apply_impulse(Vector3.ZERO);
+						
 				
 				velocity = Vector3.ZERO;
 				
@@ -78,7 +76,10 @@ func eval_behavior(delta : float):
 			var i = 0;
 			while i < l and l != 0:
 				var o = objs_grabbed[i];
-				if o.is_queued_for_deletion() or o.slappable.just_slapped:
+				var slappable = o.get("slappable");
+				if slappable == null:
+					slappable = o.get_parent().slappable;
+				if o.is_queued_for_deletion() or slappable.just_slapped:
 					objs_grabbed.remove_at(i);
 					i -= 1;
 					l -= 1;
@@ -104,6 +105,4 @@ func eval_behavior(delta : float):
 				active_state = States.COOLDOWN;
 				timer.start();
 		States.COOLDOWN:
-			return;
-		States.SLAPPED:
 			return;

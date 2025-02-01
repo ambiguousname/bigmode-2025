@@ -9,8 +9,7 @@ enum States {
 	SEARCHING,
 	STAND_AND_PLAY_ANIM,
 	ATTACKING,
-	MOVE_BACK,
-	SLAPPED
+	MOVE_BACK
 };
 
 func _ready() -> void:
@@ -19,9 +18,6 @@ func _ready() -> void:
 	timer.timeout.connect(stand_done);
 
 var active_state : States = States.IDLE;
-
-func slap_behavior():
-	active_state = States.SLAPPED;
 
 var charge_dir : Vector3 = Vector3.ZERO;
 var charge_travelled : float = 0;
@@ -41,7 +37,9 @@ func eval_behavior(delta: float):
 				
 				timer.start(0.5);
 				anim_tree.set("parameters/conditions/run", false);
-				anim_tree.set("parameters/conditions/shoot", true);
+				anim_tree.set("parameters/conditions/charge_windup", true);
+				previous_cond = "parameters/conditions/charge_windup";
+				next_cond = "parameters/conditions/charge";
 				
 				charge_dir = (player.global_position - global_position);
 				charge_dir.y = 0;
@@ -78,8 +76,10 @@ func eval_behavior(delta: float):
 				
 				timer.start(1);
 				
-				anim_tree.set("parameters/conditions/shoot", false);
-				anim_tree.set("parameters/conditions/idle", true);
+				anim_tree.set("parameters/conditions/charge", false);
+				anim_tree.set("parameters/conditions/cooldown", true);
+				previous_cond = "parameters/conditions/cooldown";
+				next_cond = "parameters/conditions/run";
 				
 				charge_travelled = 0;
 				shapecast.enabled = false;
@@ -100,12 +100,12 @@ func eval_behavior(delta: float):
 			rotation.y = atan2(dir.x, dir.z);
 		States.STAND_AND_PLAY_ANIM:
 			return
-		States.SLAPPED:
-			return;
 
 var next_state : States = States.IDLE;
+var previous_cond : String;
+var next_cond : String;
 
 func stand_done():
-	if active_state == States.SLAPPED:
-		return;
 	active_state = next_state;
+	anim_tree.set(previous_cond, false);
+	anim_tree.set(next_cond, true);
