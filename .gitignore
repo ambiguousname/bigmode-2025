@@ -18,3 +18,4 @@ mono_crash.*.json
 *.blend1
 
 Builds/
+.DS_Store

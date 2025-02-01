@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://bv37wxweu87su" path="res://ui/ui.tscn" id="6_wyddu"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_y2e2o"]
-load_path = "res://.godot/imported/panorama.webp-c655559bb5045314b4c9859b18ccd417.ctex"
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_1y4xu"]
 panorama = SubResource("CompressedTexture2D_y2e2o")
