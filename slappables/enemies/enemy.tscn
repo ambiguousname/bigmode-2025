@@ -1,9 +1,8 @@
-[gd_scene load_steps=29 format=3 uid="uid://cg71oerkiwokf"]
+[gd_scene load_steps=28 format=3 uid="uid://cg71oerkiwokf"]
 
 [ext_resource type="Script" path="res://slappables/enemies/enemy.gd" id="2_5mj1d"]
 [ext_resource type="PackedScene" uid="uid://dna4rginxlak7" path="res://slappables/enemies/enemy_mesh.tscn" id="2_65jh8"]
 [ext_resource type="PackedScene" uid="uid://b358x4ut7m4lr" path="res://slappables/slappable_manager.tscn" id="2_p3h6t"]
-[ext_resource type="Script" path="res://slappables/enemies/animation_tree.gd" id="4_bk4dg"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_pxkgh"]
 height = 1.927
@@ -139,7 +138,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.08653, 0.217871)
 shape = SubResource("CylinderShape3D_pxkgh")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+root_node = NodePath("../enemy_mesh")
 tree_root = SubResource("AnimationNodeStateMachine_vsuu4")
+anim_player = NodePath("../enemy_mesh/AnimationPlayer")
 parameters/conditions/charge = false
 parameters/conditions/charge_windup = false
 parameters/conditions/cooldown = false
@@ -147,4 +148,3 @@ parameters/conditions/idle = false
 parameters/conditions/run = false
 parameters/conditions/telekinesis = false
 parameters/RunCharge/Add2/add_amount = 1.0
-script = ExtResource("4_bk4dg")
