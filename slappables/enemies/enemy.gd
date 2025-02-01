@@ -1,5 +1,7 @@
 class_name Enemy extends CharacterBody3D
 
+@export var override_mat : Material;
+
 @onready var nav_agent : NavigationAgent3D = $NavigationAgent3D;
 
 @onready var player : Player = get_tree().current_scene.get_node("Player");
@@ -17,6 +19,8 @@ class_name Enemy extends CharacterBody3D
 @onready var mesh = $enemy_mesh/Skeleton3D/Sphere;
 
 func _ready() -> void:
+	if override_mat != null:
+		mesh.set_surface_override_material(0, override_mat);
 	slappable.init(mesh);
 
 func slap_behavior():

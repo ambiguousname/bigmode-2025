@@ -1,13 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://co71eu4x7su64"]
+[gd_scene load_steps=5 format=3 uid="uid://co71eu4x7su64"]
 
 [ext_resource type="PackedScene" uid="uid://cg71oerkiwokf" path="res://slappables/enemies/enemy.tscn" id="1_yym7u"]
 [ext_resource type="Script" path="res://slappables/enemies/telekinetic.gd" id="2_mqnjq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sgjn7"]
+albedo_color = Color(4.52429e-06, 0.639185, 0.590287, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_3mojw"]
 radius = 8.855
 
 [node name="Telekinetic" instance=ExtResource("1_yym7u")]
 script = ExtResource("2_mqnjq")
+override_mat = SubResource("StandardMaterial3D_sgjn7")
 
 [node name="ShapeCast3D" type="ShapeCast3D" parent="." index="5"]
 enabled = false
