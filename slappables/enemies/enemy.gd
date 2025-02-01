@@ -18,7 +18,6 @@ class_name Enemy extends CharacterBody3D
 
 func _ready() -> void:
 	slappable.init(mesh);
-	mesh.visible = false;
 
 func slap_behavior():
 	pass
@@ -50,7 +49,6 @@ func spawn():
 	spawn_portal.visible = true;
 	spawn_dir = 1;
 	anim_tree.set("parameters/conditions/spawn", true);
-	mesh.visible = true;
 
 func _process(delta: float) -> void:
 	if spawn_dir > 0:
