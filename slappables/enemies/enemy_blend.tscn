@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0826ccswitgc"]
+
+[ext_resource type="PackedScene" uid="uid://cphfklshgqi34" path="res://slappables/enemies/enemy.blend" id="1_jhu5j"]
+
+[node name="enemy" instance=ExtResource("1_jhu5j")]
