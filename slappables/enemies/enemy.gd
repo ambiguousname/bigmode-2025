@@ -4,14 +4,14 @@ class_name Enemy extends CharacterBody3D
 
 @onready var player : Player = get_tree().current_scene.get_node("Player");
 
-@onready var bones : RagdollBones = $Skeleton/Skeleton3D/PhysicalBoneSimulator3D;
+@onready var bones : RagdollBones = $enemy_mesh/Skeleton3D/PhysicalBoneSimulator3D;
 
 @onready var anim_tree : AnimationTree = $AnimationTree;
 
 @onready var slappable : Slappable = $SlappableManager;
 
 func _ready() -> void:
-	slappable.init($Skeleton/Skeleton3D/Robot);
+	slappable.init($enemy_mesh/Skeleton3D/Sphere);
 
 func slap_behavior():
 	pass

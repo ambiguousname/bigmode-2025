@@ -1,8 +1,8 @@
 [gd_scene load_steps=29 format=3 uid="uid://cg71oerkiwokf"]
 
 [ext_resource type="Script" path="res://slappables/enemies/enemy.gd" id="2_5mj1d"]
+[ext_resource type="PackedScene" uid="uid://dna4rginxlak7" path="res://slappables/enemies/enemy_mesh.tscn" id="2_65jh8"]
 [ext_resource type="PackedScene" uid="uid://b358x4ut7m4lr" path="res://slappables/slappable_manager.tscn" id="2_p3h6t"]
-[ext_resource type="PackedScene" uid="uid://cphfklshgqi34" path="res://slappables/enemies/enemy.blend" id="2_vrriy"]
 [ext_resource type="Script" path="res://slappables/enemies/animation_tree.gd" id="4_bk4dg"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_pxkgh"]
@@ -122,13 +122,12 @@ states/telekinesis_end/position = Vector2(739, 201)
 states/telekinesis_start/node = SubResource("AnimationNodeAnimation_co8ys")
 states/telekinesis_start/position = Vector2(846, 30)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_8u5v7"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_kueau"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_m6ubq"), "run", "charge_windup", SubResource("AnimationNodeStateMachineTransition_suxl1"), "charge_windup", "RunCharge", SubResource("AnimationNodeStateMachineTransition_rjeoj"), "run", "telekinesis_start", SubResource("AnimationNodeStateMachineTransition_fobc8"), "telekinesis_start", "telekinesis", SubResource("AnimationNodeStateMachineTransition_8bduu"), "RunCharge", "charge_cooldown", SubResource("AnimationNodeStateMachineTransition_utxa8"), "charge_cooldown", "run", SubResource("AnimationNodeStateMachineTransition_365nw"), "telekinesis", "telekinesis_end", SubResource("AnimationNodeStateMachineTransition_ly78e"), "telekinesis_end", "run", SubResource("AnimationNodeStateMachineTransition_da7rr")]
-graph_offset = Vector2(-130, 10)
+graph_offset = Vector2(-95, -11)
 
 [node name="Enemy" type="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.23695, 0.0359197, -3.99976)
 script = ExtResource("2_5mj1d")
 
-[node name="enemy" parent="." instance=ExtResource("2_vrriy")]
+[node name="enemy_mesh" parent="." instance=ExtResource("2_65jh8")]
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 target_desired_distance = 3.0
@@ -140,9 +139,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.08653, 0.217871)
 shape = SubResource("CylinderShape3D_pxkgh")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-root_node = NodePath("../enemy")
 tree_root = SubResource("AnimationNodeStateMachine_vsuu4")
-anim_player = NodePath("../enemy/AnimationPlayer")
 parameters/conditions/charge = false
 parameters/conditions/charge_windup = false
 parameters/conditions/cooldown = false
