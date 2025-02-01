@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://c0236otwwcmet"]
+[gd_scene load_steps=26 format=3 uid="uid://c0236otwwcmet"]
 
 [ext_resource type="PackedScene" uid="uid://cc4idhykjp5f5" path="res://player/player.tscn" id="1_oy2uo"]
 [ext_resource type="Script" path="res://pauser.gd" id="2_wgj27"]
@@ -14,7 +14,6 @@
 [ext_resource type="Script" path="res://spawn_trigger.gd" id="12_1o1x5"]
 [ext_resource type="Script" path="res://tower/debug_start.gd" id="12_3f6ao"]
 [ext_resource type="PackedScene" uid="uid://bsduxbwqkqrna" path="res://slappables/enemies/charger.tscn" id="13_idrxe"]
-[ext_resource type="PackedScene" uid="uid://co71eu4x7su64" path="res://slappables/enemies/telekinetic.tscn" id="14_7ly42"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mgcof"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -162,43 +161,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, -0.123651)
 [node name="RigidBody3D4" parent="Slappables/Starting" instance=ExtResource("11_5dp7v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, -1.31224)
 
-[node name="Arena" type="Node3D" parent="Slappables"]
+[node name="ChargerFirst" type="Node3D" parent="Slappables"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.0521, 0, 0)
 
-[node name="RigidBody3D5" parent="Slappables/Arena" instance=ExtResource("11_5dp7v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.88028, 1, -1.46131)
-mass = 30.0
-
-[node name="RigidBody3D6" parent="Slappables/Arena" instance=ExtResource("11_5dp7v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.87961, 1, -3.10395)
-mass = 10.0
-
-[node name="RigidBody3D7" parent="Slappables/Arena" instance=ExtResource("11_5dp7v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.44651, 1, 10.0746)
-
-[node name="RigidBody3D8" parent="Slappables/Arena" instance=ExtResource("11_5dp7v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.01817, 1, 0.361618)
-
-[node name="RigidBody3D9" parent="Slappables/Arena" instance=ExtResource("11_5dp7v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.84994, 0.940436, 5.85397)
-mass = 20.0
-
-[node name="SpawnTrigger" type="Area3D" parent="Slappables/Arena" node_paths=PackedStringArray("to_spawn")]
+[node name="SpawnTrigger" type="Area3D" parent="Slappables/ChargerFirst" node_paths=PackedStringArray("to_spawn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.58856, 1.55356, 0)
 script = ExtResource("12_1o1x5")
-to_spawn = [NodePath("../Charger"), NodePath("../Telekinetic")]
+to_spawn = [NodePath("../Charger")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Slappables/Arena/SpawnTrigger"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Slappables/ChargerFirst/SpawnTrigger"]
 shape = SubResource("BoxShape3D_olnpx")
 
-[node name="Charger" parent="Slappables/Arena" instance=ExtResource("13_idrxe")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.40982, -9.53674e-07, -0.512345)
-
-[node name="Telekinetic" parent="Slappables/Arena" instance=ExtResource("14_7ly42")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.0520992, 0, 4)
+[node name="Charger" parent="Slappables/ChargerFirst" instance=ExtResource("13_idrxe")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.95633, -9.53674e-07, 0.182318)
 
 [node name="DebugStart" type="Marker3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.71775, 1.3416, 0)
 gizmo_extents = 1.0
 script = ExtResource("12_3f6ao")
-debug = true
