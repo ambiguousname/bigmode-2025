@@ -13,6 +13,9 @@ radius = 8.855
 script = ExtResource("2_mqnjq")
 override_mat = SubResource("StandardMaterial3D_sgjn7")
 
+[node name="NavigationAgent3D" parent="." index="1"]
+target_desired_distance = 8.0
+
 [node name="ShapeCast3D" type="ShapeCast3D" parent="." index="5"]
 enabled = false
 shape = SubResource("SphereShape3D_3mojw")
