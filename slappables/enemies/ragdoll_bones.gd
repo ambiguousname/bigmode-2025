@@ -1,6 +1,6 @@
 class_name RagdollBones extends PhysicalBoneSimulator3D
 
-@onready var bone_push = $"Physical Bone hip";
+@onready var bone_push = $"Physical Bone Spine";
 
 var slappable : Slappable;
 
