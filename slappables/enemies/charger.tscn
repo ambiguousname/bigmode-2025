@@ -9,6 +9,9 @@ radius = 1.055
 [node name="Charger" instance=ExtResource("1_lev1i")]
 script = ExtResource("2_ayymr")
 
+[node name="NavigationAgent3D" parent="." index="1"]
+target_desired_distance = 10.0
+
 [node name="ShapeCast3D" type="ShapeCast3D" parent="." index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1385, 0.552854)
 enabled = false
