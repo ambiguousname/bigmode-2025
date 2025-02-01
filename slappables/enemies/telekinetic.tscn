@@ -115,6 +115,13 @@ body_offset = Transform3D(3.30999, -0.216062, 0.328551, 0.30762, -0.312255, -3.3
 [node name="NavigationAgent3D" parent="." index="1"]
 target_desired_distance = 10.0
 
+[node name="AnimationTree" parent="." index="4"]
+parameters/conditions/charge = false
+parameters/conditions/charge_windup = false
+parameters/conditions/cooldown = false
+parameters/conditions/telekinesis = false
+parameters/RunCharge/Add2/add_amount = 0
+
 [node name="ShapeCast3D" type="ShapeCast3D" parent="." index="5"]
 enabled = false
 shape = SubResource("SphereShape3D_4o1ug")

@@ -37,7 +37,9 @@ func eval_behavior(delta: float):
 				
 				timer.start(0.5);
 				anim_tree.set("parameters/conditions/run", false);
-				anim_tree.set("parameters/conditions/shoot", true);
+				anim_tree.set("parameters/conditions/charge_windup", true);
+				previous_cond = "parameters/conditions/charge_windup";
+				next_cond = "parameters/conditions/charge";
 				
 				charge_dir = (player.global_position - global_position);
 				charge_dir.y = 0;
@@ -74,8 +76,10 @@ func eval_behavior(delta: float):
 				
 				timer.start(1);
 				
-				anim_tree.set("parameters/conditions/shoot", false);
-				anim_tree.set("parameters/conditions/idle", true);
+				anim_tree.set("parameters/conditions/charge", false);
+				anim_tree.set("parameters/conditions/cooldown", true);
+				previous_cond = "parameters/conditions/cooldown";
+				next_cond = "parameters/conditions/run";
 				
 				charge_travelled = 0;
 				shapecast.enabled = false;
@@ -98,6 +102,10 @@ func eval_behavior(delta: float):
 			return
 
 var next_state : States = States.IDLE;
+var previous_cond : String;
+var next_cond : String;
 
 func stand_done():
 	active_state = next_state;
+	anim_tree.set(previous_cond, false);
+	anim_tree.set(next_cond, true);
