@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://5t1sd8is4a84"
 path.s3tc="res://.godot/imported/D_Key_Light.png-44a2005ed24eff1a77b2db59c0ea3a55.s3tc.ctex"
+path.etc2="res://.godot/imported/D_Key_Light.png-44a2005ed24eff1a77b2db59c0ea3a55.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://xelu/D_Key_Light.png"
-dest_files=["res://.godot/imported/D_Key_Light.png-44a2005ed24eff1a77b2db59c0ea3a55.s3tc.ctex"]
+dest_files=["res://.godot/imported/D_Key_Light.png-44a2005ed24eff1a77b2db59c0ea3a55.s3tc.ctex", "res://.godot/imported/D_Key_Light.png-44a2005ed24eff1a77b2db59c0ea3a55.etc2.ctex"]
 
 [params]
 

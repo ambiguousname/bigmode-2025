@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bw3qdrm5k1mi"
 path.s3tc="res://.godot/imported/A_Key_Light.png-5db57d90e284b02c72e6ff97e3eadcff.s3tc.ctex"
+path.etc2="res://.godot/imported/A_Key_Light.png-5db57d90e284b02c72e6ff97e3eadcff.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://xelu/A_Key_Light.png"
-dest_files=["res://.godot/imported/A_Key_Light.png-5db57d90e284b02c72e6ff97e3eadcff.s3tc.ctex"]
+dest_files=["res://.godot/imported/A_Key_Light.png-5db57d90e284b02c72e6ff97e3eadcff.s3tc.ctex", "res://.godot/imported/A_Key_Light.png-5db57d90e284b02c72e6ff97e3eadcff.etc2.ctex"]
 
 [params]
 
