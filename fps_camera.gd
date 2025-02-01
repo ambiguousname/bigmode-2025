@@ -16,6 +16,8 @@ var mouse_move_intent_intensity : float = 0;
 
 @onready var ui : UIManager = get_tree().current_scene.get_node("CanvasLayer");
 
+@onready var charge : AudioStreamPlayer3D = $hand/Root/Skeleton3D/HandEnd/Charge;
+
 var shooting : bool = false;
 
 func _input(event: InputEvent) -> void:
@@ -78,6 +80,9 @@ func get_input(delta : float):
 					#slap_thing(c.get_parent().get_parent().get_parent().get_parent(), hit_from);
 					
 			hand_mat.albedo_color = lerp(hand_mat.albedo_color, Color.RED, min(delta * mouse_move_intent_intensity/50, 1.0));
+			
+			if mouse_move_intent_intensity > 500 and !charge.playing:
+				charge.play();
 		else:
 			hand_mat.albedo_color = lerp(hand_mat.albedo_color, Color.BLACK, delta * 10);
 		

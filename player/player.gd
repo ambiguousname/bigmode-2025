@@ -16,6 +16,8 @@ const JUMP_STR = 5;
 
 @onready var pauser : Pauser = get_tree().current_scene.get_node("Pauser");
 
+@onready var pain : AudioStreamPlayer3D = $Pain;
+
 var jump : float;
 var jumping : bool = false;
 func _input(event: InputEvent) -> void:
@@ -61,6 +63,9 @@ func damage(hp : float):
 	health -= hp;
 	_camera.curr_shake += 0.2;
 	ui.set_health(health);
+	
+	if hp > 30:
+		pain.play();
 	
 	if health <= 0:
 		_camera.curr_shake = 0.5;

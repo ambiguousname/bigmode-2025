@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cc4idhykjp5f5"]
+[gd_scene load_steps=6 format=3 uid="uid://cc4idhykjp5f5"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1"]
 [ext_resource type="Script" path="res://fps_camera.gd" id="2_lf157"]
 [ext_resource type="PackedScene" uid="uid://cbj4gvhfmmgg1" path="res://hand/hand.tscn" id="3_4ry0y"]
+[ext_resource type="AudioStream" uid="uid://cnv2iwhjxra6m" path="res://SFX/minorpain.ogg" id="4_ll2xq"]
 
 [sub_resource type="CapsuleShape3D" id="1"]
 radius = 0.4
@@ -28,3 +29,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05, 0)
 shape = SubResource("1")
 
 [node name="AudioListener3D" type="AudioListener3D" parent="."]
+
+[node name="Pain" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_ll2xq")

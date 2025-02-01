@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cbj4gvhfmmgg1"]
+[gd_scene load_steps=9 format=3 uid="uid://cbj4gvhfmmgg1"]
 
 [ext_resource type="PackedScene" uid="uid://c6cux1g31yscg" path="res://hand/hand.blend" id="1_j1rna"]
 [ext_resource type="Script" path="res://hand/skeleton_ik_3d.gd" id="2_2mvcn"]
+[ext_resource type="AudioStream" uid="uid://ctna4ldl8slrf" path="res://SFX/chargeup.ogg" id="3_u5hn6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g2yes"]
 render_priority = 2
@@ -71,6 +72,9 @@ shape = SubResource("BoxShape3D_ylgfo")
 target_position = Vector3(0, 0.525, 0)
 collision_mask = 3
 collide_with_areas = true
+
+[node name="Charge" type="AudioStreamPlayer3D" parent="Root/Skeleton3D/HandEnd" index="2"]
+stream = ExtResource("3_u5hn6")
 
 [node name="Target" type="Marker3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.0155914, -0.290009, -0.948548)
