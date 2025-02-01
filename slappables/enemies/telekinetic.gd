@@ -7,7 +7,9 @@ func _ready() -> void:
 	timer.timeout.connect(set_idle);
 
 func set_idle():
-	active_state = States.IDLE;
+	active_state = States.SEARCHING;
+	anim_tree.set("parameters/conditions/cooldown", false);
+	anim_tree.set("parameters/conditions/run", true);
 
 enum States {
 	IDLE,
@@ -70,7 +72,7 @@ func eval_behavior(delta : float):
 					active_state = States.SEARCHING;
 				else:
 					anim_tree.set("parameters/conditions/run", false);
-					anim_tree.set("parameters/conditions/jump", true);
+					anim_tree.set("parameters/conditions/telekinesis", true);
 		States.ATTACKING:
 			var l = objs_grabbed.size();
 			var i = 0;
@@ -92,8 +94,8 @@ func eval_behavior(delta : float):
 			grav_scale *= 0.92;
 			
 			if abs(grav_scale) <= 0.001:
-				anim_tree.set("parameters/conditions/jump", false);
-				anim_tree.set("parameters/conditions/idle", true);
+				anim_tree.set("parameters/conditions/telekinesis", false);
+				anim_tree.set("parameters/conditions/cooldown", true);
 				
 				grav_scale = 1;
 				for o in objs_grabbed:
