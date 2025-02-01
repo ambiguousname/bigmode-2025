@@ -141,7 +141,7 @@ states/telekinesis_end/position = Vector2(739, 201)
 states/telekinesis_start/node = SubResource("AnimationNodeAnimation_co8ys")
 states/telekinesis_start/position = Vector2(846, 30)
 transitions = ["idle", "run", SubResource("AnimationNodeStateMachineTransition_kueau"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_m6ubq"), "run", "charge_windup", SubResource("AnimationNodeStateMachineTransition_suxl1"), "charge_windup", "RunCharge", SubResource("AnimationNodeStateMachineTransition_rjeoj"), "run", "telekinesis_start", SubResource("AnimationNodeStateMachineTransition_fobc8"), "telekinesis_start", "telekinesis", SubResource("AnimationNodeStateMachineTransition_8bduu"), "RunCharge", "charge_cooldown", SubResource("AnimationNodeStateMachineTransition_utxa8"), "charge_cooldown", "run", SubResource("AnimationNodeStateMachineTransition_365nw"), "telekinesis", "telekinesis_end", SubResource("AnimationNodeStateMachineTransition_ly78e"), "telekinesis_end", "run", SubResource("AnimationNodeStateMachineTransition_da7rr"), "spawn", "idle", SubResource("AnimationNodeStateMachineTransition_8asjn"), "Start", "pre_spawn", SubResource("AnimationNodeStateMachineTransition_vw36s"), "pre_spawn", "spawn", SubResource("AnimationNodeStateMachineTransition_6ct8i")]
-graph_offset = Vector2(-328, 43)
+graph_offset = Vector2(-155, -44)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8448m"]
 render_priority = 0

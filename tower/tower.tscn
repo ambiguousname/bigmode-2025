@@ -165,21 +165,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, -1.31224)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.0521, 0, 0)
 
 [node name="RigidBody3D5" parent="Slappables/Arena" instance=ExtResource("11_5dp7v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18857, 1, -4.24757)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.88028, 1, -1.46131)
 mass = 30.0
 
 [node name="RigidBody3D6" parent="Slappables/Arena" instance=ExtResource("11_5dp7v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8121, 1, -5.89021)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.87961, 1, -3.10395)
 mass = 10.0
 
 [node name="RigidBody3D7" parent="Slappables/Arena" instance=ExtResource("11_5dp7v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2452, 1, 7.28833)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.44651, 1, 10.0746)
 
 [node name="RigidBody3D8" parent="Slappables/Arena" instance=ExtResource("11_5dp7v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.67354, 1, -2.42464)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.01817, 1, 0.361618)
 
 [node name="RigidBody3D9" parent="Slappables/Arena" instance=ExtResource("11_5dp7v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.84177, 0.940436, 3.06771)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.84994, 0.940436, 5.85397)
 mass = 20.0
 
 [node name="SpawnTrigger" type="Area3D" parent="Slappables/Arena" node_paths=PackedStringArray("to_spawn")]
@@ -191,7 +191,7 @@ to_spawn = [NodePath("../Charger")]
 shape = SubResource("BoxShape3D_olnpx")
 
 [node name="Charger" parent="Slappables/Arena" instance=ExtResource("13_idrxe")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.38106, -9.53674e-07, -0.512345)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.40982, -9.53674e-07, -0.512345)
 
 [node name="DebugStart" type="Marker3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.71775, 1.3416, 0)
