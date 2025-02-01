@@ -75,9 +75,6 @@ func get_input(delta : float):
 					slap_thing(c, hit_from);
 				elif c.get("collision_layer") == 0b10:
 					slap_thing(c.get_parent(), hit_from);
-				# TODO: Slap bones
-				#elif c is PhysicalBone3D:
-					#slap_thing(c.get_parent().get_parent().get_parent().get_parent(), hit_from);
 					
 			hand_mat.albedo_color = lerp(hand_mat.albedo_color, Color.RED, min(delta * mouse_move_intent_intensity/50, 1.0));
 			
