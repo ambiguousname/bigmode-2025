@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://b358x4ut7m4lr"]
+[gd_scene load_steps=6 format=3 uid="uid://b358x4ut7m4lr"]
 
 [ext_resource type="Script" path="res://slappables/slappable.gd" id="1_y35uk"]
+[ext_resource type="AudioStream" uid="uid://brph0qv50txlf" path="res://SFX/clap.wav" id="2_7tk4h"]
+[ext_resource type="AudioStream" uid="uid://dvtrg4d5cx5mh" path="res://SFX/BIGSLAP.ogg" id="3_eydxj"]
+[ext_resource type="AudioStream" uid="uid://b7elfjptf33f" path="res://SFX/lightsmack.ogg" id="4_633bt"]
+[ext_resource type="AudioStream" uid="uid://dddixt8m0012m" path="res://SFX/majorpain.ogg" id="5_dmr8x"]
 
 [node name="SlappableManager" type="Node3D"]
 script = ExtResource("1_y35uk")
@@ -12,3 +16,15 @@ one_shot = true
 [node name="SlapTimer" type="Timer" parent="."]
 wait_time = 0.2
 one_shot = true
+
+[node name="Clap" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_7tk4h")
+
+[node name="BigClap" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_eydxj")
+
+[node name="Smack" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_633bt")
+
+[node name="Pain" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_dmr8x")

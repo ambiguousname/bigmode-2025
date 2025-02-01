@@ -21,7 +21,7 @@ class_name Enemy extends CharacterBody3D
 func _ready() -> void:
 	if override_mat != null:
 		mesh.set_surface_override_material(0, override_mat);
-	slappable.init(mesh);
+	slappable.init(mesh, Slappable.SFXType.Fleshy);
 
 func slap_behavior():
 	pass
@@ -32,7 +32,7 @@ var enabled : bool = false;
 func slap(pos, intensity, flash):
 	if !enabled:
 		return;
-	slappable.pre_slap(flash);
+	slappable.pre_slap(flash, intensity);
 	
 	velocity = Vector3.ZERO;
 	

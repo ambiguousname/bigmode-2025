@@ -20,7 +20,8 @@ func slap(pos : Vector3, intensity : float, flash: bool):
 	if !active:
 		return;
 	
-	slappable.pre_slap(flash);
+	slappable.global_position = global_position;
+	slappable.pre_slap(flash, intensity);
 	
 	var to = bone_push.global_position - pos;
 	to.y = 0;
