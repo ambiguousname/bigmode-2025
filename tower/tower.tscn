@@ -1,5 +1,6 @@
-[gd_scene load_steps=43 format=3 uid="uid://c0236otwwcmet"]
+[gd_scene load_steps=44 format=3 uid="uid://c0236otwwcmet"]
 
+[ext_resource type="Texture2D" uid="uid://codut4phoyeva" path="res://textures/yellowcloud_up.jpg" id="1_eqdlk"]
 [ext_resource type="PackedScene" uid="uid://cc4idhykjp5f5" path="res://player/player.tscn" id="1_oy2uo"]
 [ext_resource type="Script" path="res://pauser.gd" id="2_wgj27"]
 [ext_resource type="PackedScene" uid="uid://bv37wxweu87su" path="res://ui/ui.tscn" id="3_or8aa"]
@@ -19,14 +20,14 @@
 [ext_resource type="PackedScene" uid="uid://8ijauy75w5jd" path="res://slappables/enemies/giant.tscn" id="17_dhn0c"]
 [ext_resource type="Script" path="res://tower/checkpoint.gd" id="18_hp0h0"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mgcof"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_co2wv"]
+panorama = ExtResource("1_eqdlk")
 
 [sub_resource type="Sky" id="Sky_2xt58"]
-sky_material = SubResource("ProceduralSkyMaterial_mgcof")
+sky_material = SubResource("PanoramaSkyMaterial_co2wv")
 
 [sub_resource type="Environment" id="Environment_lu6pv"]
+background_mode = 2
 sky = SubResource("Sky_2xt58")
 ambient_light_source = 3
 ambient_light_color = Color(1, 1, 1, 1)
