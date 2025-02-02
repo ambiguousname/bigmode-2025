@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bv37wxweu87su"]
+[gd_scene load_steps=11 format=3 uid="uid://bv37wxweu87su"]
 
 [ext_resource type="Script" path="res://ui/ui_manager.gd" id="1_fmg6f"]
 [ext_resource type="Texture2D" uid="uid://bp05tq4vtcao1" path="res://xelu/Mouse_Right_Key_Light.png" id="2_6podm"]
+[ext_resource type="Texture2D" uid="uid://cg7ch40ho6e3x" path="res://storyImages/Story-death.png" id="2_ly3fy"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_e6kvp"]
 font_size = 32
@@ -24,6 +25,9 @@ bg_color = Color(1, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_r1pv2"]
 font_size = 48
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lsx7u"]
+bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_gu03a"]
 font_size = 36
@@ -155,59 +159,54 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Quit to Menu"
 
-[node name="Death" type="Panel" parent="."]
+[node name="Death" type="TextureRect" parent="."]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -125.0
-offset_top = -100.0
-offset_right = 125.0
-offset_bottom = 100.0
+offset_left = -571.0
+offset_top = -324.0
+offset_right = 571.0
+offset_bottom = 324.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_ly3fy")
+expand_mode = 3
+stretch_mode = 4
 
-[node name="Label" type="Label" parent="Death"]
+[node name="Panel" type="Panel" parent="Death"]
+z_index = -1
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -37.0
-offset_right = 37.0
-offset_bottom = 23.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
-text = "You Died."
-label_settings = SubResource("LabelSettings_gu03a")
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lsx7u")
 
 [node name="Button" type="Button" parent="Death"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 4
 anchor_top = 0.5
-anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -55.5
+offset_left = 35.0
 offset_top = -15.5
-offset_right = 55.5
+offset_right = 233.0
 offset_bottom = 15.5
-grow_horizontal = 2
 grow_vertical = 2
 text = "Restart from Checkpoint"
 
 [node name="Button2" type="Button" parent="Death"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 4
 anchor_top = 0.5
-anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -55.5
-offset_top = 40.0
-offset_right = 55.5
-offset_bottom = 71.0
-grow_horizontal = 2
+offset_left = 80.0
+offset_top = 36.0
+offset_right = 191.0
+offset_bottom = 67.0
 grow_vertical = 2
 text = "Quit to Menu"
 

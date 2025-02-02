@@ -10,7 +10,7 @@ class_name UIManager extends CanvasLayer
 
 @onready var pause_menu : Panel = $PauseMenu;
 
-@onready var death_menu : Panel = $Death;
+@onready var death_menu : TextureRect = $Death;
 
 var other_paused : bool = false;
 
