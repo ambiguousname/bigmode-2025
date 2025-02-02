@@ -25,11 +25,7 @@ var charge_travelled : float = 0;
 var staleness : float = 0.0;
 
 func search(delta):
-	if nav_agent.is_navigation_finished() or staleness > 10:
-		nav_agent.target_position = player.global_position;
-		staleness = 0.0;
-	
-	staleness += delta;
+	nav_agent.target_position = player.global_position;
 	
 	var dir = global_position.direction_to(nav_agent.get_next_path_position());
 	
