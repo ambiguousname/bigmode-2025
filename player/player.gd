@@ -125,6 +125,7 @@ func damage(hp : float):
 	if health <= 0:
 		_camera.curr_shake = 0.5;
 		pauser.pause();
+		CheckpointManager.clear_frees();
 		pauser.on_unpause.connect(ui.die, CONNECT_ONE_SHOT);
 
 func _process(delta: float) -> void:

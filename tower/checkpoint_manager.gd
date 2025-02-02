@@ -12,6 +12,9 @@ func get_respawn_point():
 
 var trigger_free_stack : Array[SpawnTrigger];
 
+func clear_frees():
+	trigger_free_stack.clear();
+
 func add_to_free(trigger : SpawnTrigger):
 	trigger_free_stack.push_front(trigger);
 	if trigger_free_stack.size() > 2:
