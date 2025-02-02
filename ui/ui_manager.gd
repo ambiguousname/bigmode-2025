@@ -6,6 +6,8 @@ class_name UIManager extends CanvasLayer
 @onready var combo_start : Vector2 = combo_panel.position;
 @onready var combo_times : Label = combo_panel.get_node("Times");
 
+@onready var timer : Timer = $Timer;
+
 @onready var health : ProgressBar = $Health;
 
 @onready var pause_menu : Panel = $PauseMenu;
@@ -15,6 +17,19 @@ class_name UIManager extends CanvasLayer
 var other_paused : bool = false;
 
 func _ready() -> void:
+	if !CheckpointManager.start_shown:
+		paused = true;
+		get_tree().paused = true;
+		timer.start();
+	else:
+		$StartScreen.visible = false;
+	
+	timer.timeout.connect(func():
+		paused = false;
+		get_tree().paused = false;
+		$StartScreen.visible = false;
+	);
+	
 	combo_timer.timeout.connect(hide_combo);
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED);
 	
@@ -67,6 +82,9 @@ var paused : bool = false;
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause") and !other_paused:
 		pause(!paused);
+	
+	if $StartScreen.visible:
+		timer.timeout.emit();
 
 func pause(should_pause : bool):
 	paused = should_pause;

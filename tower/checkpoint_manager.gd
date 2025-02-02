@@ -3,6 +3,11 @@ extends Node
 var checkpoint_pos : Vector3 = Vector3.ZERO;
 var checkpoint_rot : Vector3 = Vector3.ZERO;
 
+var start_shown : bool = false;
+
+func show_start():
+	start_shown = true;
+
 func set_pos(p: Vector3, r : Vector3):
 	checkpoint_pos = p;
 	checkpoint_rot = r;
