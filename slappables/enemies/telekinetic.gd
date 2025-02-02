@@ -78,7 +78,7 @@ func eval_behavior(delta : float):
 			
 			var dir = global_position.direction_to(nav_agent.get_next_path_position());
 			
-			velocity = dir * 4;
+			velocity = dir * 4 + gravity;
 			
 			rotation.y = atan2(dir.x, dir.z);
 			
@@ -97,7 +97,7 @@ func eval_behavior(delta : float):
 						c.apply_impulse(Vector3.ZERO);
 						
 				
-				velocity = Vector3.ZERO;
+				velocity = gravity;
 				
 				shapecast.enabled = false;
 				

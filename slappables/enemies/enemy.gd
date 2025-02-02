@@ -5,6 +5,8 @@ class_name Enemy extends CharacterBody3D
 @onready var nav_agent : NavigationAgent3D = $NavigationAgent3D;
 
 @onready var player : Player = get_tree().current_scene.get_node("Player");
+@onready var gravity: Vector3 = ProjectSettings.get_setting("physics/3d/default_gravity") * \
+		ProjectSettings.get_setting("physics/3d/default_gravity_vector");
 
 @onready var bones : RagdollBones = $enemy_mesh/Skeleton3D/PhysicalBoneSimulator3D;
 
@@ -34,7 +36,7 @@ func slap(pos, intensity, flash):
 		return;
 	slappable.pre_slap(flash, intensity);
 	
-	velocity = Vector3.ZERO;
+	velocity = gravity;
 	
 	slap_behavior();
 	

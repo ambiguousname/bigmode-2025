@@ -34,7 +34,7 @@ func eval_behavior(delta: float):
 			
 			var dir = global_position.direction_to(nav_agent.get_next_path_position());
 			
-			velocity = dir * 4;
+			velocity = dir * 4 + gravity;
 			
 			rotation.y = atan2(dir.x, dir.z);
 			
@@ -43,7 +43,7 @@ func eval_behavior(delta: float):
 				next_state = States.ATTACKING;
 				shapecast.enabled = true;
 				
-				velocity = Vector3.ZERO;
+				velocity = gravity;
 				
 				timer.start(0.5);
 				anim_tree.set("parameters/conditions/run", false);
@@ -60,7 +60,7 @@ func eval_behavior(delta: float):
 		States.ATTACKING:
 			charge_travelled += delta * 15;
 			
-			velocity = charge_dir * 15;
+			velocity = charge_dir * 15 + gravity;
 			
 			var colliding = shapecast.is_colliding();
 				
@@ -85,7 +85,7 @@ func eval_behavior(delta: float):
 				next_cond = "parameters/conditions/run";
 				
 				charge_travelled = 0;
-				velocity = Vector3.ZERO;
+				velocity = gravity;
 				
 		States.MOVE_BACK:
 			if player.global_position.distance_to(global_position) > 10 or charge_travelled > 10:
@@ -94,7 +94,7 @@ func eval_behavior(delta: float):
 			var dir = (global_position - player.global_position).normalized();
 			dir.y = 0;
 			
-			velocity = dir * 4;
+			velocity = dir * 4 + gravity;
 			charge_travelled += delta * 4;
 			
 			rotation.y = atan2(dir.x, dir.z);
