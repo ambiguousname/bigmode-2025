@@ -69,6 +69,7 @@ environment = SubResource("Environment_lu6pv")
 
 [node name="Player" parent="." instance=ExtResource("1_oy2uo")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.0500231, 0, 0)
+wall_min_slide_angle = 0.523599
 
 [node name="Pauser" type="Node" parent="."]
 process_mode = 3
@@ -227,7 +228,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.69714, 0.845405, 0.0113039)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0236053, 0.845405, 5.25247)
 
 [node name="DebugStart" type="Marker3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.71775, 35.8042, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 75.7951, 1.84369, 10.4786)
 gizmo_extents = 1.0
 script = ExtResource("12_3f6ao")
 debug = true
