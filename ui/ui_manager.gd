@@ -97,7 +97,7 @@ func pause(should_pause : bool):
 	get_tree().paused = should_pause;
 
 func set_health(hp):
-	health.value = hp;
+	health.value = 100 - hp;
 
 func die():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE);
