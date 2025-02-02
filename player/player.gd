@@ -24,6 +24,7 @@ const JUMP_STR = 5;
 var jump : float;
 var jumping : bool = false;
 
+var slam_allowed : bool = false;
 var slam : float;
 var is_slamming : bool = false;
 var slam_dist : float = 0;
@@ -84,7 +85,7 @@ func _physics_process(delta: float) -> void:
 			
 			# TODO: Slam.
 	
-	if raycast.is_colliding():
+	if slam_allowed and raycast.is_colliding():
 		var c = raycast.get_collision_point();
 		if !is_slamming:
 			if c.distance_to(global_position) > 10 and !is_slamming:
