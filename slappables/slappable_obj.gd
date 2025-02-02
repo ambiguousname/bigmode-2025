@@ -11,7 +11,7 @@ func _ready() -> void:
 	
 func body_hit(body : PhysicsBody3D):
 	if body is Player:
-		body.damage(linear_velocity.length());
+		body.damage(clamp(linear_velocity.length(), 1, 50));
 	elif body is Enemy:
 		if (angular_velocity.length() + linear_velocity.length()) > 20 and !body.slapped:
 			body.slap(global_position, angular_velocity.length() + linear_velocity.length(), slappable.player_slapped);
