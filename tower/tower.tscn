@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://c0236otwwcmet"]
+[gd_scene load_steps=41 format=3 uid="uid://c0236otwwcmet"]
 
 [ext_resource type="PackedScene" uid="uid://cc4idhykjp5f5" path="res://player/player.tscn" id="1_oy2uo"]
 [ext_resource type="Script" path="res://pauser.gd" id="2_wgj27"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bsduxbwqkqrna" path="res://slappables/enemies/charger.tscn" id="13_idrxe"]
 [ext_resource type="PackedScene" uid="uid://co71eu4x7su64" path="res://slappables/enemies/telekinetic.tscn" id="14_7ly42"]
 [ext_resource type="Script" path="res://tower/bounce_pad.gd" id="16_540qq"]
+[ext_resource type="PackedScene" uid="uid://8ijauy75w5jd" path="res://slappables/enemies/giant.tscn" id="17_dhn0c"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mgcof"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -86,6 +87,9 @@ radius = 16.1349
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ka1do"]
 height = 2.71365
 radius = 11.6422
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_v0bfr"]
+radius = 31.1757
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1rgkf"]
 shading_mode = 0
@@ -770,6 +774,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63579, 1.50666, 3.90823)
 
 [node name="RigidBody3D8" parent="Slappables/BounceEnd" instance=ExtResource("11_5dp7v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63579, 1.50666, 3.90823)
+
+[node name="Giant" type="Node3D" parent="Slappables"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 134.961, 65.5381, -7.75038)
+
+[node name="Giant" parent="Slappables/Giant" instance=ExtResource("17_dhn0c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.73741, -0.0341797, -8.52207)
+
+[node name="SpawnTrigger2" type="Area3D" parent="Slappables/Giant" node_paths=PackedStringArray("to_spawn")]
+transform = Transform3D(0.897274, 0, -0.441475, 0, 1, 0, 0.441475, 0, 0.897274, 2.78358, -1.97802, 10.0186)
+script = ExtResource("12_1o1x5")
+to_spawn = [NodePath("../Giant")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Slappables/Giant/SpawnTrigger2"]
+transform = Transform3D(1, 0, 8.9407e-08, 0, 1, 0, -8.9407e-08, 0, 1, -3.51633, 10.5682, -5.50399)
+shape = SubResource("SphereShape3D_v0bfr")
 
 [node name="DebugStart" type="Marker3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 55.6709, 33.5663, 75.6042)

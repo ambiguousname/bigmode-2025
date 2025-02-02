@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://8ijauy75w5jd"]
+
+[ext_resource type="PackedScene" uid="uid://cg71oerkiwokf" path="res://slappables/enemies/enemy.tscn" id="1_p2152"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_5xpul"]
+height = 10.5313
+radius = 5.71213
+
+[node name="Enemy" instance=ExtResource("1_p2152")]
+
+[node name="enemy_mesh" parent="." index="0"]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
+
+[node name="CollisionShape3D" parent="." index="3"]
+disabled = true
+
+[node name="SpawnPortal" parent="." index="5"]
+transform = Transform3D(20, 0, 0, 0, -8.74228e-07, 20, 0, -20, -8.74228e-07, 0, 0.0473355, 0)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+shape = SubResource("CylinderShape3D_5xpul")
