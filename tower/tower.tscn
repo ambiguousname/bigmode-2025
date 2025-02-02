@@ -290,83 +290,101 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5493, 2.79419, 12.113)
 [node name="TowerMid" type="Node3D" parent="Slappables"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.3956, 20.7264, -1.40153)
 
+[node name="Charger" parent="Slappables/TowerMid" instance=ExtResource("13_idrxe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3505, -5.53096, 15.8706)
+
+[node name="Charger2" parent="Slappables/TowerMid" instance=ExtResource("13_idrxe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.70222, -5.71734, 9.15084)
+
+[node name="Charger3" parent="Slappables/TowerMid" instance=ExtResource("13_idrxe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.16685, -4.70015, 13.7669)
+
+[node name="Charger4" parent="Slappables/TowerMid" instance=ExtResource("13_idrxe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3231, -4.41155, 19.7413)
+
+[node name="Charger5" parent="Slappables/TowerMid" instance=ExtResource("13_idrxe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.0843, 1.02252, -4.2908)
+
+[node name="Charger6" parent="Slappables/TowerMid" instance=ExtResource("13_idrxe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.4755, 0.533478, -1.28166)
+
+[node name="Charger7" parent="Slappables/TowerMid" instance=ExtResource("13_idrxe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.1125, 1.42558, -6.95664)
+
+[node name="RigidBody3D" parent="Slappables/TowerMid" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.03017, -2.55302, 15.2011)
+
+[node name="RigidBody3D2" parent="Slappables/TowerMid" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.46315, -2.55302, 17.7099)
+
+[node name="RigidBody3D3" parent="Slappables/TowerMid" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.36315, -2.55302, 16.8099)
+
+[node name="RigidBody3D4" parent="Slappables/TowerMid" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.72565, -2.55302, 19.4097)
+
+[node name="RigidBody3D5" parent="Slappables/TowerMid" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.70453, -2.55302, 13.3641)
+
+[node name="RigidBody3D6" parent="Slappables/TowerMid" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.80515, -2.55302, 16.1275)
+
+[node name="RigidBody3D7" parent="Slappables/TowerMid" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.07928, -2.55302, 18.2443)
+
+[node name="RigidBody3D8" parent="Slappables/TowerMid" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.24902, -2.55302, 20.0516)
+
+[node name="RigidBody3D9" parent="Slappables/TowerMid" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.85985, -2.55302, 13.1179)
+
+[node name="RigidBody3D10" parent="Slappables/TowerMid" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.15985, -2.55302, 15.0179)
+
+[node name="RigidBody3D11" parent="Slappables/TowerMid" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.15985, -2.55302, 19.0179)
+
+[node name="RigidBody3D12" parent="Slappables/TowerMid" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.11786, -2.55302, 21.6255)
+
+[node name="RigidBody3D13" parent="Slappables/TowerMid" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.34251, -1.57165, 21.0459)
+
+[node name="RigidBody3D14" parent="Slappables/TowerMid" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.66932, -1.57165, 19.4912)
+
+[node name="RigidBody3D15" parent="Slappables/TowerMid" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.70882, -3.88724, 7.2555)
+
+[node name="RigidBody3D16" parent="Slappables/TowerMid" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.7203, -3.88724, 9.52784)
+
 [node name="SpawnTrigger2" type="Area3D" parent="Slappables/TowerMid" node_paths=PackedStringArray("to_spawn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.6777, -8.26598, 3.94176)
 script = ExtResource("12_1o1x5")
-to_spawn = [NodePath("../../Charger"), NodePath("../../Charger2"), NodePath("../../Charger3"), NodePath("../../Charger4"), NodePath("../../Charger5"), NodePath("../../Charger6"), NodePath("../../Charger7")]
+to_spawn = [NodePath("../Charger"), NodePath("../Charger2"), NodePath("../Charger3"), NodePath("../Charger4"), NodePath("../Charger5"), NodePath("../Charger6"), NodePath("../Charger7")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Slappables/TowerMid/SpawnTrigger2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.785461, 3.49969, 0)
 shape = SubResource("BoxShape3D_ebxac")
 
-[node name="Charger" parent="Slappables" instance=ExtResource("13_idrxe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.0451, 15.1954, 14.469)
+[node name="TowerTop" type="Node3D" parent="Slappables"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.604, 30.8885, 10.8134)
 
-[node name="Charger2" parent="Slappables" instance=ExtResource("13_idrxe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.6934, 15.0091, 7.74931)
+[node name="SpawnTrigger2" type="Area3D" parent="Slappables/TowerTop" node_paths=PackedStringArray("to_spawn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.38342, -5.0142, -10.8235)
+script = ExtResource("12_1o1x5")
+to_spawn = [NodePath("../../TowerMid/Charger"), NodePath("../../TowerMid/Charger2"), NodePath("../../TowerMid/Charger3"), NodePath("../../TowerMid/Charger4"), NodePath("../../TowerMid/Charger5"), NodePath("../../TowerMid/Charger6"), NodePath("../../TowerMid/Charger7")]
 
-[node name="Charger3" parent="Slappables" instance=ExtResource("13_idrxe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.2287, 16.0263, 12.3654)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Slappables/TowerTop/SpawnTrigger2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.785461, 3.49969, 0)
+shape = SubResource("BoxShape3D_ebxac")
 
-[node name="Charger4" parent="Slappables" instance=ExtResource("13_idrxe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.0725, 16.3149, 18.3398)
+[node name="Charger" parent="Slappables/TowerTop" instance=ExtResource("13_idrxe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.702835, 1.08125, 4.94349)
 
-[node name="Charger5" parent="Slappables" instance=ExtResource("13_idrxe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95.4799, 21.7489, -5.69234)
-
-[node name="Charger6" parent="Slappables" instance=ExtResource("13_idrxe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99.8711, 21.2599, -2.68319)
-
-[node name="Charger7" parent="Slappables" instance=ExtResource("13_idrxe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 97.5081, 22.152, -8.35817)
-
-[node name="RigidBody3D" parent="Slappables" instance=ExtResource("11_5dp7v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84.4258, 18.1734, 13.7995)
-
-[node name="RigidBody3D2" parent="Slappables" instance=ExtResource("11_5dp7v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.8587, 18.1734, 16.3084)
-
-[node name="RigidBody3D3" parent="Slappables" instance=ExtResource("11_5dp7v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84.7587, 18.1734, 15.4084)
-
-[node name="RigidBody3D4" parent="Slappables" instance=ExtResource("11_5dp7v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.1212, 18.1734, 18.0081)
-
-[node name="RigidBody3D5" parent="Slappables" instance=ExtResource("11_5dp7v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.1001, 18.1734, 11.9626)
-
-[node name="RigidBody3D6" parent="Slappables" instance=ExtResource("11_5dp7v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.2007, 18.1734, 14.726)
-
-[node name="RigidBody3D7" parent="Slappables" instance=ExtResource("11_5dp7v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.4749, 18.1734, 16.8427)
-
-[node name="RigidBody3D8" parent="Slappables" instance=ExtResource("11_5dp7v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.6446, 18.1734, 18.6501)
-
-[node name="RigidBody3D9" parent="Slappables" instance=ExtResource("11_5dp7v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83.2554, 18.1734, 11.7164)
-
-[node name="RigidBody3D10" parent="Slappables" instance=ExtResource("11_5dp7v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.5554, 18.1734, 13.6164)
-
-[node name="RigidBody3D11" parent="Slappables" instance=ExtResource("11_5dp7v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.5554, 18.1734, 17.6164)
-
-[node name="RigidBody3D12" parent="Slappables" instance=ExtResource("11_5dp7v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83.5135, 18.1734, 20.224)
-
-[node name="RigidBody3D13" parent="Slappables" instance=ExtResource("11_5dp7v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.7381, 19.1548, 19.6444)
-
-[node name="RigidBody3D14" parent="Slappables" instance=ExtResource("11_5dp7v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.0649, 19.1548, 18.0897)
-
-[node name="RigidBody3D15" parent="Slappables" instance=ExtResource("11_5dp7v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.6868, 16.8392, 5.85396)
-
-[node name="RigidBody3D16" parent="Slappables" instance=ExtResource("11_5dp7v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.6753, 16.8392, 8.1263)
+[node name="Charger2" parent="Slappables/TowerTop" instance=ExtResource("13_idrxe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.11955, 1.08125, -0.290322)
 
 [node name="DebugStart" type="Marker3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 54.4807, 3.27385, 0.6183)
