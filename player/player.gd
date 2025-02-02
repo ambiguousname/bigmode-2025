@@ -90,7 +90,7 @@ func _physics_process(delta: float) -> void:
 	if slam_allowed:
 		var c = raycast.get_collision_point();
 		if !is_slamming:
-			if !is_slamming and (c == null or c.distance_to(global_position) > 10):
+			if (!raycast.is_colliding() or (raycast.get_collider() != null and c.distance_to(global_position) > 10)):
 				ui.show_slam();
 				if slam > 0.5:
 					is_slamming = true;
