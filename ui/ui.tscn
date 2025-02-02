@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bv37wxweu87su"]
+[gd_scene load_steps=13 format=3 uid="uid://bv37wxweu87su"]
 
 [ext_resource type="Script" path="res://ui/ui_manager.gd" id="1_fmg6f"]
 [ext_resource type="Texture2D" uid="uid://bp05tq4vtcao1" path="res://xelu/Mouse_Right_Key_Light.png" id="2_6podm"]
@@ -33,8 +33,10 @@ bg_color = Color(0, 0, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_gu03a"]
 font_size = 36
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ppv8t"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jqfmp"]
-bg_color = Color(2.40654e-06, 0.717264, 0.38072, 1)
+bg_color = Color(1, 0, 0, 0.294118)
 
 [node name="CanvasLayer" type="CanvasLayer"]
 process_mode = 3
@@ -162,6 +164,7 @@ text = "Quit to Menu"
 
 [node name="Death" type="TextureRect" parent="."]
 visible = false
+z_index = 2
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -247,14 +250,15 @@ grow_vertical = 2
 text = "Quit to Menu"
 
 [node name="Health" type="ProgressBar" parent="."]
-anchors_preset = 2
-anchor_top = 1.0
+z_index = -2
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -27.0
-offset_right = 175.0
-grow_vertical = 0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/background = SubResource("StyleBoxEmpty_ppv8t")
 theme_override_styles/fill = SubResource("StyleBoxFlat_jqfmp")
-value = 100.0
 show_percentage = false
 
 [node name="Slam" type="Control" parent="."]
