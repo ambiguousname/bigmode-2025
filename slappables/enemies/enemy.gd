@@ -24,6 +24,7 @@ func _ready() -> void:
 	if override_mat != null:
 		mesh.set_surface_override_material(0, override_mat);
 	slappable.init(mesh, Slappable.SFXType.Fleshy);
+	mesh.visible = false;
 
 func slap_behavior():
 	pass
@@ -53,6 +54,7 @@ var spawn_prog : float = 0.0;
 
 func spawn():
 	spawn_portal.visible = true;
+	mesh.visible = true;
 	spawn_dir = 1;
 	anim_tree.set("parameters/conditions/spawn", true);
 
