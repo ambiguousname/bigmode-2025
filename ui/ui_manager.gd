@@ -12,6 +12,8 @@ class_name UIManager extends CanvasLayer
 
 @onready var death_menu : Panel = $Death;
 
+var other_paused : bool = false;
+
 func _ready() -> void:
 	combo_timer.timeout.connect(hide_combo);
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED);
@@ -30,6 +32,7 @@ func _ready() -> void:
 func win_game():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE);
 	get_tree().paused = true;
+	other_paused = true;
 	paused = true;
 	$Win.visible = true;
 
@@ -62,7 +65,7 @@ func hide_combo():
 var paused : bool = false;
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("pause"):
+	if event.is_action_pressed("pause") and !other_paused:
 		pause(!paused);
 
 func pause(should_pause : bool):
@@ -80,6 +83,7 @@ func set_health(hp):
 
 func die():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE);
+	other_paused = true;
 	
 	paused = true;
 	death_menu.visible = true;
