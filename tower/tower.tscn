@@ -795,7 +795,6 @@ shape = SubResource("CylinderShape3D_vshub")
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 115.184, 57.3495, 24.2517)
 gizmo_extents = 1.0
 script = ExtResource("12_3f6ao")
-debug = true
 
 [node name="BouncePad" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.4432, 32.402, 74.3739)
