@@ -45,6 +45,7 @@ func _ready() -> void:
 	$Win/Button.pressed.connect(quit_to_menu);
 
 func win_game():
+	CheckpointManager.clear_frees();
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE);
 	get_tree().paused = true;
 	other_paused = true;
@@ -52,6 +53,7 @@ func win_game():
 	$Win.visible = true;
 
 func quit_to_menu():
+	CheckpointManager.clear_frees();
 	get_tree().paused = false;
 	get_tree().change_scene_to_file("res://main_menu.tscn");
 	
