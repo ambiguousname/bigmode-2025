@@ -25,6 +25,8 @@ func _ready() -> void:
 		mesh.set_surface_override_material(0, override_mat);
 	slappable.init(mesh, Slappable.SFXType.Fleshy);
 	mesh.visible = false;
+	
+	collision_layer = 0;
 
 func slap_behavior():
 	pass
@@ -53,6 +55,8 @@ var spawn_dir : int = 0;
 var spawn_prog : float = 0.0;
 
 func spawn():
+	collision_layer = 1;
+	
 	spawn_portal.visible = true;
 	mesh.visible = true;
 	spawn_dir = 1;
