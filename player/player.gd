@@ -23,8 +23,9 @@ const JUMP_STR = 5;
 
 func _ready() -> void:
 	var res = CheckpointManager.get_respawn_point();
-	if res != Vector3.ZERO:
-		global_position = res;
+	if res[0] != Vector3.ZERO:
+		global_position = res[0];
+		global_rotation = res[1];
 
 var jump : float;
 var jumping : bool = false;
@@ -41,8 +42,8 @@ func _input(event: InputEvent) -> void:
 func _physics_process(delta: float) -> void:
 	if global_position.y < -12:
 		var res = CheckpointManager.get_respawn_point();
-		if res != Vector3.ZERO:
-			initial_position = res;
+		if res[0] != Vector3.ZERO:
+			initial_position = res[0];
 			is_slamming = false;
 			_camera.curr_shake = 0;
 			slam_dist = 0;
