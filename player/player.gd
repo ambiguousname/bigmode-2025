@@ -64,17 +64,17 @@ func _physics_process(delta: float) -> void:
 	if is_slamming:
 		if !is_on_floor():
 			velocity += Vector3.DOWN * JUMP_STR;
-			_camera.curr_shake += 0.01;
+			_camera.curr_shake += 0.05 ;
 		else:
 			is_slamming = false;
 			# TODO: Slam.
 	
 	if raycast.is_colliding():
-		var c = raycast.get_collider();
+		var c = raycast.get_collision_point();
 		if !is_slamming:
-			if c.global_position.distance_to(global_position) > 7 and !is_slamming:
+			if c.distance_to(global_position) > 10 and !is_slamming:
 				ui.show_slam();
-				if slam:
+				if slam > 0.5:
 					is_slamming = true;
 					ui.hide_slam();
 			else:

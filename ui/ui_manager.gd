@@ -78,11 +78,8 @@ func die():
 	get_tree().paused = true;
 
 @onready var slam : Control = $Slam;
-var slam_shown : float = 0;
 func show_slam():
-	if slam_shown < 3:
-		slam.visible = true;
-		slam_shown += 1;
+	slam.visible = true;
 
 func hide_slam():
 	slam.visible = false;

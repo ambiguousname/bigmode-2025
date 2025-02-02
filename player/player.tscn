@@ -34,3 +34,4 @@ shape = SubResource("1")
 stream = ExtResource("4_ll2xq")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, -1000, 0)
