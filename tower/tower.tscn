@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://c0236otwwcmet"]
+[gd_scene load_steps=43 format=3 uid="uid://c0236otwwcmet"]
 
 [ext_resource type="PackedScene" uid="uid://cc4idhykjp5f5" path="res://player/player.tscn" id="1_oy2uo"]
 [ext_resource type="Script" path="res://pauser.gd" id="2_wgj27"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://co71eu4x7su64" path="res://slappables/enemies/telekinetic.tscn" id="14_7ly42"]
 [ext_resource type="Script" path="res://tower/bounce_pad.gd" id="16_540qq"]
 [ext_resource type="PackedScene" uid="uid://8ijauy75w5jd" path="res://slappables/enemies/giant.tscn" id="17_dhn0c"]
+[ext_resource type="Script" path="res://tower/checkpoint.gd" id="18_hp0h0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mgcof"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -103,6 +104,9 @@ height = 0.305
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_rusn0"]
 radius = 1.00248
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1t5fj"]
+size = Vector3(10.7102, 7.06757, 4.86426)
 
 [node name="Tower" type="Node3D"]
 
@@ -792,7 +796,7 @@ transform = Transform3D(1, 0, 1.49012e-07, 0, 1, 0, -1.49012e-07, 0, 1, -4.32291
 shape = SubResource("CylinderShape3D_vshub")
 
 [node name="DebugStart" type="Marker3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 115.184, 57.3495, 24.2517)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 50.4414, 34.649, 66.4671)
 gizmo_extents = 1.0
 script = ExtResource("12_3f6ao")
 
@@ -843,3 +847,11 @@ text = "PLEASE DO NOT READ
 
 I AM VERY ANXIOUS
 TO BE PERCEIVED BY YOU"
+
+[node name="Checkpoint" type="Area3D" parent="."]
+transform = Transform3D(0.819152, 0, 0.573576, 0, 1, 0, -0.573576, 0, 0.819152, 52.0583, 32.514, 69.8341)
+script = ExtResource("18_hp0h0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoint"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.507683, 3.03378, -1.93214)
+shape = SubResource("BoxShape3D_1t5fj")

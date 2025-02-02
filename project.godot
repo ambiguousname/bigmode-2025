@@ -17,6 +17,10 @@ run/main_scene="res://tower/tower.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+CheckpointManager="*res://tower/checkpoint_manager.gd"
+
 [input]
 
 move_left={

@@ -194,7 +194,7 @@ offset_right = 55.5
 offset_bottom = 15.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Restart"
+text = "Restart from Checkpoint"
 
 [node name="Button2" type="Button" parent="Death"]
 layout_mode = 1

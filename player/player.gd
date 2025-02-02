@@ -21,6 +21,11 @@ const JUMP_STR = 5;
 @onready var raycast : RayCast3D = $RayCast3D;
 @onready var shapecast : ShapeCast3D = $ShapeCast3D;
 
+func _ready() -> void:
+	var res = CheckpointManager.get_respawn_point();
+	if res != Vector3.ZERO:
+		global_position = res;
+
 var jump : float;
 var jumping : bool = false;
 
@@ -35,6 +40,12 @@ func _input(event: InputEvent) -> void:
 
 func _physics_process(delta: float) -> void:
 	if global_position.y < -12:
+		var res = CheckpointManager.get_respawn_point();
+		if res != Vector3.ZERO:
+			initial_position = res;
+			is_slamming = false;
+			_camera.curr_shake = 0;
+			slam_dist = 0;
 		position = initial_position;
 		velocity = Vector3.ZERO;
 		
