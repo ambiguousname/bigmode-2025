@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://c0236otwwcmet"]
+[gd_scene load_steps=28 format=3 uid="uid://c0236otwwcmet"]
 
 [ext_resource type="PackedScene" uid="uid://cc4idhykjp5f5" path="res://player/player.tscn" id="1_oy2uo"]
 [ext_resource type="Script" path="res://pauser.gd" id="2_wgj27"]
@@ -61,6 +61,9 @@ size = Vector3(10, 10, 10)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lfcw2"]
 size = Vector3(10, 10, 50.2913)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mbvli"]
+size = Vector3(10, 10, 11.146)
 
 [node name="Tower" type="Node3D"]
 
@@ -227,7 +230,29 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.69714, 0.845405, 0.0113039)
 [node name="RigidBody3D8" parent="Slappables/Arena" instance=ExtResource("11_5dp7v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0236053, 0.845405, 5.25247)
 
+[node name="TowerBottom" type="Node3D" parent="Slappables"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83.9346, 0, 0)
+
+[node name="SpawnTrigger2" type="Area3D" parent="Slappables/TowerBottom" node_paths=PackedStringArray("to_spawn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.3512, 0, 0)
+script = ExtResource("12_1o1x5")
+to_spawn = [NodePath("../Charger"), NodePath("../Charger2"), NodePath("../Charger3")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Slappables/TowerBottom/SpawnTrigger2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.49969, 0)
+shape = SubResource("BoxShape3D_mbvli")
+
+[node name="Charger" parent="Slappables/TowerBottom" instance=ExtResource("13_idrxe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.35204, 0.23289, -5.26812)
+
+[node name="Charger2" parent="Slappables/TowerBottom" instance=ExtResource("13_idrxe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9728, 0.23289, 0.21315)
+
+[node name="Charger3" parent="Slappables/TowerBottom" instance=ExtResource("13_idrxe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0716171, 1.01657, 18.0252)
+
 [node name="DebugStart" type="Marker3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 72.1746, 33.2085, 4.23056)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 54.4807, 3.27385, 0.6183)
 gizmo_extents = 1.0
 script = ExtResource("12_3f6ao")
+debug = true
