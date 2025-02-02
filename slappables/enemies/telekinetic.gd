@@ -1,9 +1,12 @@
 class_name Telekinetic extends Enemy
 
+@export var nav_dist : float = 0.0;
 @onready var timer : Timer = $Timer;
 
 func _ready() -> void:
 	super();
+	if nav_dist != 0.0:
+		nav_agent.target_desired_distance = nav_dist;
 	timer.timeout.connect(set_idle);
 
 func set_idle():

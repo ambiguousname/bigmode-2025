@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://c0236otwwcmet"]
+[gd_scene load_steps=32 format=3 uid="uid://c0236otwwcmet"]
 
 [ext_resource type="PackedScene" uid="uid://cc4idhykjp5f5" path="res://player/player.tscn" id="1_oy2uo"]
 [ext_resource type="Script" path="res://pauser.gd" id="2_wgj27"]
@@ -71,6 +71,9 @@ size = Vector3(16.267, 10, 11.146)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k5cvv"]
 size = Vector3(8.46454, 6.17859, 7.23853)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_6tlhr"]
+radius = 6.53973
 
 [node name="Tower" type="Node3D"]
 
@@ -445,9 +448,35 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.8595, -3.26143, -7.3607)
 
 [node name="Telekinetic" parent="Slappables/Hallway" instance=ExtResource("14_7ly42")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.2056, -3.04068, 5.58938)
+nav_dist = 20.0
+
+[node name="HallwayEnd" type="Node3D" parent="Slappables"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.8543, 35.3665, 48.3047)
+
+[node name="SpawnTrigger2" type="Area3D" parent="Slappables/HallwayEnd" node_paths=PackedStringArray("to_spawn")]
+transform = Transform3D(0.897274, 0, -0.441475, 0, 1, 0, 0.441475, 0, 0.897274, 11.6432, -1.97802, -6.27734)
+script = ExtResource("12_1o1x5")
+to_spawn = [NodePath("../Telekinetic"), NodePath("../Telekinetic2")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Slappables/HallwayEnd/SpawnTrigger2"]
+shape = SubResource("SphereShape3D_6tlhr")
+
+[node name="RigidBody3D" parent="Slappables/HallwayEnd" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.32185, -2.33534, 3.5093)
+
+[node name="RigidBody3D13" parent="Slappables/HallwayEnd" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6244, -1.59512, -1.42461)
+
+[node name="Telekinetic" parent="Slappables/HallwayEnd" instance=ExtResource("14_7ly42")]
+transform = Transform3D(-0.855951, 0, -0.517056, 0, 1, 0, 0.517056, 0, -0.855951, 7.1039, -3.04068, 5.70669)
+nav_dist = 20.0
+
+[node name="Telekinetic2" parent="Slappables/HallwayEnd" instance=ExtResource("14_7ly42")]
+transform = Transform3D(-0.855951, 0, -0.517056, 0, 1, 0, 0.517056, 0, -0.855951, 0.0545044, -3.04068, 1.38194)
+nav_dist = 20.0
 
 [node name="DebugStart" type="Marker3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 54.4807, 3.27385, 0.6183)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 74.3774, 33.5663, 17.4547)
 gizmo_extents = 1.0
 script = ExtResource("12_3f6ao")
 debug = true
