@@ -5,5 +5,4 @@ func _ready() -> void:
 
 func _body_entered(b : PhysicsBody3D):
 	if b is Player:
-		b.slam_allowed = true;
 		b.velocity += Vector3.UP * 50;

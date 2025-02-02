@@ -21,6 +21,8 @@ var mouse_move_intent_intensity : float = 0;
 var shooting : bool = false;
 
 func _input(event: InputEvent) -> void:
+	if ui.paused:
+		return;
 	if event is InputEventMouseMotion:
 		mouse_move_intent += event.relative;
 		mouse_move_intent_intensity += event.relative.length();
