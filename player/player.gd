@@ -66,6 +66,8 @@ func _physics_process(delta: float) -> void:
 	
 	if is_slamming:
 		if !is_on_floor():
+			if velocity.y > 0:
+				velocity.y = 0;
 			velocity += Vector3.DOWN * JUMP_STR;
 			_camera.curr_shake += 0.05;
 			slam_dist -= velocity.y * delta;

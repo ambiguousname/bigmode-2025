@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://c0236otwwcmet"]
+[gd_scene load_steps=39 format=3 uid="uid://c0236otwwcmet"]
 
 [ext_resource type="PackedScene" uid="uid://cc4idhykjp5f5" path="res://player/player.tscn" id="1_oy2uo"]
 [ext_resource type="Script" path="res://pauser.gd" id="2_wgj27"]
@@ -75,6 +75,17 @@ size = Vector3(8.46454, 6.17859, 7.23853)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_6tlhr"]
 radius = 6.53973
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mbx6w"]
+size = Vector3(11.9583, 9.12891, 6.72388)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_56c47"]
+height = 40.6228
+radius = 16.1349
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ka1do"]
+height = 2.71365
+radius = 11.6422
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1rgkf"]
 shading_mode = 0
@@ -488,6 +499,278 @@ nav_dist = 20.0
 transform = Transform3D(-0.855951, 0, -0.517056, 0, 1, 0, 0.517056, 0, -0.855951, 0.0545044, -3.04068, 1.38194)
 nav_dist = 20.0
 
+[node name="BounceStart" type="Node3D" parent="Slappables"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.306, 31.3933, 74.9508)
+
+[node name="SpawnTrigger2" type="Area3D" parent="Slappables/BounceStart" node_paths=PackedStringArray("to_spawn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.64257, -0.234106, -3.35626)
+script = ExtResource("12_1o1x5")
+to_spawn = [NodePath("../Charger"), NodePath("../Charger2"), NodePath("../Telekinetic")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Slappables/BounceStart/SpawnTrigger2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.174789, 3.06414, -2.21106)
+shape = SubResource("BoxShape3D_mbx6w")
+
+[node name="Charger" parent="Slappables/BounceStart" instance=ExtResource("13_idrxe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.702835, 0.624401, 4.94349)
+
+[node name="Charger2" parent="Slappables/BounceStart" instance=ExtResource("13_idrxe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.11955, 0.895546, -0.290322)
+
+[node name="Telekinetic" parent="Slappables/BounceStart" instance=ExtResource("14_7ly42")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.712883, 0.85281, 8.7728)
+nav_dist = 0.0
+
+[node name="RigidBody3D" parent="Slappables/BounceStart" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.30596, 1.50666, 6.04916)
+
+[node name="RigidBody3D2" parent="Slappables/BounceStart" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.94437, 1.50666, 3.22893)
+
+[node name="RigidBody3D3" parent="Slappables/BounceStart" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.35747, 1.50666, 5.67181)
+
+[node name="RigidBody3D4" parent="Slappables/BounceStart" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0387, 1.50666, 7.07703)
+
+[node name="RigidBody3D5" parent="Slappables/BounceStart" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.29832, 1.50666, 2.37843)
+
+[node name="RigidBody3D6" parent="Slappables/BounceStart" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.09978, 1.50666, 1.35559)
+
+[node name="RigidBody3D7" parent="Slappables/BounceStart" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63579, 1.50666, 3.90823)
+
+[node name="RigidBody3D8" parent="Slappables/BounceStart" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63579, 1.50666, 3.90823)
+
+[node name="BounceNext" type="Node3D" parent="Slappables"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99.3282, 44.4307, 57.643)
+
+[node name="SpawnTrigger2" type="Area3D" parent="Slappables/BounceNext" node_paths=PackedStringArray("to_spawn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1031, -0.234108, 16.5677)
+script = ExtResource("12_1o1x5")
+to_spawn = [NodePath("../Charger"), NodePath("../Charger3"), NodePath("../Charger4"), NodePath("../Charger5"), NodePath("../Charger6"), NodePath("../Charger7"), NodePath("../Charger8"), NodePath("../Charger9"), NodePath("../Charger10"), NodePath("../Charger11"), NodePath("../Charger12"), NodePath("../Charger13"), NodePath("../Charger14"), NodePath("../Charger15"), NodePath("../Charger16"), NodePath("../Charger17"), NodePath("../Charger2")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Slappables/BounceNext/SpawnTrigger2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.85361, 28.5855, -4.80761)
+shape = SubResource("CylinderShape3D_56c47")
+
+[node name="Charger" parent="Slappables/BounceNext" instance=ExtResource("13_idrxe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.702835, 0.624401, 4.94349)
+
+[node name="Charger3" parent="Slappables/BounceNext" instance=ExtResource("13_idrxe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.4669, 0.624401, 0.731201)
+
+[node name="Charger4" parent="Slappables/BounceNext" instance=ExtResource("13_idrxe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.46496, 0.624401, 1.66148)
+
+[node name="Charger5" parent="Slappables/BounceNext" instance=ExtResource("13_idrxe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6776, 0.624401, 6.2532)
+
+[node name="Charger6" parent="Slappables/BounceNext" instance=ExtResource("13_idrxe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.31034, 0.674454, 4.68124)
+
+[node name="Charger7" parent="Slappables/BounceNext" instance=ExtResource("13_idrxe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.89209, 0.674454, 1.09479)
+
+[node name="Charger8" parent="Slappables/BounceNext" instance=ExtResource("13_idrxe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.47556, 0.674454, -3.97424)
+
+[node name="Charger9" parent="Slappables/BounceNext" instance=ExtResource("13_idrxe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.31434, 0.674454, -4.73222)
+
+[node name="Charger10" parent="Slappables/BounceNext" instance=ExtResource("13_idrxe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.261444, 0.674454, 2.04088)
+
+[node name="Charger11" parent="Slappables/BounceNext" instance=ExtResource("13_idrxe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.17636, 0.674454, 7.03086)
+
+[node name="Charger12" parent="Slappables/BounceNext" instance=ExtResource("13_idrxe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.94371, 0.674454, 9.25716)
+
+[node name="Charger13" parent="Slappables/BounceNext" instance=ExtResource("13_idrxe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.54144, 0.674454, 7.08353)
+
+[node name="Charger14" parent="Slappables/BounceNext" instance=ExtResource("13_idrxe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.33305, 0.674454, 10.3124)
+
+[node name="Charger15" parent="Slappables/BounceNext" instance=ExtResource("13_idrxe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.19051, 0.674454, 8.98994)
+
+[node name="Charger16" parent="Slappables/BounceNext" instance=ExtResource("13_idrxe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.59, 0.674454, 2.20691)
+
+[node name="Charger17" parent="Slappables/BounceNext" instance=ExtResource("13_idrxe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01563, 0.674454, 9.64098)
+
+[node name="Charger2" parent="Slappables/BounceNext" instance=ExtResource("13_idrxe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.11955, 0.895546, -0.290322)
+
+[node name="BounceEnd" type="Node3D" parent="Slappables"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 118.692, 55.2163, 28.5735)
+
+[node name="SpawnTrigger2" type="Area3D" parent="Slappables/BounceEnd" node_paths=PackedStringArray("to_spawn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.64257, -0.234106, -3.35626)
+script = ExtResource("12_1o1x5")
+to_spawn = [NodePath("../Charger"), NodePath("../Charger2"), NodePath("../Telekinetic"), NodePath("../Telekinetic2"), NodePath("../Telekinetic3"), NodePath("../Telekinetic4")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Slappables/BounceEnd/SpawnTrigger2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.61919, 2.15845, 7.87997)
+shape = SubResource("CylinderShape3D_ka1do")
+
+[node name="Charger" parent="Slappables/BounceEnd" instance=ExtResource("13_idrxe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.702835, 0.624401, 4.94349)
+
+[node name="Charger2" parent="Slappables/BounceEnd" instance=ExtResource("13_idrxe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.11955, 0.895546, -0.290322)
+
+[node name="Telekinetic" parent="Slappables/BounceEnd" instance=ExtResource("14_7ly42")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.712883, 0.85281, 8.7728)
+nav_dist = 0.0
+
+[node name="Telekinetic2" parent="Slappables/BounceEnd" instance=ExtResource("14_7ly42")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.63605, 0.85281, 3.10141)
+nav_dist = 0.0
+
+[node name="Telekinetic3" parent="Slappables/BounceEnd" instance=ExtResource("14_7ly42")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.22203, 0.85281, 7.10339)
+nav_dist = 0.0
+
+[node name="Telekinetic4" parent="Slappables/BounceEnd" instance=ExtResource("14_7ly42")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.79874, 0.85281, 10.5029)
+nav_dist = 0.0
+
+[node name="RigidBody3D" parent="Slappables/BounceEnd" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.30596, 1.50666, 6.04916)
+
+[node name="RigidBody3D2" parent="Slappables/BounceEnd" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.94437, 1.50666, 3.22893)
+
+[node name="RigidBody3D9" parent="Slappables/BounceEnd" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.11278, 1.50666, 3.68126)
+
+[node name="RigidBody3D10" parent="Slappables/BounceEnd" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.33623, 1.50666, 5.36898)
+
+[node name="RigidBody3D11" parent="Slappables/BounceEnd" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.86071, 1.50666, 0.010704)
+
+[node name="RigidBody3D12" parent="Slappables/BounceEnd" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.91588, 1.50666, -0.814838)
+
+[node name="RigidBody3D25" parent="Slappables/BounceEnd" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0904, 2.59337, 3.71679)
+
+[node name="RigidBody3D26" parent="Slappables/BounceEnd" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.27342, 2.59337, 2.32243)
+
+[node name="RigidBody3D27" parent="Slappables/BounceEnd" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0804, 2.59337, 2.94513)
+
+[node name="RigidBody3D28" parent="Slappables/BounceEnd" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.32431, 2.59337, 5.68955)
+
+[node name="RigidBody3D29" parent="Slappables/BounceEnd" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.17064, 3.77143, 3.66991)
+
+[node name="RigidBody3D30" parent="Slappables/BounceEnd" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.25855, 3.77143, 7.24469)
+
+[node name="RigidBody3D31" parent="Slappables/BounceEnd" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.543808, 3.77143, 3.02657)
+
+[node name="RigidBody3D32" parent="Slappables/BounceEnd" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.84486, 3.77143, 7.73173)
+
+[node name="RigidBody3D33" parent="Slappables/BounceEnd" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.40929, 3.77143, 5.32803)
+
+[node name="RigidBody3D34" parent="Slappables/BounceEnd" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.38175, 3.77143, 3.28896)
+
+[node name="RigidBody3D35" parent="Slappables/BounceEnd" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.80575, 3.77143, 4.50707)
+
+[node name="RigidBody3D36" parent="Slappables/BounceEnd" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.92477, 3.77143, 6.34742)
+
+[node name="RigidBody3D37" parent="Slappables/BounceEnd" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.10419, 3.77143, 7.92848)
+
+[node name="RigidBody3D38" parent="Slappables/BounceEnd" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.11224, 3.77143, 9.35681)
+
+[node name="RigidBody3D39" parent="Slappables/BounceEnd" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.41628, 3.77143, 9.05014)
+
+[node name="RigidBody3D40" parent="Slappables/BounceEnd" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.446228, 5.22197, 1.12883)
+
+[node name="RigidBody3D41" parent="Slappables/BounceEnd" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7139, 5.22197, 0.979324)
+
+[node name="RigidBody3D42" parent="Slappables/BounceEnd" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.20036, 5.22197, 4.56325)
+
+[node name="RigidBody3D43" parent="Slappables/BounceEnd" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.79964, 4.22197, 4.56325)
+
+[node name="RigidBody3D13" parent="Slappables/BounceEnd" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.01008, 1.50666, 0.682547)
+
+[node name="RigidBody3D14" parent="Slappables/BounceEnd" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.06026, 1.50666, 2.94403)
+
+[node name="RigidBody3D15" parent="Slappables/BounceEnd" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.17958, 1.50666, 7.93325)
+
+[node name="RigidBody3D16" parent="Slappables/BounceEnd" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.99131, 1.50666, 9.50868)
+
+[node name="RigidBody3D17" parent="Slappables/BounceEnd" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.99395, 1.50666, 9.33508)
+
+[node name="RigidBody3D18" parent="Slappables/BounceEnd" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.14286, 1.50666, 7.75169)
+
+[node name="RigidBody3D19" parent="Slappables/BounceEnd" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.518753, 1.50666, 2.5479)
+
+[node name="RigidBody3D20" parent="Slappables/BounceEnd" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.808876, 1.50666, 6.56693)
+
+[node name="RigidBody3D21" parent="Slappables/BounceEnd" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.70966, 1.50666, 5.80693)
+
+[node name="RigidBody3D22" parent="Slappables/BounceEnd" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.52746, 1.50666, 8.48157)
+
+[node name="RigidBody3D23" parent="Slappables/BounceEnd" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.72927, 1.50666, 11.248)
+
+[node name="RigidBody3D24" parent="Slappables/BounceEnd" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.72927, 1.50666, 11.248)
+
+[node name="RigidBody3D3" parent="Slappables/BounceEnd" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.35747, 1.50666, 5.67181)
+
+[node name="RigidBody3D4" parent="Slappables/BounceEnd" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0387, 1.50666, 7.07703)
+
+[node name="RigidBody3D5" parent="Slappables/BounceEnd" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.29832, 1.50666, 2.37843)
+
+[node name="RigidBody3D6" parent="Slappables/BounceEnd" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.09978, 1.50666, 1.35559)
+
+[node name="RigidBody3D7" parent="Slappables/BounceEnd" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63579, 1.50666, 3.90823)
+
+[node name="RigidBody3D8" parent="Slappables/BounceEnd" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.63579, 1.50666, 3.90823)
+
 [node name="DebugStart" type="Marker3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 55.6709, 33.5663, 75.6042)
 gizmo_extents = 1.0
@@ -533,3 +816,10 @@ mesh = SubResource("CylinderMesh_oqygy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BouncePad4"]
 shape = SubResource("SphereShape3D_rusn0")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(0.716874, 0, 0.697203, 0, 1, 0, -0.697203, 0, 0.716874, 94.2913, 44.0196, 14.4509)
+text = "PLEASE DO NOT READ
+
+I AM VERY ANXIOUS
+TO BE PERCEIVED BY YOU"
