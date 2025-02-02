@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://c0236otwwcmet"]
+[gd_scene load_steps=36 format=3 uid="uid://c0236otwwcmet"]
 
 [ext_resource type="PackedScene" uid="uid://cc4idhykjp5f5" path="res://player/player.tscn" id="1_oy2uo"]
 [ext_resource type="Script" path="res://pauser.gd" id="2_wgj27"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://tower/debug_start.gd" id="12_3f6ao"]
 [ext_resource type="PackedScene" uid="uid://bsduxbwqkqrna" path="res://slappables/enemies/charger.tscn" id="13_idrxe"]
 [ext_resource type="PackedScene" uid="uid://co71eu4x7su64" path="res://slappables/enemies/telekinetic.tscn" id="14_7ly42"]
+[ext_resource type="Script" path="res://tower/bounce_pad.gd" id="16_540qq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mgcof"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -74,6 +75,18 @@ size = Vector3(8.46454, 6.17859, 7.23853)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_6tlhr"]
 radius = 6.53973
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1rgkf"]
+shading_mode = 0
+albedo_color = Color(0, 0.496994, 0.235684, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_oqygy"]
+material = SubResource("StandardMaterial3D_1rgkf")
+bottom_radius = 1.0
+height = 0.305
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_rusn0"]
+radius = 1.00248
 
 [node name="Tower" type="Node3D"]
 
@@ -476,7 +489,27 @@ transform = Transform3D(-0.855951, 0, -0.517056, 0, 1, 0, 0.517056, 0, -0.855951
 nav_dist = 20.0
 
 [node name="DebugStart" type="Marker3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 74.3774, 33.5663, 17.4547)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 55.6709, 33.5663, 75.6042)
 gizmo_extents = 1.0
 script = ExtResource("12_3f6ao")
 debug = true
+
+[node name="BouncePad" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.4432, 32.402, 74.3739)
+script = ExtResource("16_540qq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BouncePad"]
+mesh = SubResource("CylinderMesh_oqygy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BouncePad"]
+shape = SubResource("SphereShape3D_rusn0")
+
+[node name="BouncePad2" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.366, 32.402, 45.0657)
+script = ExtResource("16_540qq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BouncePad2"]
+mesh = SubResource("CylinderMesh_oqygy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BouncePad2"]
+shape = SubResource("SphereShape3D_rusn0")
