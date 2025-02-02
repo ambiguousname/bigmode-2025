@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://c0236otwwcmet"]
+[gd_scene load_steps=29 format=3 uid="uid://c0236otwwcmet"]
 
 [ext_resource type="PackedScene" uid="uid://cc4idhykjp5f5" path="res://player/player.tscn" id="1_oy2uo"]
 [ext_resource type="Script" path="res://pauser.gd" id="2_wgj27"]
@@ -64,6 +64,9 @@ size = Vector3(10, 10, 50.2913)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mbvli"]
 size = Vector3(10, 10, 11.146)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ebxac"]
+size = Vector3(16.267, 10, 11.146)
 
 [node name="Tower" type="Node3D"]
 
@@ -236,7 +239,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83.9346, 0, 0)
 [node name="SpawnTrigger2" type="Area3D" parent="Slappables/TowerBottom" node_paths=PackedStringArray("to_spawn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.3512, 0, 0)
 script = ExtResource("12_1o1x5")
-to_spawn = [NodePath("../Charger"), NodePath("../Charger2"), NodePath("../Charger3")]
+to_spawn = [NodePath("../Charger"), NodePath("../Charger2"), NodePath("../Charger3"), NodePath("../Charger4"), NodePath("../Charger5"), NodePath("../Charger6"), NodePath("../Charger7"), NodePath("../Charger8")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Slappables/TowerBottom/SpawnTrigger2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.49969, 0)
@@ -250,6 +253,120 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9728, 0.23289, 0.21315)
 
 [node name="Charger3" parent="Slappables/TowerBottom" instance=ExtResource("13_idrxe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0716171, 1.01657, 18.0252)
+
+[node name="Charger4" parent="Slappables/TowerBottom" instance=ExtResource("13_idrxe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.932068, 0.932951, 12.7248)
+
+[node name="Charger5" parent="Slappables/TowerBottom" instance=ExtResource("13_idrxe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.39847, 0.516569, 15.6001)
+
+[node name="Charger6" parent="Slappables/TowerBottom" instance=ExtResource("13_idrxe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.83305, 0.259735, 10.5317)
+
+[node name="Charger7" parent="Slappables/TowerBottom" instance=ExtResource("13_idrxe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.82466, 0.340378, 16.717)
+
+[node name="Charger8" parent="Slappables/TowerBottom" instance=ExtResource("13_idrxe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5995, 0.384909, 4.6577)
+
+[node name="RigidBody3D" parent="Slappables/TowerBottom" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.4642, 0.757516, 7.38522)
+
+[node name="RigidBody3D2" parent="Slappables/TowerBottom" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.4249, 0.757516, 10.195)
+
+[node name="RigidBody3D3" parent="Slappables/TowerBottom" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7968, 0.757516, 8.89094)
+
+[node name="RigidBody3D4" parent="Slappables/TowerBottom" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5493, 0.757516, 12.113)
+
+[node name="RigidBody3D5" parent="Slappables/TowerBottom" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5493, 1.70995, 12.113)
+
+[node name="RigidBody3D6" parent="Slappables/TowerBottom" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5493, 2.79419, 12.113)
+
+[node name="TowerMid" type="Node3D" parent="Slappables"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.3956, 20.7264, -1.40153)
+
+[node name="SpawnTrigger2" type="Area3D" parent="Slappables/TowerMid" node_paths=PackedStringArray("to_spawn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.6777, -8.26598, 3.94176)
+script = ExtResource("12_1o1x5")
+to_spawn = [NodePath("../../Charger"), NodePath("../../Charger2"), NodePath("../../Charger3"), NodePath("../../Charger4"), NodePath("../../Charger5"), NodePath("../../Charger6"), NodePath("../../Charger7")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Slappables/TowerMid/SpawnTrigger2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.785461, 3.49969, 0)
+shape = SubResource("BoxShape3D_ebxac")
+
+[node name="Charger" parent="Slappables" instance=ExtResource("13_idrxe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.0451, 15.1954, 14.469)
+
+[node name="Charger2" parent="Slappables" instance=ExtResource("13_idrxe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.6934, 15.0091, 7.74931)
+
+[node name="Charger3" parent="Slappables" instance=ExtResource("13_idrxe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.2287, 16.0263, 12.3654)
+
+[node name="Charger4" parent="Slappables" instance=ExtResource("13_idrxe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.0725, 16.3149, 18.3398)
+
+[node name="Charger5" parent="Slappables" instance=ExtResource("13_idrxe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 95.4799, 21.7489, -5.69234)
+
+[node name="Charger6" parent="Slappables" instance=ExtResource("13_idrxe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99.8711, 21.2599, -2.68319)
+
+[node name="Charger7" parent="Slappables" instance=ExtResource("13_idrxe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 97.5081, 22.152, -8.35817)
+
+[node name="RigidBody3D" parent="Slappables" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84.4258, 18.1734, 13.7995)
+
+[node name="RigidBody3D2" parent="Slappables" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.8587, 18.1734, 16.3084)
+
+[node name="RigidBody3D3" parent="Slappables" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84.7587, 18.1734, 15.4084)
+
+[node name="RigidBody3D4" parent="Slappables" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.1212, 18.1734, 18.0081)
+
+[node name="RigidBody3D5" parent="Slappables" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.1001, 18.1734, 11.9626)
+
+[node name="RigidBody3D6" parent="Slappables" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.2007, 18.1734, 14.726)
+
+[node name="RigidBody3D7" parent="Slappables" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.4749, 18.1734, 16.8427)
+
+[node name="RigidBody3D8" parent="Slappables" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.6446, 18.1734, 18.6501)
+
+[node name="RigidBody3D9" parent="Slappables" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83.2554, 18.1734, 11.7164)
+
+[node name="RigidBody3D10" parent="Slappables" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.5554, 18.1734, 13.6164)
+
+[node name="RigidBody3D11" parent="Slappables" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.5554, 18.1734, 17.6164)
+
+[node name="RigidBody3D12" parent="Slappables" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83.5135, 18.1734, 20.224)
+
+[node name="RigidBody3D13" parent="Slappables" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.7381, 19.1548, 19.6444)
+
+[node name="RigidBody3D14" parent="Slappables" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.0649, 19.1548, 18.0897)
+
+[node name="RigidBody3D15" parent="Slappables" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.6868, 16.8392, 5.85396)
+
+[node name="RigidBody3D16" parent="Slappables" instance=ExtResource("11_5dp7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.6753, 16.8392, 8.1263)
 
 [node name="DebugStart" type="Marker3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 54.4807, 3.27385, 0.6183)
