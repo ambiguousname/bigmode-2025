@@ -106,7 +106,7 @@ func damage(hp : float):
 	_camera.curr_shake += 0.2;
 	ui.set_health(health);
 	
-	if hp > 30:
+	if hp >= 20:
 		pain.play();
 	
 	if health <= 0:
