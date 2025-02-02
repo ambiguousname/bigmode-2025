@@ -115,7 +115,10 @@ func _physics_process(delta: float) -> void:
 var health : float = 100;
 
 func damage(hp : float):
-	health -= hp;
+	if health - hp <= 0 and health > 1:
+		health = 1;
+	else:
+		health -= hp;
 	_camera.curr_shake += 0.2;
 	ui.set_health(health);
 	
