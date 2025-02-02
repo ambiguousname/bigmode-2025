@@ -83,7 +83,7 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause") and !other_paused:
 		pause(!paused);
 	
-	if $StartScreen.visible:
+	if !(event is InputEventMouseMotion) and $StartScreen.visible:
 		timer.timeout.emit();
 
 func pause(should_pause : bool):
