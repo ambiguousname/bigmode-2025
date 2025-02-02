@@ -831,6 +831,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 96.9375, 42.4413, 17.2)
 script = ExtResource("16_540qq")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="BouncePad4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0871124, 0)
 mesh = SubResource("CylinderMesh_oqygy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BouncePad4"]
