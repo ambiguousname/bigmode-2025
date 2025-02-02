@@ -22,6 +22,7 @@ const JUMP_STR = 5;
 @onready var shapecast : ShapeCast3D = $ShapeCast3D;
 
 func _ready() -> void:
+	CheckpointManager.clear_frees();
 	var res = CheckpointManager.get_respawn_point();
 	if res[0] != Vector3.ZERO:
 		global_position = res[0];
