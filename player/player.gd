@@ -64,6 +64,7 @@ func _physics_process(delta: float) -> void:
 	var move_dir_vec2 = Input.get_vector(&"move_left", &"move_right", &"move_forward", &"move_back")
 	
 	var move_dir = _camera.global_basis * Vector3(move_dir_vec2.x, 0, move_dir_vec2.y);
+	rotation.z = lerp(rotation.z, -move_dir_vec2.x/10, delta);
 	move_dir.y = 0;
 	move_dir = move_dir.normalized();
 	
@@ -108,7 +109,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			ui.hide_slam();
 	
-	velocity += move_dir;
+	velocity += move_dir * 1.3;
 	move_and_slide();
 
 var health : float = 100;
