@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cc4idhykjp5f5"]
+[gd_scene load_steps=8 format=3 uid="uid://cc4idhykjp5f5"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1"]
 [ext_resource type="Script" path="res://fps_camera.gd" id="2_lf157"]
 [ext_resource type="PackedScene" uid="uid://cbj4gvhfmmgg1" path="res://hand/hand.tscn" id="3_4ry0y"]
 [ext_resource type="AudioStream" uid="uid://cnv2iwhjxra6m" path="res://SFX/minorpain.ogg" id="4_ll2xq"]
+[ext_resource type="AudioStream" uid="uid://bs0irkuexg23d" path="res://metal_boss_song.mp3" id="5_anr0o"]
 
 [sub_resource type="CapsuleShape3D" id="1"]
 radius = 0.4
@@ -44,3 +45,10 @@ hit_back_faces = false
 [node name="ShapeCast3D" type="ShapeCast3D" parent="."]
 enabled = false
 shape = SubResource("SphereShape3D_dcj1e")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("5_anr0o")
+volume_db = -15.0
+autoplay = true
+parameters/looping = true

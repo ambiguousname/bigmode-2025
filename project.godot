@@ -13,7 +13,7 @@ config_version=5
 config/name="Slap Them To Hell 2: Edmond's Rise to Power"
 config/description="Hell just got a new worst enemy..."
 config/version="BIGMODE"
-run/main_scene="res://tower/tower.tscn"
+run/main_scene="res://main_menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
