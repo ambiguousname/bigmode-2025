@@ -13,7 +13,7 @@ script = ExtResource("2_ayymr")
 target_desired_distance = 10.0
 
 [node name="ShapeCast3D" type="ShapeCast3D" parent="." index="5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1385, 0.552854)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.43739, 0.552854)
 enabled = false
 shape = SubResource("SphereShape3D_w8blx")
 target_position = Vector3(0, 0, 0)
@@ -21,6 +21,3 @@ collide_with_areas = true
 
 [node name="StandTimer" type="Timer" parent="." index="6"]
 one_shot = true
-
-[node name="SpawnPortal" parent="." index="7"]
-transform = Transform3D(2, 0, 0, 0, -8.74228e-08, 2, 0, -2, -8.74228e-08, 0, 0.0473355, 0)
