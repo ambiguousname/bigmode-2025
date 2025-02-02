@@ -21,9 +21,9 @@ grow_vertical = 2
 bbcode_enabled = true
 text = "[center]A Game By:
 
-[shake][url=https://ambiguous.name/]ambiguousname[/url][/shake] - Code, Some Modeling
+[shake][url=https://ambiguous.name/]ambiguousname[/url][/shake] - Code, Modeling, Level Design
 
-[wave][url=https://annalivia.xyz/]stargyaru[/url][/wave] - Art, Modeling, Sound
+[wave][url=https://annalivia.xyz/]stargyaru[/url][/wave] - Art, Modeling, Sound Effects
 
 [font_size=48]LICENSES[/font_size]
 
@@ -57,8 +57,9 @@ script = ExtResource("1_pdrka")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_right = 195.0
+offset_bottom = 121.0
+theme_override_font_sizes/font_size = 50
 text = "BACK"
 script = ExtResource("2_0s3t1")
 scene_to_load = "res://main_menu.tscn"
