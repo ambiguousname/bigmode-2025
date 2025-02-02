@@ -24,6 +24,14 @@ func _ready() -> void:
 	);
 	
 	death_menu.get_node("Button2").pressed.connect(quit_to_menu);
+	
+	$Win/Button.pressed.connect(quit_to_menu);
+
+func win_game():
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE);
+	get_tree().paused = true;
+	paused = true;
+	$Win.visible = true;
 
 func quit_to_menu():
 	get_tree().paused = false;

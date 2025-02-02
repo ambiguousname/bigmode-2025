@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://8ijauy75w5jd"]
+[gd_scene load_steps=4 format=3 uid="uid://8ijauy75w5jd"]
 
 [ext_resource type="PackedScene" uid="uid://cg71oerkiwokf" path="res://slappables/enemies/enemy.tscn" id="1_p2152"]
+[ext_resource type="Script" path="res://slappables/enemies/giant.gd" id="2_kkegf"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_5xpul"]
 height = 20.0
 radius = 5.71213
 
 [node name="Enemy" instance=ExtResource("1_p2152")]
+script = ExtResource("2_kkegf")
 
 [node name="enemy_mesh" parent="." index="0"]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
@@ -20,3 +22,7 @@ transform = Transform3D(20, 0, 0, 0, -8.74228e-07, 20, 0, -20, -8.74228e-07, 0, 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="." index="6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
 shape = SubResource("CylinderShape3D_5xpul")
+
+[node name="EndGameTimer" type="Timer" parent="." index="7"]
+wait_time = 5.0
+one_shot = true
