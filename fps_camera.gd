@@ -37,7 +37,7 @@ func _process(delta: float) -> void:
 
 var shoot_move_intent : Vector3 = Vector3.ZERO;
 
-func slap_thing(thing, hit_from):
+func slap_thing(thing, intensity, hit_from):
 	if thing.slappable.just_slapped:
 		return;
 	
@@ -47,7 +47,7 @@ func slap_thing(thing, hit_from):
 		hand_particles.emitting = true;
 	else:
 		curr_shake += 0.2;
-	thing.slap(hit_from, mouse_move_intent_intensity/1.2, true);
+	thing.slap(hit_from, intensity/1.2, true);
 	thing.slappable.player_slapped = true;
 
 func get_input(delta : float):
@@ -72,9 +72,9 @@ func get_input(delta : float):
 			for i in hand_trigger.get_collision_count():
 				var c = hand_trigger.get_collider(i);
 				if (c is SlappableObj or c is Enemy):
-					slap_thing(c, hit_from);
+					slap_thing(c, mouse_move_intent_intensity, hit_from);
 				elif c.get("collision_layer") == 0b10:
-					slap_thing(c.get_parent(), hit_from);
+					slap_thing(c.get_parent(), mouse_move_intent_intensity, hit_from);
 					
 			hand_mat.albedo_color = lerp(hand_mat.albedo_color, Color.RED, min(delta * mouse_move_intent_intensity/50, 1.0));
 			

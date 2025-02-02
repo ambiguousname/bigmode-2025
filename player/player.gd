@@ -19,12 +19,14 @@ const JUMP_STR = 5;
 @onready var pain : AudioStreamPlayer3D = $Pain;
 
 @onready var raycast : RayCast3D = $RayCast3D;
+@onready var shapecast : ShapeCast3D = $ShapeCast3D;
 
 var jump : float;
 var jumping : bool = false;
 
 var slam : float;
 var is_slamming : bool = false;
+var slam_dist : float = 0;
 func _input(event: InputEvent) -> void:
 	if event.is_action("jump"):
 		jump = event.get_action_strength("jump");
@@ -64,9 +66,22 @@ func _physics_process(delta: float) -> void:
 	if is_slamming:
 		if !is_on_floor():
 			velocity += Vector3.DOWN * JUMP_STR;
-			_camera.curr_shake += 0.05 ;
+			_camera.curr_shake += 0.05;
+			slam_dist -= velocity.y * delta;
 		else:
 			is_slamming = false;
+			shapecast.enabled = true;
+			shapecast.shape.radius = slam_dist;
+			shapecast.force_shapecast_update();
+			pauser.pause(0.5);
+			for i in shapecast.get_collision_count():
+				var c = shapecast.get_collider(i);
+				if (c is SlappableObj or c is Enemy):
+					_camera.slap_thing(c, slam_dist * 100, global_position);
+				elif c.get("collision_layer") == 0b10:
+					_camera.slap_thing(c.get_parent(), slam_dist * 100, global_position);
+			shapecast.enabled = false;
+			
 			# TODO: Slam.
 	
 	if raycast.is_colliding():
