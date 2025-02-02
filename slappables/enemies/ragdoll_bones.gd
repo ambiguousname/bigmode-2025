@@ -26,4 +26,4 @@ func slap(pos : Vector3, intensity : float, flash: bool):
 	var to = bone_push.global_position - pos;
 	to.y = 0;
 	
-	bone_push.apply_impulse(to.normalized() * intensity * INTENSITY_MUL, pos - bone_push.global_position);
+	bone_push.apply_impulse(to.normalized() * intensity * INTENSITY_MUL * 0.5, pos - bone_push.global_position);
