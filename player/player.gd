@@ -23,8 +23,9 @@ const JUMP_STR = 5;
 
 func _ready() -> void:
 	var res = CheckpointManager.get_respawn_point();
-	if res != Vector3.ZERO:
-		global_position = res;
+	if res[0] != Vector3.ZERO:
+		global_position = res[0];
+		global_rotation = res[1];
 
 var jump : float;
 var jumping : bool = false;
@@ -41,8 +42,8 @@ func _input(event: InputEvent) -> void:
 func _physics_process(delta: float) -> void:
 	if global_position.y < -12:
 		var res = CheckpointManager.get_respawn_point();
-		if res != Vector3.ZERO:
-			initial_position = res;
+		if res[0] != Vector3.ZERO:
+			initial_position = res[0];
 			is_slamming = false;
 			_camera.curr_shake = 0;
 			slam_dist = 0;
@@ -63,6 +64,7 @@ func _physics_process(delta: float) -> void:
 	var move_dir_vec2 = Input.get_vector(&"move_left", &"move_right", &"move_forward", &"move_back")
 	
 	var move_dir = _camera.global_basis * Vector3(move_dir_vec2.x, 0, move_dir_vec2.y);
+	rotation.z = lerp(rotation.z, -move_dir_vec2.x/10, delta);
 	move_dir.y = 0;
 	move_dir = move_dir.normalized();
 	
@@ -107,7 +109,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			ui.hide_slam();
 	
-	velocity += move_dir;
+	velocity += move_dir * 1.3;
 	move_and_slide();
 
 var health : float = 100;

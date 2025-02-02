@@ -1,12 +1,14 @@
 extends Node
 
 var checkpoint_pos : Vector3 = Vector3.ZERO;
+var checkpoint_rot : Vector3 = Vector3.ZERO;
 
-func set_pos(p: Vector3):
+func set_pos(p: Vector3, r : Vector3):
 	checkpoint_pos = p;
+	checkpoint_rot = r;
 
-func get_respawn_point() -> Vector3:
-	return checkpoint_pos;
+func get_respawn_point():
+	return [checkpoint_pos, checkpoint_rot];
 
 var trigger_free_stack : Array[SpawnTrigger];
 

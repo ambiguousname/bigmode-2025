@@ -5,4 +5,4 @@ func _ready() -> void:
 
 func _body_entered(b : PhysicsBody3D):
 	if b is Player:
-		CheckpointManager.set_pos(global_position);
+		CheckpointManager.set_pos(global_position, global_rotation);

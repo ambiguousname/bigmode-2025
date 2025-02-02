@@ -106,7 +106,7 @@ height = 0.305
 radius = 1.00248
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1t5fj"]
-size = Vector3(10.7102, 7.06757, 4.86426)
+size = Vector3(3.58838, 7.06757, 9.71643)
 
 [node name="Tower" type="Node3D"]
 
@@ -854,4 +854,12 @@ script = ExtResource("18_hp0h0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoint"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.507683, 3.03378, -1.93214)
+shape = SubResource("BoxShape3D_1t5fj")
+
+[node name="TutorialCheckpoint" type="Area3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.24409, 1.03353, -0.167427)
+script = ExtResource("18_hp0h0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TutorialCheckpoint"]
+transform = Transform3D(-4.37111e-08, 0, 0.999994, 0, 1, 0, -0.999994, 0, -4.37111e-08, 0, 1.6, 0)
 shape = SubResource("BoxShape3D_1t5fj")
