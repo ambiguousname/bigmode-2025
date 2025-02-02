@@ -82,8 +82,8 @@ func _physics_process(delta: float) -> void:
 				elif c.get("collision_layer") == 0b10:
 					_camera.slap_thing(c.get_parent(), slam_dist * 100, global_position);
 			shapecast.enabled = false;
-			
-			# TODO: Slam.
+			slam = 0;
+			slam_dist = 0;
 	
 	if slam_allowed and raycast.is_colliding():
 		var c = raycast.get_collision_point();

@@ -505,11 +505,31 @@ mesh = SubResource("CylinderMesh_oqygy")
 shape = SubResource("SphereShape3D_rusn0")
 
 [node name="BouncePad2" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.366, 32.402, 45.0657)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.815, 45.1579, 48.9891)
 script = ExtResource("16_540qq")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="BouncePad2"]
 mesh = SubResource("CylinderMesh_oqygy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BouncePad2"]
+shape = SubResource("SphereShape3D_rusn0")
+
+[node name="BouncePad3" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 119.938, 56.4755, 23.4456)
+script = ExtResource("16_540qq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BouncePad3"]
+mesh = SubResource("CylinderMesh_oqygy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BouncePad3"]
+shape = SubResource("SphereShape3D_rusn0")
+
+[node name="BouncePad4" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 96.9375, 42.4413, 17.2)
+script = ExtResource("16_540qq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BouncePad4"]
+mesh = SubResource("CylinderMesh_oqygy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BouncePad4"]
 shape = SubResource("SphereShape3D_rusn0")
