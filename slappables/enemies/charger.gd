@@ -22,6 +22,41 @@ var active_state : States = States.IDLE;
 var charge_dir : Vector3 = Vector3.ZERO;
 var charge_travelled : float = 0;
 
+var staleness : float = 0.0;
+
+func search(delta):
+	if nav_agent.is_navigation_finished() or staleness > 10:
+		nav_agent.target_position = player.global_position;
+		staleness = 0.0;
+	
+	staleness += delta;
+	
+	var dir = global_position.direction_to(nav_agent.get_next_path_position());
+	
+	velocity = dir * 4 + gravity;
+	
+	rotation.y = atan2(dir.x, dir.z);
+	
+	if nav_agent.is_target_reached():
+		active_state = States.STAND_AND_PLAY_ANIM;
+		next_state = States.ATTACKING;
+		shapecast.enabled = true;
+		
+		velocity = gravity;
+		
+		timer.start(0.5);
+		anim_tree.set("parameters/conditions/run", false);
+		anim_tree.set("parameters/conditions/charge_windup", true);
+		previous_cond = "parameters/conditions/charge_windup";
+		next_cond = "parameters/conditions/charge";
+		
+		charge_dir = (player.global_position - global_position);
+		charge_dir.y = 0;
+		charge_dir = charge_dir.normalized();
+		charge_travelled = 0;
+		
+		rotation.y = atan2(charge_dir.x, charge_dir.z);
+
 func eval_behavior(delta: float):
 	match active_state:
 		States.IDLE:
@@ -30,33 +65,7 @@ func eval_behavior(delta: float):
 				anim_tree.set("parameters/conditions/run", true);
 				
 		States.SEARCHING:
-			nav_agent.target_position = player.global_position;
-			
-			var dir = global_position.direction_to(nav_agent.get_next_path_position());
-			
-			velocity = dir * 4 + gravity;
-			
-			rotation.y = atan2(dir.x, dir.z);
-			
-			if nav_agent.is_target_reached():
-				active_state = States.STAND_AND_PLAY_ANIM;
-				next_state = States.ATTACKING;
-				shapecast.enabled = true;
-				
-				velocity = gravity;
-				
-				timer.start(0.5);
-				anim_tree.set("parameters/conditions/run", false);
-				anim_tree.set("parameters/conditions/charge_windup", true);
-				previous_cond = "parameters/conditions/charge_windup";
-				next_cond = "parameters/conditions/charge";
-				
-				charge_dir = (player.global_position - global_position);
-				charge_dir.y = 0;
-				charge_dir = charge_dir.normalized();
-				charge_travelled = 0;
-				
-				rotation.y = atan2(charge_dir.x, charge_dir.z);
+			search(delta);
 		States.ATTACKING:
 			charge_travelled += delta * 15;
 			
